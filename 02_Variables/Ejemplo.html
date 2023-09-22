@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        {
+            var primeraVariable="Visible fuera del bloque";  //variable global
+            let segundaVariable="No visible fuera del bloque"; //variable de bloque
+            console.log(segundaVariable); //aqui lo podemos ver
+        }
+        
+        console.log(primeraVariable);
+        //console.log(segundaVariable); //aqui dará error
+
+        
+    </script>
+    <script>
+        var primeraVariable = "Declarada fuera del bloque";
+        function miFuncion() {
+            var primeraVariable="Declarada dentro de la funcion con el mismo bloque";
+            return 0; //se llama igual pero solo existe dentro de la funcion
+        }
+
+        console.log(primeraVariable);
+
+    </script>
+</body>
+</html>

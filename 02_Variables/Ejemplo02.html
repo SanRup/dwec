@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo1"></p>
+    <p id="parrafo2"></p>
+    <p id="parrafo3"></p>
+    <script>
+        let nombre = "Sandra";
+        let nacimiento = 1989;
+        let lista = [1, 2, 3, 4];
+        var a = null;
+        let animal = ["perro", "gato", "leon"];
+
+        document.getElementById("parrafo1").innerHTML = nombre;
+        document.getElementById("parrafo2").innerHTML = nacimiento;
+
+        alert(typeof(nombre)); //string
+        alert(typeof(nacimiento)); //int
+        alert(typeof(lista)); //object
+        alert(typeof(a)); //object -> cuando algo no es un tipo basico lo define como object
+        alert(animal instanceof(Object)); //true
+        alert(animal instanceof(Array)); //true
+        alert(animal instanceof(String)); //false
+    </script>
+</body>
+</html>

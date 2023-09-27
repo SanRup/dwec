@@ -11,7 +11,6 @@
     1. Define una variable saludo=”Hola” como variable local dentro de una función saludar() que muestre una ventana emergente con el valor de la variable saludo
     • Invoca la función
     • Muestra la variable desde fuera de la función mediante un window.alert
-
     -->
     <script>
 
@@ -21,7 +20,7 @@
         }
 
         saludar();
-        //window.alert(saludo); //ERROR saludo is not defined
+        //window.alert(saludo); //ERROR 'saludo is not defined' por ser de ámbito local
 
     </script>
     <!--
@@ -53,8 +52,8 @@
             alert(variable);
         }
 
-        alert(variable); //imprime la variable local del bloque
-        ambito(); //imprime la variable local de la funcion
+        alert(variable); //Imprime la variable local del bloque
+        ambito(); //Imprime la variable local de la funcion
         
     </script>
     <!--
@@ -62,8 +61,36 @@
         Muestra el valor de la variable mediante window.alert e invocando a la función.
     -->
     <script>
+
+        var variableGlobal = 0;
+
+        function redefine() {
+            variableGlobal = "Queso";
+            alert(variableGlobal);
+        }
+
+        alert(variableGlobal); // Imprime 0
+        redefine(); //Imprime "Queso"
         
     </script>
-    <!-- 5. Averigua qué son las variables automáticamente globales. Pon un ejemplo -->
+    <!-- 
+        5. Averigua qué son las variables automáticamente globales. Pon un ejemplo 
+        Son variables que han sido declaradas sin utilizar ninguna palabra reservada (var, let o const).
+        Estas variables se convierten automáticamente en globales.
+    -->
+    <script>
+        
+        variableAutomatica = "Pizza";
+
+        function varAuto() {
+            variableAutomatica = "Queso";
+            alert(variableAutomatica);
+        }
+
+        alert(variableAutomatica); // Imprime pizza
+        varAuto(); // Imprime queso
+        alert(variableAutomatica); // La variable se ha sobreescrito al ser global
+
+    </script>
 </body>
 </html>

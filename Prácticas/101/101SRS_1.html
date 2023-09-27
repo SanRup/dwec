@@ -25,27 +25,27 @@
 
     <script>
         //variables de precio unitario
-        let precioRosa = 8;
-        let precioLirio = 10;
-        let precioTulipan = 2;
+        let rosaPrecio = 8;
+        let lirioPrecio = 10;
+        let tulipanPrecio = 2;
 
         //variables de stock
-        let stockRosa = 70;
-        let stockLirio = 50;
-        let stockTulipan = 120;
+        let rosaStock = 70;
+        let lirioStock = 50;
+        let tulipanStock = 120;
 
         //variables de valor del stock por flor
-        let pvpRosa = precioRosa * stockRosa;
-        let pvpLirio = precioLirio * stockLirio;
-        let pvpTulipan = precioTulipan * stockTulipan;
+        let rosaValor = rosaPrecio * rosaStock;
+        let lirioValor = lirioPrecio * lirioStock;
+        let tulipanValor = tulipanPrecio * tulipanStock;
 
         //variable del valor del stock total
-        let precioTotal = pvpRosa + pvpLirio + pvpTulipan;
+        let precioTotal = rosaValor + lirioValor + tulipanValor;
 
         //info por pantalla
-        console.log("Rosa: precio unitario: " + precioRosa + ", cantidad: " + stockRosa + ", valor: " + pvpRosa );
-        console.log("Lirio: precio unitario: " + precioLirio + ", cantidad: " + stockLirio + ", valor: " + pvpLirio );
-        console.log("Tulipán: precio unitario: " + precioTulipan + ", cantidad: " + stockTulipan + ", valor: " + pvpTulipan );
+        console.log("Rosa: precio unitario: " + rosaPrecio + ", cantidad: " + rosaStock + ", valor: " + rosaValor );
+        console.log("Lirio: precio unitario: " + lirioPrecio + ", cantidad: " + lirioStock + ", valor: " + lirioValor );
+        console.log("Tulipán: precio unitario: " + tulipanPrecio + ", cantidad: " + tulipanStock + ", valor: " + tulipanValor );
         console.log("Total: " + precioTotal);
 
     </script>

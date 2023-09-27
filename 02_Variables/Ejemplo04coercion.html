@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1 == "1"); //true
+        console.log(1 == "one"); //false
+        console.log(true == 1); //true
+        console.log(false == "zero"); //false
+        console.log("test" == {x:"test"}); //false
+
+        console.log("");
+
+        console.log(1 + 1);//2
+        console.log(1 + "1");//11
+        console.log("hello " + "world");// hello world
+        console.log("it's " + true); //it's true
+        console.log("pizza " + {cheese: "extra"}); //pizza [object Object]
+
+        console.log("");
+
+        console.log(3 - 2); //1
+        console.log("3" - 2); //1
+        console.log(3 - true); //2
+        console.log(1 - {x:3}); //NaN
+        console.log("fun" - 2); //NaN
+    </script>
+
+    <script>
+        if([]){
+            console.log(true)
+        }
+
+        if(4 + "1" == 5){
+            console.log("Pizza");
+        }else{
+            console.log("Queso");
+        }
+
+        if(5 + true == 6){
+            console.log("Pizza");
+        }else{
+            console.log("Queso");
+        }
+
+        if(5 + true === 6){
+            console.log("Pizza");
+        }else{
+            console.log("Queso");
+        }
+
+        if(5 + true === "6"){
+            console.log("Pizza");
+        }else{
+            console.log("Queso");
+        }
+
+        if(!undefined){
+            console.log("Pizza undefined");
+        }else{
+            console.log("Queso");
+        }
+
+        if({}=={}){ //compara por referencia
+            console.log("Pizza objeto");
+        }else{
+            console.log("Queso objeto");
+        }
+    </script>
+</body>
+</html>

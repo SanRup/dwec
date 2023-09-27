@@ -7,27 +7,45 @@
 </head>
 <body>
     <!--
-        Elabora una lista de contactos
-        Inicialmente tendrá los valores de la tabla adjunta
-        Declare e inicializa las variables donde se almacena toda la informacion (nueve variables)
-        Muestra en la consola infomacion sobre el primer y ultimo contacto en el formulario: nombre/telefono/correo
+        2.- Crea la lista de contactos en un array, de tal manera que cada uno de sus 
+        elementos será un objeto que describa a un solo usuario (tres propiedades). 
+
+        Al final de la lista declarada de esta manera, agrega un nuevo contacto usando 
+        un método de array, apropiado. El nuevo contacto es: Maisie Haley / 0913 531 3030 / risus.Quisque@urna.ca.
+
+        Muestra el primer y último contacto, de nuevo en el formato: nombre / teléfono / correo electrónico. (length)
     -->
     <script>
-        let nombre1 = "Maxwell";
-        let nombre2 = "Raja";
-        let nombre3 = "Helen";
-        let telefono1 = "(0191) 719 6495";
-        let telefono2 = "0866 398 2895";
-        let telefono3 = "0800 1111";
-        let email1 = "curbutit@nummia.com";
-        let email2 = "posuere@sed.com";
-        let email3 = "libero@corwails.edu";
+        
+        let array = 
+        [
+            {
+                nombre : "Maxwell",
+                telefono : "(0191) 719 6495",
+                email : "curbutit@nummia.com"
+            },
+            {
+                nombre : "Raja",
+                telefono : "0866 398 2895",
+                email : "posuere@sed.com"
+            },
+            {
+                nombre : "Helen",
+                telefono : "0800 1111",
+                email : "libero@corwails.edu"
+            },
+            {
+                nombre : "Maisie Haley",
+                telefono : "0913 531 3030",
+                email : "risus.Quisque@urna.ca"
+            }
+            
+        ];
 
-        console.log(typeof(telefono1)); //string
-        console.log(typeof(email1)); //string
-        console.log(telefono2 + 7); //string + 7
-        console.log(nombre1, telefono1, email1);
-        console.log(nombre3, telefono3, email3);
+     
+        console.log("Nombre " + array[0].nombre + "/ Teléfono: " + array[0].telefono + "/ Email: " + array[0].email);
+        console.log("Nombre " + array[array.length-1].nombre + "/ Teléfono: " + array[array.length-1].telefono + "/ Email: " + array[array.length-1].email);
+
         
     </script>
 

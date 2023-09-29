@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero = 9.99;
+        numero.toFixed(0); //devuelve 10
+        numero.toFixed(1); //devuelve 10.0
+        numero.toFixed(2); //devuelve 9.99
+        numero.toFixed(3); //devuelve 9.990
+
+        numero.toPrecision(); //devuelve 9.99
+        numero.toPrecision(); //devuelve 10e+1
+        numero.toPrecision(); //deveulve 10
+        numero.toPrecision(); //devuelve 9.99
+
+    </script>
+    <script>
+        let v = new Date("11/03/2023"); //Formato corto
+        v = new Date("Ago 17 2022") //Formato largo
+        v = new Date("Mon, Jun"); //Formato completo --mirar!
+    </script>
+    <div id="Hora"></div>    
+    <script>
+        let miFecha = new Date();
+        let texto = document.getElementById('Hora');
+        texto.innerHTML=miFecha;
+
+        texto.innerHTML = miFecha.getHours() + ":" + miFecha.getMinutes() + ":" + miFecha.getSeconds();
+    </script>
+    <script>
+        function tablaMultiplicar(tabla, fin = 10) {
+            for (let i = 0; i <= fin; i++) {
+              console.log(tabla, "x", i, "=", tabla * i); //concatenar con comas "," pone un espacio
+            }
+        }
+
+        tablaMultiplicar(6,1);
+
+        function suma() {
+            let num = 0;
+            for (let i = 0; i <= arguments.length-1; i++) {
+                num += arguments[i]; 
+            }
+            console.log(num);
+        }
+
+        suma(1,6,9,7);
+    </script>
+    
+</body>
+</html>

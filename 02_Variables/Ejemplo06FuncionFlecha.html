@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let diHola = name => `¡Hola ${name}!`;
+        let diAdios = (name) => {
+            return `¡Adios ${name}!`;
+        }
+
+        console.log(diHola("Sandra"));
+        console.log(diAdios("Sandra"));
+
+
+        let res = (base, exponente) => {
+            exponente < 0 ? res = console.log("1/base") : res = 1; 
+            
+            for (let i = 1; i <= exponente; i++) {
+                res *= base;
+            }
+            return res;
+        }
+
+        console.log(res(3,-3));
+    </script>
+</body>
+</html>

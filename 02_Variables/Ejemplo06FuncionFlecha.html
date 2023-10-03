@@ -17,15 +17,20 @@
 
 
         let res = (base, exponente) => {
-            exponente < 0 ? res = console.log("1/base") : res = 1; 
+            res = 1;
+            if (exponente < 0) {
+                exponente = (exponente * (-1));
+                console.log("1\n-");
+            }
+            //exponente < 0 ? exponente = (exponente * -1) + console.log("1\n-"):res = 1; 
             
             for (let i = 1; i <= exponente; i++) {
                 res *= base;
             }
             return res;
         }
-
-        console.log(res(3,-3));
+        
+        console.log(res(2,-3));
     </script>
 </body>
 </html>

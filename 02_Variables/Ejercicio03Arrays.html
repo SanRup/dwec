@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = ["lunes", "martes", 2, 4, 6];
+      let cadena = a.join(" :: "); //crea una cadena de un array
+      console.log(cadena);
+      let notas = "10,4,5,5.4,8,0";
+      let arrayNotas = notas.split(","); // crea un array de una cadena
+      console.log(arrayNotas);
+    </script>
+    <p id="socio"></p>
+    <p id="numSocio"></p>
+    <p id="socioOrd"></p>
+    <p id="socioOrdInv"></p>
+    <script>
+      let socio = [];
+
+      for (let i = 0; i < 10; i++) {
+        //socio[i] = prompt("Dime el nombre del socio " + (i + 1)); //metiendolo en el array por posicion
+        socio.push(prompt("socio num " + (i + 1))); //metiendolo con push
+      }
+
+      document.getElementById("socio").innerHTML = "Nombres de los socios: " + socio;
+      document.getElementById("numSocio").innerHTML = "Total socios: " + socio.length;
+      document.getElementById("socioOrd").innerHTML = "Socios ordenados: " + socio.sort();
+      document.getElementById("socioOrdInv").innerHTML = "Socios odenados inverso: " + socio.reverse();
+    </script>
+  </body>
+</html>

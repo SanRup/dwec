@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="aqui"></p>
+    <script>
+        const array = ["a", "b", "c", "d"];
+        array[1] = Date();
+        console.log(array);
+        document.getElementById("aqui").innerHTML = array;
+        console.log(Array.isArray(array));
+        console.log(array.join("-")); //crea una cadena separa por el caracter indicado
+        let cadena = array.slice("-"); //crea un array de una cadena
+        console.log(cadena);
+        array.splice();
+        //console.log(array.sort(array));
+        console.log(array.concat(cadena));
+    </script>
+</body>
+</html>

@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Entrada</h1>
+    <p id="nombre"></p>
+    <p id="pelicula"></p>
+    <p id="regalo"></p>
+    <p id="precio"></p>
 
     <script>
         /*
@@ -45,7 +50,22 @@
             edad = parseInt(prompt("Introduce tu edad"));
         }
 
+        let entrada = 8.50;
+
+        let precio = 0;
+
         let arrayPelicula = ["Spider man", "Superman", "Dragon Ball Super", "La era del hielo", "18videos"];
+
+        let arrayDesc = {
+            17:
+            {"comida": "Caramelos y Refresco", "descuento": "50"},
+            18:
+            {"comida": "Palomitas, perrito y refresco", "descuento": "0"},
+            26:
+            {"comida": "Perrito y refresco", "descuento": "10"},
+            36:
+            {"comida": "Agua", "descuento": "20"},
+        };
 
         let pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
 
@@ -55,12 +75,29 @@
             pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
         }
 
-        if(edad <= 17 && arrayPelicula[pelicula] == "18videos"){
+        if(edad <= 17){
+            while (edad <= 17 && arrayPelicula[pelicula] == "18videos") {
                 alert("No puedes ver esa película");
+                pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
+            }
+            print(17);     
+        }else if (edad >= 18 && edad <= 25) {
+            print(18);
+        }else if (edad >= 26 && edad <= 35) {
+            print(26);   
+        }else if (edad >= 36) {
+            print(36); 
+        }else{
+            console.log("Error");
         }
-
-        
-        
+    function print(i) {
+        precio = entrada - ((entrada * arrayDesc[i]["descuento"])/100);
+            document.getElementById("nombre").innerHTML = "Nombre: " + nombre;
+            document.getElementById("pelicula").innerHTML = "Pelicula: " + pelicula;
+            document.getElementById("regalo").innerHTML = "Regalo: " + arrayDesc[i]["comida"];
+            document.getElementById("precio").innerHTML = "Precio: " + precio;
+            console.log("Nombre: " + nombre + " Pelicula: " + pelicula + " Regalo: " + arrayDesc[i]["comida"] + " Precio: " + precio);
+    }
     </script>
     
 

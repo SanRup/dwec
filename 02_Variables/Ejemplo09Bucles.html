@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numAdivinar = Math.ceil(Math.random()*100);
+        console.log(numAdivinar);
+        let num = parseInt(prompt("Dime un número"));
+        let intento = 1;
+        while (numAdivinar !== num) {
+            if (numAdivinar > num) {
+                num = parseInt(prompt("No has acertado. Es mayor"));
+            }else{
+                num = parseInt(prompt("No has acertado. Es menor"));
+            }
+            intento++;
+        }
+        alert("Correcto! Has acertado en " + intento + " intentos");
+
+
+    </script>
+</body>
+</html>

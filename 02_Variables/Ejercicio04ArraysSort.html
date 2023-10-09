@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let personas = [persona1=[nombre="nombre1", edad=17],
+                        persona2=[nombre="nombre2", edad=57]];
+        let personasOrdArrow = personas.sort((persona1, persona2) => console.log(persona1.edad - persona2.edad));      
+        ///let personasOrdArrowNomb = personas.sort((persona1, persona2) => console.log(persona1.nombre.localeCompare(persona2.nombre)));   
+        let arrayNotas = [4,8,3,10,5];
+        function notasOrde(array) {
+            let arrayOrd = [];
+            
+        } 
+        
+        notasOrde(arrayNotas);
+        
+        let personasOrdenado = personas.sort(function(persona1, persona2){
+            return (persona1.edad)-(persona2.edad);
+        });
+
+    </script>
+</body>
+</html>

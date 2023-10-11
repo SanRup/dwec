@@ -8,9 +8,9 @@
 <body>
     <script>
         let personas = [persona1=[nombre="nombre1", edad=17],
-                        persona2=[nombre="nombre2", edad=57]];
+                        persona2=[nombre="nombre2", edad=57]];               
         let personasOrdArrow = personas.sort((persona1, persona2) => console.log(persona1.edad - persona2.edad));      
-        ///let personasOrdArrowNomb = personas.sort((persona1, persona2) => console.log(persona1.nombre.localeCompare(persona2.nombre)));   
+        //let personasOrdArrowNomb = personas.sort((persona1, persona2) => console.log(persona1.nombre.localeCompare(persona2.nombre)));   
         let arrayNotas = [4,8,3,10,5];
         function notasOrde(array) {
             let arrayOrd = [];
@@ -23,6 +23,11 @@
             return (persona1.edad)-(persona2.edad);
         });
 
+    </script>
+    <script>
+        let num = [1,21,3];
+        console.log(num.sort()); 
+        console.log(num[0]-num[1]);
     </script>
 </body>
 </html>

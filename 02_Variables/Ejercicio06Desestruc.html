@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 7;
+        let b = 6;
+        let c;
+
+        c = a;
+        a = b;
+        b = c;
+
+        console.log(a);
+        console.log(b);
+
+        [a,b]=[b,a];
+        
+        console.log(a);
+        console.log(b);
+    </script>
+    <script>
+        const A = [5,6];
+        const [uno, last] = A;//first = 5, last = 6
+
+        const B = [5,6,8,9]
+        //const [first, second] = B;//first = 5 , second = 6, resto = matriz[rest]
+        
+        const C = [5,6,8,9]
+        const [first, ...rest] = C;
+
+        const debug = (param) => console.log(...param);
+        const matriz = [1,2,3,4,5];
+        debug(matriz);
+
+        const debug2 = (...param) => console.log(param);
+        debug2(1,2,3,4,5);
+
+    </script>
+
+    <script>
+        
+        const pareja = [3,4];
+        const array = [1,2, ...pareja, 5, 6]; //desestructura y crea un unico array
+        console.log(array);
+        const array2 = [1,2, pareja, 5, 6]; //crea un array dentro del otro array 
+        console.log(array2);
+
+    </script>
+</body>
+</html>

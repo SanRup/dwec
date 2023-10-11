@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+----*
+---***
+--*****
+-*******
+*********
+-*******
+--*****
+---***
+----*
+ -->
+<p id="fila1"></p>
+<p id="fila2"></p>
+<body>
+    <script>
+        let spa = "&nbsp&nbsp";
+        let star = "*";
+        let contFila = 1;
+
+        let fila = parseInt(prompt("Introduce el número de filas"));
+        let total = fila;
+        let fila1 = "";
+        for (let h = 1; contFila <= total; h++) {
+            for (let j = 0; j < fila-1; j++) {
+                fila1 += spa;
+            }
+            for (let i = 1; i <= (contFila * 2)-1; i++) {
+                fila1 += star;   
+            }
+            fila1 += "<br/>";
+            fila--;
+            contFila++; 
+        }
+
+        //vuelta
+
+        for (let h = 1; contFila <= total; h++) {
+            for (let j = 0; j < fila-1; j++) {
+                fila1 += spa;
+            }
+            for (let i = 1; i <= (contFila * 2)-1; i++) {
+                fila1 += star;   
+            }
+            fila1 += "<br/>";
+            fila--;
+            contFila++; 
+        }
+
+        document.getElementById("fila1").innerHTML = fila1 + "<br/>";
+        
+
+    </script>
+    <script>
+        let limite = 4;
+        //creciente
+        for (let i = 0; i < limite; i++) {
+            let ast = "";
+            let esp = "";
+
+            for (let k = 0; k < limite - 1; k++) {
+                esp += ".";
+            }
+            for (let j = 0; j <= (2* i) + 1; j++) {
+                ast += "*";
+            }
+            document.getElementById("fila2").innerHTML = esp + ast + "</br>";
+            
+        }
+    </script>
+</body>
+</html>

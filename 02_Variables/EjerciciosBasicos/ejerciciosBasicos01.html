@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="result"></div>
+
+<body>
+    <!-- 
+        1. Programa que pida dos números y nos diga cuál es el mayor, el menor
+        o si son iguales. Si no son números o son menores que cero, que lo
+        vuelva a pedir
+     -->
+     <script>
+        let num1 = pedirNum();
+        let num2 = pedirNum();
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número"));;
+
+            while (isNaN(num)) { //si no introduce un numero es NaN
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        if (num1>num2) {
+            document.getElementById("result").innerHTML = num1 + " es mayor que " + num2;
+        }else if (num1<num2) {
+            document.getElementById('result').innerHTML = num1 + " es menor que " + num2;
+        } else {
+            document.getElementById('result').innerHTML = num1 + " es igual que " + num2;
+        }
+
+     </script>
+</body>
+</html>

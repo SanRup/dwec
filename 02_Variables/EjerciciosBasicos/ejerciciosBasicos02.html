@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<div id="result"></div>
+
 <body>
     <!-- 2. Media y suma hasta meter número negativo -->
+    <script>
+        let num1 = pedirNum();
+        let num2 = pedirNum();
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número"));
+
+            while (isNaN(num)) { //si no introduce un numero es NaN o es negativo
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        function suma() {
+            return num1 + num2;
+        }
+
+        function media() {
+            return suma() / 2;
+        }
+
+        function printAlert() {
+            alert(`La suma de ${num1} y ${num2} es ${suma()} y la media es ${media()}.\n Introduce un número negativo para salir.`);
+        }
+
+        printAlert();
+
+        do {
+            num1 = suma();
+            num2 = pedirNum();
+            printAlert();
+        } while (num2 > 0);
+
+    </script>
 </body>
+
 </html>

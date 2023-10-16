@@ -7,9 +7,12 @@
 </head>
 <body>
     <!--
-        3.- Modifica el programa para agregar, al final de la lista, 
-        el contacto que el usuario introducirá durante la ejecución del programa. (prompt). 
-        Al final, muestra el primer y último contacto de la lista.
+        4.- Modifica el programa para que el usuario pueda elegir lo que quiere hacer con la lista. Las opciones serán:
+        • Mostrar el primer contacto (primero)
+        • Mostrar el último contacto (último)
+        • Añadir un nuevo contacto (nuevo)
+            Al agregar un nuevo contacto, verifica si el usuario ha ingresado todos los datos necesarios. 
+            Si falta al menos uno de los tres valores (nombre, teléfono o correo electrónico), no se agrega el contacto.
     -->
     <script>
         
@@ -38,13 +41,45 @@
             
         ];
 
-        alert("Introduce el nuevo contacto:");
-        array[array.length-1].nombre = prompt("Nombre:");
-        array[array.length-1].telefono = prompt("Telefono:");
-        array[array.length-1].email = prompt("Email:"); 
+        function introducirNuevo() {
+            alert("Introduce el nuevo contacto:");
+            
+            array[array.length-1].nombre = prompt("Nombre:");
+            array[array.length-1].telefono = prompt("Telefono:");
+            array[array.length-1].email = prompt("Email:");
+        }
+
+        function datoNulo() {
+            if (condition) {
+                
+            }
+        }
+         
+        function mostrarPrimero() {
+            console.log("Nombre " + array[0].nombre + "/ Teléfono: " + array[0].telefono + "/ Email: " + array[0].email);
+        }
      
-        console.log("Nombre " + array[0].nombre + "/ Teléfono: " + array[0].telefono + "/ Email: " + array[0].email);
-        console.log("Nombre " + array[array.length-1].nombre + "/ Teléfono: " + array[array.length-1].telefono + "/ Email: " + array[array.length-1].email);
+        function mostrarUltimo() {
+            console.log("Nombre " + array[array.length-1].nombre + "/ Teléfono: " + array[array.length-1].telefono + "/ Email: " + array[array.length-1].email);
+        }
+
+        function menu() {
+            let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Agregar nuevo contacto";
+            switch (parseInt(prompt(printMenu))+1) {
+                case 1:
+                    mostrarPrimero();
+                    break;
+                case 2:
+                    mostrarUltimo();
+                    break;
+                case 3:
+                    introducirNuevo();
+                    break;        
+                default:
+
+                    break;
+            }
+        }
 
         
     </script>

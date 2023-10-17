@@ -44,22 +44,23 @@
             });
     
 
-        //introducir contacto con prompt    
+        menu();
+        //introducir contacto con prompt sin valores vacios  
         function introducirNuevo() {
             alert("Introduce el nuevo contacto:");
             let nombre = prompt("Nombre:");
             let telefono = prompt("Telefono:");
             let email = prompt("Email:");
             
-            if (nombre === "" || telefono === "" || email === "") {
-                console.log("nulo");
-            } else {
+            if (nombre !== "" && telefono !== "" && email !== "") { // Las 3 tienen que tener datos para que agrege
                 array.push
                 ({
                     nombre : nombre,
                     telefono : telefono,
                     email : email
                 });
+            } else {
+                alert("Fallo en el nuevo contacto.\nNo se ha agregado.");
             }
             
         }    
@@ -74,7 +75,7 @@
 
         function menu() {
             let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Agregar nuevo contacto";
-            switch (parseInt(prompt(printMenu))+1) {
+            switch (parseInt(prompt(printMenu))) {
                 case 1:
                     mostrarPrimero();
                     break;

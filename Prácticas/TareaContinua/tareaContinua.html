@@ -37,20 +37,25 @@
                 nombre : "Maisie Haley",
                 telefono : "0913 531 3030",
                 email : "risus.Quisque@urna.ca"
-            }
-            
+            } 
         ];
 
+        introducirNuevo();
+
         function introducirNuevo() {
-            alert("Introduce el nuevo contacto:");
+            // alert("Introduce el nuevo contacto:");
+            // let nombre = datoNulo(prompt("Nombre:")) ;
+            // let telefono = prompt("Teléfono:");
+            // let email = prompt("Email:");
             
-            array[array.length-1].nombre = prompt("Nombre:");
-            array[array.length-1].telefono = prompt("Telefono:");
-            array[array.length-1].email = prompt("Email:");
+            // array[array.length-1].nombre = prompt("Nombre:");
+            // array[array.length-1].telefono = prompt("Telefono:");
+            // array[array.length-1].email = prompt("Email:");
+            
         }
 
-        function datoNulo() {
-            if (condition) {
+        function datoNulo(dato) {
+            if (!dato === "") {
                 
             }
         }

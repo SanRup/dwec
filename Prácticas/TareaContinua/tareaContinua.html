@@ -7,12 +7,18 @@
 </head>
 <body>
     <!--
-        4.- Modifica el programa para que el usuario pueda elegir lo que quiere hacer con la lista. Las opciones serán:
-        • Mostrar el primer contacto (primero)
-        • Mostrar el último contacto (último)
-        • Añadir un nuevo contacto (nuevo)
-            Al agregar un nuevo contacto, verifica si el usuario ha ingresado todos los datos necesarios. 
-            Si falta al menos uno de los tres valores (nombre, teléfono o correo electrónico), no se agrega el contacto.
+        5.- Encierra todo el programa en un bucle para que al usuario se le 
+        pregunte repetidamente qué quiere hacer. El usuario puede optar por:
+
+            • Mostrar el primer contacto (primero)
+            • Mostrar el último contacto (último)
+            • Mostrar todos los contactos (todos)
+            • Añadir un nuevo contacto (nuevo)
+            • Salir del programa (salir)
+
+        Después de ejecutar la acción seleccionada, el programa le dará la 
+        oportunidad de elegir nuevamente. El programa debe finalizar las 
+        acciones solo después de que el usuario dé un comando específico (salir).
     -->
     <script>
         
@@ -42,9 +48,38 @@
                 telefono : "0913 531 3030",
                 email : "risus.Quisque@urna.ca"
             });
-    
 
         menu();
+        
+        function menu() {
+            let opc = null;
+            do {
+                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar todos los contactos.\n4. Agregar nuevo contacto\n0. Salir";
+                opc = parseInt(prompt(printMenu));
+                switch (opc) {
+                    case 0:
+                        alert("Salir...");
+                        break;
+                    case 1:
+                        mostrarPrimero();
+                        break;
+                    case 2:
+                        mostrarUltimo();
+                        break;
+                    case 3:
+                        mostrarTodo();
+                        break;    
+                    case 4:
+                        introducirNuevo();
+                        break;        
+                    default:
+                        alert("Error, introduce una opción válida.");
+                        break;
+                }
+            } while (opc != 0);
+            
+        }
+
         //introducir contacto con prompt sin valores vacios  
         function introducirNuevo() {
             alert("Introduce el nuevo contacto:");
@@ -73,23 +108,13 @@
             console.log("Nombre " + array[array.length-1].nombre + "/ Teléfono: " + array[array.length-1].telefono + "/ Email: " + array[array.length-1].email);
         }
 
-        function menu() {
-            let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Agregar nuevo contacto";
-            switch (parseInt(prompt(printMenu))) {
-                case 1:
-                    mostrarPrimero();
-                    break;
-                case 2:
-                    mostrarUltimo();
-                    break;
-                case 3:
-                    introducirNuevo();
-                    break;        
-                default:
-
-                    break;
-            }
+        function mostrarTodo() {
+            array.forEach(element => {
+                console.log(element);
+            });
         }
+
+        
 
         
     </script>

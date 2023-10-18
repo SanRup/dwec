@@ -46,7 +46,7 @@
         function menu() {
             let opc = null; //null para que este definido
             do {
-                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar contacto (beta).\n4. Mostrar todos los contactos.\n5. Agregar nuevo contacto\n0. Salir";
+                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar contacto (beta).\n4. Mostrar todos los contactos.\n5. Ordenar y mostrar\n6. Agregar nuevo contacto\n0. Salir";
                 opc = parseInt(prompt(printMenu));
                 switch (opc) {
                     case 0:
@@ -64,8 +64,11 @@
                         break;
                     case 4:
                         showAllContacts(contactos); //provisional se hardcodea porque no se como pasar el array
-                        break;       
+                        break;  
                     case 5:
+                        showAllContactsSort(parseInt(prompt("Introduce cómo ordenar los contactos:\n1. Nombre.\n2. Apellido.\n3. Email")));  
+                        break;       
+                    case 6:
                         alert("Introduce el nuevo contacto:");
                         addNewContact(contactos, prompt("Nombre:"), prompt("Teléfono:"), prompt("Email:"));//provisional se hardcodea porque no se como pasar el array
                         break;        
@@ -119,8 +122,28 @@
             }
             
         }   
+
+        function showAllContactsSort(orden) {
+            switch (orden) {
+                case 1://nombre
+                    for (let i = 0; i < contactos.length; i++) {
+                        //contactos[i].nombre - 
+                        //let personasOrdenado = personas.sort(function(persona1, persona2){
+                        //return (persona1.edad)-(persona2.edad);
+                        
+                    }
+                    console.log(contactos.sort());
+                    break;
+                default:
+                    break;
+            }
+            
+        }
         
-               
+        
+            listaContac.forEach(element => {
+                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
+            }); 
    
     </script>
 

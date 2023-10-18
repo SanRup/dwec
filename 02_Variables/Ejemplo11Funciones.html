@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion por declaración
+        console.log("Declaración***********");
+        let resultado = multiplicar(2,3);
+        function multiplicar(a,b) {
+            return a*b;
+        }
+        console.log(resultado);
+
+        //funcion por expresión
+        console.log("Expresión************");
+        let saludo = function hola() {
+            console.log("Bienvenido");
+        }
+        saludo();
+
+        //funcion anónima
+        console.log("Anónima***************");
+        let producto = function (a,b) {
+            return a+b;
+        }
+        let resul = producto(4,12);
+        console.log(resul);
+
+        //función callback
+        console.log("Callback***************");
+        const function2 = function () {
+            console.log("La funcion 2 ha sido ejecutada");
+        }
+
+        const function1 = function (callback) { //función que llama a otra función
+            callback();
+        }
+
+        function1(function2);
+
+        //función autoejecutable
+        console.log("Autoejecutable***********");
+        (function (user) {
+            console.log("Hola" + user);
+        })("Pepe");
+
+        (function() { console.log("Hola");}());
+
+        //función flecha
+        console.log("Flecha*******************");
+
+        //recursividad
+        console.log("Recursividad*************");
+        function factorial(n) {
+            if (n<=1) {
+                return 1;
+            }else{
+                return n*factorial(n-1);
+            }
+        }
+        console.log(factorial(5));
+
+        //foreach
+        // console.log("Foreach******************");
+        // let array=[12,13,15,45,78];
+        // array.forEach(function(contenido,posicion)) {
+        //     console.log(contenido,posicion);
+   
+        // }
+
+        //SET
+        console.log("set**********************");
+        const miSet = new Set("pamplinas");
+        console.log(miSet);
+            //se recorre con for of
+            for (const iterator of miSet) {
+                console.log(iterator);
+            }
+            //metodos add,delete,clear, size(tamaño), has(busqueda)
+            console.log(miSet.has("x"));
+            console.log(miSet.has("a"));
+            //con puntos suspensivos convertimos el set a un array
+            const miArray = [...miSet];
+            console.log(miArray);
+
+            //Ejercicio -> quitar duplicados de un array
+            console.log("Ejercicio set****************");
+            const arrayRep=[1,1,1,3,7,4,3,5];
+            const setArray= new Set(arrayRep);
+            let arrayFinal = [...setArray];
+            console.log(arrayFinal);
+
+            //Ejercicio -> conseguir un unico array sin repetidos de 3 arrays
+            console.log("3arrays***************");
+            let array1 = [1,2,3,5,9,10];
+            let array2 = [1,2,3,7,12,16];
+            let array3 = [4,6,9,2,11,45];
+            
+            let setUnico = new Set([...array1,...array2,...array3]);
+            let arraySet = [...setUnico];
+            console.log(arraySet);
+            console.log(arraySet instanceof Array); // para saber si es un array
+
+        //Maps -> organiza por clave(unica) - valor 
+        console.log("Maps******************");
+        const map = new Map([
+            ["a",3],
+            ["b",6],
+            ["c",9],
+        ])   
+        console.log(map);
+            //se crean vacios y se usa
+            //se recorren con for of
+            //metodos key, value, get(clave), delete(clave), has
+    </script>
+</body>
+</html>

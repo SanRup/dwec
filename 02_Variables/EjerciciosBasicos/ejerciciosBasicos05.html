@@ -7,5 +7,28 @@
 </head>
 <body>
     <!-- 5. Mostrar todos los divisores de un número -->
+    <script>
+        let num1 = pedirNum();
+
+        divisores(); //llamada a la función para mostrar los números
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número")); 
+
+            while (isNaN(num)) { //si no introduce un numero es NaN
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        function divisores() {
+            for (let i = 1; i <= num1; i++) { //desde 1 hasta el número
+                if (num1 % i == 0) { //si el resto es 0
+                    console.log(i); //mostramos la i
+                } 
+            }
+        }
+    </script>
 </body>
 </html>

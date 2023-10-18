@@ -24,14 +24,15 @@
         }
 
         function ordenarNum() {
-            //ordene los dos numeros de menor a mayor
+            //ordene los dos numeros de mayor a menor
             if (num1 < num2) { 
                 return [num1,num2]=[num2,num1];//intercambiamos el num1 por el num2 
             }
         }
 
         function multiplos() {
-            ordenarNum();
+            ordenarNum(); //ordenamos para que el mayor sea el num1
+            //si el resto es cero es múltiplo
             num1 % num2 == 0 ? console.log(`${num1} es múltiplo de ${num2}`) : console.log(`${num1} no es múltiplo de ${num2}`);
         }
     </script>

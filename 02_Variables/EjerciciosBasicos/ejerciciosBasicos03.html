@@ -11,10 +11,10 @@
         let num1 = pedirNum();
         let num2 = pedirNum();
 
-        mostrarNum();
+        mostrarNum(); //llamada a la función para mostrar los números
 
         function pedirNum() {
-            let num = parseInt(prompt("Dime un número"));
+            let num = parseInt(prompt("Dime un número")); 
 
             while (isNaN(num)) { //si no introduce un numero es NaN
                 alert("Tienes que introducir un número.");
@@ -24,16 +24,16 @@
         }
 
         function ordenarNum() {
-            //ordene los dos numeros de menor a mayor SIN PROBAR
-            if (num1 > num2) {
-                [num1,num2]=[num2,num1];
+            //ordene los dos numeros de menor a mayor
+            if (num1 > num2) { 
+                return [num1,num2]=[num2,num1];//intercambiamos el num1 por el num2 
             }
-            //[a,b]=[b,a];
         }
 
         function mostrarNum() {
-            for (let i = num1 + 1; i < num2; i++) { //desde num1 + 1 para que sea el siguiente al que introduce
-                console.log(i);  
+            ordenarNum();//funcion para poner los números de menor a mayor
+            for (let i = num1 + 1; i < num2; i++) { //desde num1 + 1 para que sea el siguiente al que introduce hasta el anterior al num2
+                console.log(i); //mostramos la i
             }
         }
     </script>

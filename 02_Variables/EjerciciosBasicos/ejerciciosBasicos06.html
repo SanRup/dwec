@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- 6. Averiguar si un número es par o impar -->
+    <script>
+        let num1 = pedirNum();
+
+        parImpar(); //llamada a la función para mostrar los números
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número"));
+
+            while (isNaN(num)) { //si no introduce un numero es NaN
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        function parImpar() {
+            //ternaria: si es true primer resultado : si es false segundo resultado
+            num1 % 2 == 0 ? console.log(`El número ${num1} es par`): console.log(`El número ${num1} es impar`);
+        }
+    </script>
 </body>
+
 </html>

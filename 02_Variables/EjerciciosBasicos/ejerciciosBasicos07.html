@@ -7,6 +7,26 @@
 </head>
 <body>
     <!-- 7. Tabla de multiplicar del número introducido por pantalla -->
-        
+    <script>
+        let num1 = pedirNum();
+
+        tablaMultiplicar(); //llamada a la función para mostrar los números
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número"));
+
+            while (isNaN(num)) { //si no introduce un numero es NaN
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        function tablaMultiplicar() {
+            for (let i = 1; i <= 10; i++) { //desde 1 hasta 10
+                console.log(`${num1} * ${i} = ${num1*i}`); //multiplicamos directamente en el log
+            }
+        }
+    </script>  
 </body>
 </html>

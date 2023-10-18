@@ -11,6 +11,72 @@
     Si uno está mal que lo vuelva a pedir
     En el cuerpo, en una alerta y por la consola enseñar suma, resta,
     producto y división -->
+    <div id="calculadora"></div>
+    <script>
+        let num1 = pedirNum();
+        let num2 = pedirNum();
+
+        const MENSAJE = [ //array para almacenar los mensajes -> importante ponerlo arriba para que no de error de inicializacion
+            "Suma: " + num1 + " + " + num2 + " = " + suma(),
+            "Resta: " + num1 + " - " + num2 + " = " + resta(),
+            "Multiplicación: " + num1 + " * " + num2 + " = " + multi(),
+            "División: " + num1 + " / " + num2 + " = " + dividir()
+        ]
+
+        mostrarConsola(); //muestra en consola
+        mostrarAlert(); //muestra alerta
+        mostrarPantalla(); //muestra pantalla
+
+        function pedirNum() {
+            let num = parseInt(prompt("Dime un número"));
+
+            while (isNaN(num)) { //si no introduce un numero es NaN
+                alert("Tienes que introducir un número.");
+                num = parseInt(prompt("Dime un número"));
+            }
+            return num;
+        }
+
+        function suma() {
+            let suma = num1 + num2;
+            return suma;
+        }
+
+        function resta() {
+            let resta = num1 - num2;
+            return resta;
+        }
+
+        function multi() {
+            let multi = num1 * num2;
+            return multi;
+        }
+
+        function dividir() {
+            let div = num2 == 0 ? "No se puede dividir " + num1 + " entre cero" : num1 / num2; //si divide entre cero, mensaje de error
+            return div;
+        }
+
+        function mostrarConsola() {
+            MENSAJE.forEach(element => { //iteramos el array para los 4 mensajes
+                console.log(element);
+            });
+        }
+
+        function mostrarAlert() {
+            MENSAJE.forEach(element => { //iteramos el array para los 4 mensajes
+                alert(element);
+            });
+        }
+
+        function mostrarPantalla() {
+            let mens = "";
+            MENSAJE.forEach(element => { //iteramos el array para los 4 mensajes
+                mens += (element) + "</br>"; //se guarda en una variable y se acumula
+            });
+            document.getElementById("calculadora").innerHTML = mens; //se imprime todo
+        }
+    </script>
     
 </body>
 </html>

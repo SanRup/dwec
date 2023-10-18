@@ -40,13 +40,15 @@
                 email : "risus.Quisque@urna.ca"
             });
 
+
+
         //llamada a menu para empezar la ejecución    
         menu();
         
         function menu() {
             let opc = null; //null para que este definido
             do {
-                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar contacto (beta).\n4. Mostrar todos los contactos.\n5. Ordenar y mostrar\n6. Agregar nuevo contacto\n0. Salir";
+                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar contacto (beta).\n4. Mostrar todos los contactos.\n5. Ordenar y mostrar contactos\n6. Agregar nuevo contacto\n0. Salir";
                 opc = parseInt(prompt(printMenu));
                 switch (opc) {
                     case 0:
@@ -59,14 +61,14 @@
                         mostrarUltimo();
                         break;
                     case 3:
-                        showContact(contactos,2); //provisional se hardcodea porque no se como pasar el array
+                        showContact(contactos,parseInt(prompt("Escribe el número de contacto a mostrar"))); //provisional se hardcodea porque no se como pasar el array
                         //showContact(prompt("Escribe la lista que quieres ver"),parseInt(prompt("Escribe el número de contacto a mostrar")));
                         break;
                     case 4:
                         showAllContacts(contactos); //provisional se hardcodea porque no se como pasar el array
                         break;  
                     case 5:
-                        showAllContactsSort(parseInt(prompt("Introduce cómo ordenar los contactos:\n1. Nombre.\n2. Apellido.\n3. Email")));  
+                        showAllContactsSort(parseInt(prompt("Introduce cómo ordenar los contactos:\n1. Nombre.\n2. Teléfono.\n3. Email")));  
                         break;       
                     case 6:
                         alert("Introduce el nuevo contacto:");
@@ -89,9 +91,6 @@
         }
 
         function showContact(listaContac,indice) {
-            console.log(typeof listaContac);
-            console.log(listaContac instanceof Array);
-            console.log(indice);
             if (listaContac instanceof Array && indice<= listaContac.length-1) {
                 console.log("Nombre: " + listaContac[indice].nombre + "/ Teléfono: " + listaContac[indice].telefono + "/ Email: " + listaContac[indice].email);
             }else{
@@ -102,9 +101,32 @@
         function showAllContacts(listaContac) {
             if (listaContac instanceof Array) {
                 listaContac.forEach(element => {
-                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
+                console.log("Nombre: " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
             });
+            }else{
+                console.log("Error en los datos introducidos");
             }
+        }
+
+        function showAllContactsSort(orden) {
+            switch (orden) {
+                case 1://nombre
+                    let contactosSortNom = contactos.sort((x, y) => x.nombre.localeCompare(y.nombre)); //objetocomparado.localeCompare(objeto a comparar) para STRINGS
+                    showAllContacts(contactosSortNom);
+                    break;
+                case 2: //teléfono
+                    let contactosSortTel = contactos.sort((x, y) => x.telefono.localeCompare(y.telefono));
+                    showAllContacts(contactosSortTel);
+                    break;
+                case 3: //email
+                    let contactosSortEmail = contactos.sort((x, y) => x.email.localeCompare(y.email));
+                    showAllContacts(contactosSortEmail);
+                    break;        
+                default:
+                    alert("Error, opción no válida.")
+                    break;
+            }
+            
         }
 
         //introducir contacto con prompt sin valores vacios  
@@ -122,29 +144,7 @@
             }
             
         }   
-
-        function showAllContactsSort(orden) {
-            switch (orden) {
-                case 1://nombre
-                    for (let i = 0; i < contactos.length; i++) {
-                        //contactos[i].nombre - 
-                        //let personasOrdenado = personas.sort(function(persona1, persona2){
-                        //return (persona1.edad)-(persona2.edad);
-                        
-                    }
-                    console.log(contactos.sort());
-                    break;
-                default:
-                    break;
-            }
-            
-        }
-        
-        
-            listaContac.forEach(element => {
-                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
-            }); 
-   
+    
     </script>
 
 </body>

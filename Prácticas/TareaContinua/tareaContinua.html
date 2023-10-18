@@ -19,7 +19,7 @@
             dentro de la función, verifica si el argumento dado es un array.
         • addNewContact: la función debe tomar cuatro argumentos, 
             una lista de contactos y los datos del nuevo contacto, 
-            es decir: nombre, teléfono y número; antes de agregar un nuevo contacto, 
+            es decir: nombre, teléfono y número(---email---); antes de agregar un nuevo contacto, 
             verifica si el argumento pasado es un array y si los datos del nuevo contacto 
             tienen algún valor.
     -->
@@ -52,12 +52,13 @@
                 email : "risus.Quisque@urna.ca"
             });
 
+        //llamada a menu para empezar la ejecución    
         menu();
         
         function menu() {
             let opc = null; //null para que este definido
             do {
-                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar todos los contactos.\n4. Agregar nuevo contacto\n0. Salir";
+                let printMenu = "Selecciona una opción\n1. Mostrar el primer contacto\n2. Mostrar el último contacto\n3. Mostrar contacto (beta).\n4. Mostrar todos los contactos.\n5. Agregar nuevo contacto\n0. Salir";
                 opc = parseInt(prompt(printMenu));
                 switch (opc) {
                     case 0:
@@ -70,11 +71,15 @@
                         mostrarUltimo();
                         break;
                     case 3:
-                        showContact(contactos,2);
-                        showContact(prompt("Escribe la lista que quieres ver"),parseInt(prompt("Escribe el número de contacto a mostrar")));
-                        break;    
+                        showContact(contactos,2); //provisional se hardcodea porque no se como pasar el array
+                        //showContact(prompt("Escribe la lista que quieres ver"),parseInt(prompt("Escribe el número de contacto a mostrar")));
+                        break;
                     case 4:
-                        introducirNuevo();
+                        showAllContacts(contactos); //provisional se hardcodea porque no se como pasar el array
+                        break;       
+                    case 5:
+                        alert("Introduce el nuevo contacto:");
+                        addNewContact(contactos, prompt("Nombre:"), prompt("Teléfono:"), prompt("Email:"));//provisional se hardcodea porque no se como pasar el array
                         break;        
                     default:
                         alert("Error, introduce una opción válida.");
@@ -84,14 +89,37 @@
             
         }
 
+        function mostrarPrimero() {
+            console.log("Nombre: " + contactos[0].nombre + "/ Teléfono: " + contactos[0].telefono + "/ Email: " + contactos[0].email);
+        }
+     
+        function mostrarUltimo() {
+            console.log("Nombre: " + contactos[contactos.length-1].nombre + "/ Teléfono: " + contactos[contactos.length-1].telefono + "/ Email: " + contactos[contactos.length-1].email);
+        }
+
+        function showContact(listaContac,indice) {
+            console.log(typeof listaContac);
+            console.log(listaContac instanceof Array);
+            console.log(indice);
+            if (listaContac instanceof Array && indice<= listaContac.length-1) {
+                console.log("Nombre: " + listaContac[indice].nombre + "/ Teléfono: " + listaContac[indice].telefono + "/ Email: " + listaContac[indice].email);
+            }else{
+                console.log("Error en los datos introducidos");
+            }
+        }
+
+        function showAllContacts(listaContac) {
+            if (listaContac instanceof Array) {
+                listaContac.forEach(element => {
+                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
+            });
+            }
+        }
+
         //introducir contacto con prompt sin valores vacios  
-        function introducirNuevo() {
-            alert("Introduce el nuevo contacto:");
-            let nombre = prompt("Nombre:");
-            let telefono = prompt("Telefono:");
-            let email = prompt("Email:");
+        function addNewContact(listaContac,nombre,telefono,email) {
             
-            if (nombre !== "" && telefono !== "" && email !== "") { // Las 3 tienen que tener datos para que agrege
+            if (listaContac instanceof Array && nombre !== "" && telefono !== "" && email !== "") { // Las 4 tienen que estar bien para que agrege
                 contactos.push
                 ({
                     nombre : nombre,
@@ -104,42 +132,8 @@
             
         }   
         
-        // showContact: la función debe tomar dos argumentos; 
-        //     el primero es la lista de contactos y el segundo es el número 
-        //     de índice del contacto a mostrar; dentro de la función, verifica 
-        //     si se pasan los argumentos correctos, es decir, si los contactos son 
-        //     un array (utiliza la construcción instanceofArray para esto).
-
-
-         
-        function showContact(listaContac,indice) {
-            console.log(typeof listaContac);
-            console.log(listaContac instanceof Array);
-            console.log(indice);
-            if (listaContac instanceof Array && indice<= listaContac.length-1) {
-                console.log("Nombre: " + listaContac[indice].nombre + "/ Teléfono: " + listaContac[indice].telefono + "/ Email: " + listaContac[indice].email);
-            }else{
-                console.log("Error en los datos introducidos");
-            }
-        }
-
-        function mostrarPrimero() {
-            console.log("Nombre: " + contactos[0].nombre + "/ Teléfono: " + contactos[0].telefono + "/ Email: " + contactos[0].email);
-        }
-     
-        function mostrarUltimo() {
-            console.log("Nombre: " + contactos[contactos.length-1].nombre + "/ Teléfono: " + contactos[contactos.length-1].telefono + "/ Email: " + contactos[contactos.length-1].email);
-        }
-
-        function mostrarTodo() {
-            contactos.forEach(element => {
-                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
-            });
-        }
-
-        
-
-        
+               
+   
     </script>
 
 </body>

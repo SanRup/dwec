@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!-- 8. Todas las tablas -->
-    
+    <script>
+
+        tablaMultiplicar(); //llamada a la función para mostrar los números
+
+        function tablaMultiplicar() {
+            for (let i = 1; i < 10; i++) { //for para recorrer las tablas
+                console.log(`Tabla del ${i}`);
+                for (let j = 1; j <= 10; j++) { //desde 1 hasta 10
+                    console.log(`${i} * ${j} = ${i * j}`); //multiplicamos directamente en el log
+                }
+                console.log("---------------");
+            }
+
+        }
+    </script>
 </body>
+
 </html>

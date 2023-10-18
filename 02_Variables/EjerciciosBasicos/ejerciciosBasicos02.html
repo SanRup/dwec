@@ -17,7 +17,7 @@
         function pedirNum() {
             let num = parseInt(prompt("Dime un número"));
 
-            while (isNaN(num)) { //si no introduce un numero es NaN o es negativo
+            while (isNaN(num)) { //si no introduce un numero es NaN
                 alert("Tienes que introducir un número.");
                 num = parseInt(prompt("Dime un número"));
             }
@@ -38,12 +38,16 @@
 
         printAlert();
 
-        do {
+        while (num2 > 0) {
             num1 = suma();
             num2 = pedirNum();
-            printAlert();
-        } while (num2 > 0);
-
+            if (num2 > 0) {
+                printAlert();
+            }else{
+                alert("Saliendo...");
+            }
+        }
+        
     </script>
 </body>
 

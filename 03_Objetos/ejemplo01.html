@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const libro = {
+            titulo: "sis",
+            autor: "pep",
+            formatos: ["papel", "epub", "mobi"],
+            precio: 30.00,
+            editorial: "anaya",
+            leer: function() {
+                console.log("Es un buen libro");
+            }
+        }
+
+        console.log(libro.leer);
+        console.log(libro.precio);
+        console.log(libro['editorial']);
+    </script>
+</body>
+</html>

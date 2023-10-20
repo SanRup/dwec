@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+		//INSTANCIACIÓN:
+		//Varias formas de instanciar
+		var daw = "Desarrollo de aplicaciones web";
+		var dam = 'Desarrollo de aplicaciones multiplataforma';
+		var asir = "Administración de 'Sistemas Informáticos' en Red"; //También al revés
+		var smr = "Sistemas \"Microinformáticos\" y Redes"; //pintar comillas en un texto
+		var ciclos = new String(""); // no recomendable ??
+
+		//CONCATENACIÓN DE CADENAS (Para trabajar con cadenas largas)
+		ciclos += "Hay 3 ciclos de Grado Superior: \n"; // n salto de línea
+		ciclos += daw + ", " + dam + " y " + asir + "\n";
+		ciclos += " y 1 ciclo de Grado Medio: \n";
+		ciclos += smr;
+
+		alert (ciclos);
+        alert("La cadena tiene una longitud de " + ciclos.length + " caracteres");
+        alert("El caracter numero 3 es " + ciclos.charAt(4));
+        alert("La a aparece por primera vez en la posicion " + ciclos.indexOf("a"));
+        alert("La s aparece por última vez en la posicion " + ciclos.lastIndexOf("s"));
+        //.search puedo buscar una cadena o un regrex
+        //match puedo buscar un regrex
+
+        alert("Ordena alfabeticamente daw y dam y devuelve -1 si esta antes, 0 si es igual y 1 si esta después" + daw.localeCompare(dam)); 
+        alert("Devuelve true si la cadena incluye el parametro" + ciclos.includes("aplicaciones"));
+        alert("cadena comprendida entre la posicion 5 y la posicion 10" + ciclos.slice(5,10));//solo 1 carater es hasta el final, (0,1) es el primer caracter,(-1)ultimo caracter
+        alert("" + ciclos.substring);
+        alert("" + ciclos.substr);
+        alert("carater 2 normal, en unicode y en haexadecimal" + ciclos[2] + " " + ciclos.codePointAt(2) + ciclos.codePointAt(2).toString(16));//16 para hexadecimal//si pones un indice mayor devuelve undefined
+        alert(String.fromCodePoint(77));//
+	</script>
+</body>
+</html>

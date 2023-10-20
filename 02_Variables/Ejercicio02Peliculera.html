@@ -38,7 +38,7 @@
        
         let nombre = prompt("Introduce tu nombre");
 
-        while (!isNaN(nombre) || nombre == null) {
+        while (!isNaN(nombre) || nombre == null) { //
             alert("Error, introduce tu nombre de nuevo");
             nombre = prompt("Introduce tu nombre");
         }
@@ -56,6 +56,8 @@
 
         let arrayPelicula = ["Spider man", "Superman", "Dragon Ball Super", "La era del hielo", "18videos"];
 
+        let printPelis = `Selecciona el número de la película que quieres ver:\n1. ${arrayPelicula[0]}\n2. ${arrayPelicula[1]}\n3. ${arrayPelicula[2]}\n4. ${arrayPelicula[3]}\n5. ${arrayPelicula[4]}`;
+
         let arrayDesc = {
             17:
             {"comida": "Caramelos y Refresco", "descuento": "50"},
@@ -67,18 +69,18 @@
             {"comida": "Agua", "descuento": "20"},
         };
 
-        let pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
+        let pelicula = parseInt(prompt(printPelis)) -1;
 
        
         while (arrayPelicula[pelicula] == null || pelicula == null) {
             alert("Error, introduce tu película de nuevo");
-            pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
+            pelicula = parseInt(prompt(printPelis)) -1;
         }
 
         if(edad <= 17){
             while (edad <= 17 && arrayPelicula[pelicula] == "18videos") {
                 alert("No puedes ver esa película");
-                pelicula = parseInt(prompt("Selecciona el número de la película que quieres ver:\n0. Spider man\n1. Superman\n2. Dragon Ball Super\n3. La era del hielo\n4. 18videos"));
+                pelicula = parseInt(prompt(printPelis)) -1;
             }
             print(17);     
         }else if (edad >= 18 && edad <= 25) {
@@ -93,10 +95,10 @@
     function print(i) {
         precio = entrada - ((entrada * arrayDesc[i]["descuento"])/100);
             document.getElementById("nombre").innerHTML = "Nombre: " + nombre;
-            document.getElementById("pelicula").innerHTML = "Pelicula: " + pelicula;
+            document.getElementById("pelicula").innerHTML = "Pelicula: " + arrayPelicula[pelicula];
             document.getElementById("regalo").innerHTML = "Regalo: " + arrayDesc[i]["comida"];
-            document.getElementById("precio").innerHTML = "Precio: " + precio;
-            console.log("Nombre: " + nombre + " Pelicula: " + pelicula + " Regalo: " + arrayDesc[i]["comida"] + " Precio: " + precio);
+            document.getElementById("precio").innerHTML = "Precio: " + precio + "€";
+            console.log("Nombre: " + nombre + " Pelicula: " + pelicula + " Regalo: " + arrayDesc[i]["comida"] + " Precio: " + precio) + "€";
     }
     </script>
     

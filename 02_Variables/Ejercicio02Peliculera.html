@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Entrada</h1>
+    <h1>ENTRADA</h1>
     <p id="nombre"></p>
     <p id="pelicula"></p>
     <p id="regalo"></p>
@@ -23,42 +23,42 @@
             
             4. Si la edad del cliente es menor o igual a 17 y la película que escogió es "18videos", deberá mostrarle un mensaje de que no tiene permiso para ver esa película e insistir. Caso contrario, se realizará lo siguiente:
             
-            5. Si la edad del cliente es menor o igual a 17, tendrá un descuento del 50% y además tendrá de regalo incluido con la entrada: Caramelos y Refresco.
+            5. Si la edad del cliente es menor o igual a 17, tendrá un descuento del 50% y además tendrá de regalo incluido con la ENTRADA: Caramelos y Refresco.
             
-            6. Si la edad del cliente es mayor o igual a 18 y menor o igual a 25, no tendrá descuento alguno pero si tendrá de regalo incluido con la entrada: Palomitas, perrito y refresco.
+            6. Si la edad del cliente es mayor o igual a 18 y menor o igual a 25, no tendrá descuento alguno pero si tendrá de regalo incluido con la ENTRADA: Palomitas, perrito y refresco.
             
-            7. Si la edad del cliente es mayor o igual a 26 y menor o igual a 35, tendrá un descuento del 10% y además tendrá de regalo incluido con la entrada: Perrito y refresco.
+            7. Si la edad del cliente es mayor o igual a 26 y menor o igual a 35, tendrá un descuento del 10% y además tendrá de regalo incluido con la ENTRADA: Perrito y refresco.
             
-            8. Si la edad del cliente es mayor o igual a 36, tendrá un descuento del 20% y así mismo tendrá de regalo incluido con la entrada: Agua.
+            8. Si la edad del cliente es mayor o igual a 36, tendrá un descuento del 20% y así mismo tendrá de regalo incluido con la ENTRADA: Agua.
             
             *La lista de películas, comidas y bebidas deben estar en Arrays
             * Imprimir por consola y en el HTML en líneas distintas: el nombre del cliente, nombre de la película, lista de comidas y bebidas a la que accede, y el total a pagar dependiendo del descuento.
-            *El precio de la entrada es de 8,5 euros
+            *El precio de la ENTRADA es de 8,5 euros
         */
        
-        let nombre = prompt("Introduce tu nombre");
+        let nombre = prompt("Introduce tu nombre"); //introduce el nombre con prompt
 
-        while (!isNaN(nombre) || nombre == null) { //
+        while (!isNaN(nombre) || nombre == null) { //si es diferente a NaN o es null, pide de nuevo el dato
             alert("Error, introduce tu nombre de nuevo");
             nombre = prompt("Introduce tu nombre");
         }
 
-        let edad = parseInt(prompt("Introduce tu edad"));
+        let edad = parseInt(prompt("Introduce tu edad")); //introduce la edad con parse
 
-        while (isNaN(edad) || edad == null) {
+        while (isNaN(edad) || edad == null) { //si es NaN o es null, pide de nuevo el dato
             alert("Error, introduce tu edad de nuevo");
             edad = parseInt(prompt("Introduce tu edad"));
         }
 
-        let entrada = 8.50;
+        const ENTRADA = 8.50; //precio de la entrada constante
 
-        let precio = 0;
+        let precio = 0; //precio inicializado en 0
 
-        let arrayPelicula = ["Spider man", "Superman", "Dragon Ball Super", "La era del hielo", "18videos"];
+        let arrayPelicula = ["Spider man", "Superman", "Dragon Ball Super", "La era del hielo", "18videos"]; // array con las películas que hay
 
-        let printPelis = `Selecciona el número de la película que quieres ver:\n1. ${arrayPelicula[0]}\n2. ${arrayPelicula[1]}\n3. ${arrayPelicula[2]}\n4. ${arrayPelicula[3]}\n5. ${arrayPelicula[4]}`;
+        let printPelis = `Selecciona el número de la película que quieres ver:\n1. ${arrayPelicula[0]}\n2. ${arrayPelicula[1]}\n3. ${arrayPelicula[2]}\n4. ${arrayPelicula[3]}\n5. ${arrayPelicula[4]}`; // print para la lista de películas
 
-        let arrayDesc = {
+        let arrayDesc = { // array con los descuentos
             17:
             {"comida": "Caramelos y Refresco", "descuento": "50"},
             18:
@@ -69,18 +69,18 @@
             {"comida": "Agua", "descuento": "20"},
         };
 
-        let pelicula = parseInt(prompt(printPelis)) -1;
+        let pelicula = parseInt(prompt(printPelis)) - 1; //prompt para seleccionar película - 1 para que coincida con el array 
 
        
-        while (arrayPelicula[pelicula] == null || pelicula == null) {
+        while (arrayPelicula[pelicula] == null || pelicula == null) { //si la posición del array no existe o película es null(dan enter sin introducir ningún valor) 
             alert("Error, introduce tu película de nuevo");
-            pelicula = parseInt(prompt(printPelis)) -1;
+            pelicula = parseInt(prompt(printPelis)) - 1;//prompt para seleccionar película - 1 para que coincida con el array 
         }
 
-        if(edad <= 17){
-            while (edad <= 17 && arrayPelicula[pelicula] == "18videos") {
+        if(edad <= 17){//si eres menor o igual a 17
+            while (arrayPelicula[pelicula] == "18videos") { //si el valor del array coincide con "18videos", vuelve a pedir película
                 alert("No puedes ver esa película");
-                pelicula = parseInt(prompt(printPelis)) -1;
+                pelicula = parseInt(prompt(printPelis)) - 1;//prompt para seleccionar película - 1 para que coincida con el array 
             }
             print(17);     
         }else if (edad >= 18 && edad <= 25) {
@@ -93,12 +93,12 @@
             console.log("Error");
         }
     function print(i) {
-        precio = entrada - ((entrada * arrayDesc[i]["descuento"])/100);
+        precio = ENTRADA - ((ENTRADA * arrayDesc[i]["descuento"])/100); // calculo del precio de la entrada
             document.getElementById("nombre").innerHTML = "Nombre: " + nombre;
             document.getElementById("pelicula").innerHTML = "Pelicula: " + arrayPelicula[pelicula];
             document.getElementById("regalo").innerHTML = "Regalo: " + arrayDesc[i]["comida"];
             document.getElementById("precio").innerHTML = "Precio: " + precio + "€";
-            console.log("Nombre: " + nombre + " Pelicula: " + pelicula + " Regalo: " + arrayDesc[i]["comida"] + " Precio: " + precio) + "€";
+            console.log("Nombre: " + nombre + " Pelicula: " + pelicula + " Regalo: " + arrayDesc[i]["comida"] + " Precio: " + precio + "€");
     }
     </script>
     

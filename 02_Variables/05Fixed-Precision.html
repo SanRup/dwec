@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numero = 9.99;
+
+        console.log("toFixed()");
+        //redondea hacia arriba
+        //como argumento se le pasan los decimales que quieres obtener
+        //sin argumentos es sin decimales
+        console.log(numero.toFixed()); // devuelve 10
+        console.log(numero.toFixed(0)); //devuelve 10
+        console.log(numero.toFixed(1)); //devuelve 10.0
+        console.log(numero.toFixed(2)); //devuelve 9.99
+        console.log(numero.toFixed(3)); //devuelve 9.990
+
+        console.log("toPrecision()");
+        //argumentos entre 1 y 100 -> el 0 no vale
+
+        console.log(numero.toPrecision()); //devuelve 9.99
+        console.log(numero.toPrecision(1)); //devuelve 1e+1
+        console.log(numero.toPrecision(2)); //deveulve 10
+        console.log(numero.toPrecision(3)); //devuelve 9.99
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion por declaración
+        console.log("Declaración***********");
+        let resultado = multiplicar(2,3);
+        function multiplicar(a,b) {
+            return a*b;
+        }
+        console.log(resultado);
+
+        //funcion por expresión
+        console.log("Expresión************");
+        let saludo = function hola() {
+            console.log("Bienvenido");
+        }
+        saludo();
+
+        //funcion anónima
+        console.log("Anónima***************");
+        let producto = function (a,b) {
+            return a+b;
+        }
+        let resul = producto(4,12);
+        console.log(resul);
+
+        //función callback
+        console.log("Callback***************");
+        const function2 = function () {
+            console.log("La funcion 2 ha sido ejecutada");
+        }
+
+        const function1 = function (callback) { //función que llama a otra función
+            callback();
+        }
+
+        function1(function2);//la funcion 1 llama a la funcion 2
+
+        //función autoejecutable
+        console.log("Autoejecutable***********");
+        (function (user) {
+            console.log("Hola" + user);
+        })("Pepe");
+
+        (function() { console.log("Hola");}());
+
+        //función flecha
+        console.log("Flecha*******************");
+        let diHola = name => `¡Hola ${name}!`;//funcion flecha omitiendo parentesis y return
+        console.log(diHola("Sandra"));
+
+        
+        //recursividad
+        console.log("Recursividad*************");
+        function factorial(n) {
+            if (n<=1) {
+                return 1;
+            }else{
+                return n*factorial(n-1);
+            }
+        }
+        console.log(factorial(5));
+
+        //foreach
+        // console.log("Foreach******************");
+        // let array=[12,13,15,45,78];
+        // array.forEach(function(contenido,posicion)) {
+        //     console.log(contenido,posicion);
+   
+        // }
+
+        
+    </script>
+</body>
+</html>

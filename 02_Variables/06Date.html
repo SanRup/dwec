@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let v = new Date("11/03/2023"); //Formato corto
+        v = new Date("Ago 17 2022") //Formato largo
+        v = new Date("Mon, Jun"); //Formato completo --mirar!
+    </script>
+    <div id="Hora"></div>    
+    <script>
+        let miFecha = new Date();
+        let texto = document.getElementById('Hora');
+
+        texto.innerHTML=miFecha; //Sun Oct 22 2023 18:16:52 GMT+0200 (hora de verano de Europa central)
+
+        texto.innerHTML = miFecha.getHours() + ":" + miFecha.getMinutes() + ":" + miFecha.getSeconds(); //18:17:29
+    </script>
+    
+</body>
+</html>

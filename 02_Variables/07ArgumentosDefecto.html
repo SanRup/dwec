@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function tablaMultiplicar(tabla, fin = 10) { //argumento por defecto es 10
+            for (let i = 0; i <= fin; i++) {
+              console.log(tabla, "x", i, "=", tabla * i); //concatenar con comas "," pone un espacio
+            }
+        }
+
+        tablaMultiplicar(6,5);
+        tablaMultiplicar(6);
+
+        function suma() {
+            let num = 0;
+            for (let i = 0; i <= arguments.length-1; i++) { // si pasamos mas argumentos de los que pide la funcion, se guardan en el array arguments
+                num += arguments[i]; 
+            }
+            console.log(num);
+        }
+
+        suma(1,6,9,7);
+    </script>
+</body>
+</html>

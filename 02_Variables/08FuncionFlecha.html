@@ -7,15 +7,16 @@
 </head>
 <body>
     <script>
-        let diHola = name => `¡Hola ${name}!`;
-        let diAdios = (name) => {
+        let diHola = name => `¡Hola ${name}!`;//funcion flecha omitiendo parentesis y return
+        console.log(diHola("Sandra"));
+
+
+        let diAdios = (name) => { //funcion flecha con parentesis y return
             return `¡Adios ${name}!`;
         }
-
-        console.log(diHola("Sandra"));
         console.log(diAdios("Sandra"));
-
-
+        
+        
         let res = (base, exponente) => {
             res = 1;
             if (exponente < 0) {

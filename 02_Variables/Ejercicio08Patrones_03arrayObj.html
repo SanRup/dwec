@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ejercicio de patrones
+	    // Realiza una aplicación web que solicite una cadena de texto. 
+        // El programa debe decir cuántas veces ocurre cada uno de estos 
+        // patrones sin distinguir mayúsculas y minúsculas: “00” “101”, “ABC”, “H0”.
+        // Un carácter puede formar parte de más de un patrón encontrado. 
+        // Por ejemplo: En la cadena “000” el patrón “00” aparece dos veces 
+        // (una empieza en la posición 0 y otra empieza en la posición 1).
+        // Internamente el programa realizará la cuenta de patrones con una función 
+        // definida como function numeroPatrones(texto) que devolverá 
+        // un número entero con el número de patrones encontrados. 
+        // Ejemplo:1110101000ABCHO	
+
+        let buscar = [ // array con los patrones
+            {patron: "00", contador: 0},
+            {patron: "101", contador: 0},
+            {patron: "ABC", contador: 0},
+            {patron: "H0", contador: 0}
+            ];
+
+        //let t = prompt("Introduce una cadena de texto.");
+        
+        alert(numeroPatrones(prompt("Introduce una cadena de texto.").toUpperCase()));//desde alert llama a la funcion con el prompt directamente y se pasa a mayus la cadena
+
+        function numeroPatrones(texto) {
+            let print = "";//se inicia la cadena que se devolverá 
+            let contadorTotal = 0; //contador para acumular cada contador individual
+            buscar.forEach(element => {
+                for (let i = 0; i < texto.length; i++) {        
+                    if (texto.slice(i, i + element.patron.length).includes(element.patron)) {//si en la cadena en la posición de i incluye el elemento, suma 1   
+                        element.contador++;
+                    }
+                }
+                print += "El patrón " + element.patron +" se repite " + element.contador + " veces.\n"
+                contadorTotal += element.contador;
+            });
+            return print + "En total hay " + contadorTotal + " coincidencias.";
+        }
+        //1110101000ABCH0
+
+    </script>
+</body>
+</html>

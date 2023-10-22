@@ -19,28 +19,29 @@
         // un número entero con el número de patrones encontrados. 
         // Ejemplo:1110101000ABCHO	
 
-        const BUSCAR = ["00", "101", "ABC", "H0"];
+        let BUSCAR = ["00", "101", "ABC", "H0"];
 
-        let t = prompt("Introduce una cadena de texto.");
-        
-        let contador = 0;
+        //let t = prompt("Introduce una cadena de texto.");
 
-        //let texto = "1110101000ABCHO";
-        console.log(t.substring(1));
+        alert(numeroPatrones(prompt("Introduce una cadena de texto.").toUpperCase()));//desde alert llama a la funcion con el prompt directamente y se pasa a mayus la cadena
 
-        //numeroPatrones(t.toUpperCase);//llamo a la funcion y le paso directamente el prompt
         function numeroPatrones(texto) {
-            for (let i = 0; i < texto.length; i++) {
-                BUSCAR.forEach(element => {
-                    if (texto.substring(i).includes(element)) {
+            let print = "";//se inicia la cadena que se devolverá
+            let contadorTotal = 0;//se inicia el contador total que almacena el contador individual de cada coincidencia 
+            BUSCAR.forEach(element => {
+                let contador = 0;//inicio del contador que en cada vuelta se resetea
+                for (let i = 0; i < texto.length; i++) {        
+                    if (texto.slice(i, i + element.length).includes(element)) {//si en la cadena en la posición de i incluye el elemento, suma 1   
                         contador++;
-                    } 
-                });  
-            }
-            return contador;
+                    }
+                }
+                print += "El patrón " + element +" se repite " + contador + " veces.\n"
+                contadorTotal += contador;
+            });
+            return print + "En total hay " + contadorTotal + " coincidencias.";
         }
+        //1110101000ABCH0
 
-        alert(contador);
     </script>
 </body>
 </html>

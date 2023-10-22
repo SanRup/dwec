@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ejercicio de patrones
+	    // Realiza una aplicación web que solicite una cadena de texto. 
+        // El programa debe decir cuántas veces ocurre cada uno de estos 
+        // patrones sin distinguir mayúsculas y minúsculas: “00” “101”, “ABC”, “H0”.
+        // Un carácter puede formar parte de más de un patrón encontrado. 
+        // Por ejemplo: En la cadena “000” el patrón “00” aparece dos veces 
+        // (una empieza en la posición 0 y otra empieza en la posición 1).
+        // Internamente el programa realizará la cuenta de patrones con una función 
+        // definida como function numeroPatrones(texto) que devolverá 
+        // un número entero con el número de patrones encontrados. 
+        // Ejemplo:1110101000ABCHO	
+
+        const BUSCAR = ["00", "101", "ABC", "H0"];
+
+        //let t = prompt("Introduce una cadena de texto.");
+        
+        let contador = 0;//inicio del contador
+
+        numeroPatrones(prompt("Introduce una cadena de texto.").toUpperCase());//llama a la funcion con el prompt directamente y se pasa a mayus la cadena
+ 
+        alert(contador);
+
+        function numeroPatrones(texto) {
+            for (let i = 0; i < texto.length; i++) {//se itera la cadena desde el caracter 0 hasta el final (.length)
+                BUSCAR.forEach(element => {//se iteran las coincidencias
+                    if (texto.slice(i, i + element.length).includes(element)) {//si en la cadena en la posición de i incluye el elemento, suma 1   
+                        contador++;
+                        console.log(element);
+                    } 
+                });  
+                
+            }
+            return contador;
+        }
+        //1110101000ABCH0
+
+    </script>
+</body>
+</html>

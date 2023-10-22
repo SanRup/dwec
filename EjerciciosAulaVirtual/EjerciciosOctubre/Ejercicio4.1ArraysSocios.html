@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crear un programa que permita introducir 10 nombres de los socios de un club (utilizar la estructura de array). Los elementos deben leerse de pantalla utilizando el método prompt(). En el mensaje de salida que permite la introducción de los nombres debe indicarse el número de elemento que se solicita. Después de introducir todos los elementos se tiene que mostrar la siguiente información por pantalla:
+    • mostrar los nombres de los socios tal y como se han introducido
+    • indicar el número socios que hay
+    • mostrar el nombre de los socios ordenados por orden alfabético
+    • mostrar el nombre de los socios en orden inverso al introducido -->
+    <script>
+        let socio = [];
+    
+        for (let i = 0; i < 10; i++) {
+          //socio[i] = prompt("Dime el nombre del socio " + (i + 1)); //metiendolo en el array por posicion
+          socio.push(prompt("socio num " + (i + 1))); //metiendolo con push
+        }
+    
+        document.getElementById("socio").innerHTML = "Nombres de los socios: " + socio;
+        document.getElementById("numSocio").innerHTML = "Total socios: " + socio.length;
+        document.getElementById("socioOrd").innerHTML = "Socios ordenados: " + socio.sort();
+        document.getElementById("socioOrdInv").innerHTML = "Socios odenados inverso: " + socio.reverse();
+      </script>
+</body>
+</html>

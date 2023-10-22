@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Solicitar una frase desde teclado, almacenar cada palabra en un elemento de un array y mostrar los siguientes datos:
+    • La primera palabra de la frase. >>arrayFrase[0]
+    • La última palabra de la frase. >>arrayFrase[arrayFrase.length-1]
+    • El número de palabras de la frase. >>arrayFrase.length--> 
+    <script>
+        let frase = prompt("Escribe la frase"); // guardamos la frase
+        let arrayFrase = frase.split(" "); // convertimos la frase en array separando los elementos por espacios
+
+        alert("La primera palabra de tu frase es: " + arrayFrase[0] + "\nLa última palabra de tu frase es: " + 
+            arrayFrase[arrayFrase.length-1] + "\nTu frase tiene " + arrayFrase.length + " elementos.");
+
+    </script>
+</body>
+</html>

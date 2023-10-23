@@ -18,28 +18,28 @@
         Modificación: el número e viajeros puede ser de más de un dígito. 
     -->
     <script>
-        let num = prompt("Introduce el número"); //
-        
-        console.log(num + "isnan");
-        //el numero tiene que tener una longitud par. Se pasa a string para ver la longitud
-        //el número tiene que ser tipo number
-        if (num.length % 2 == 0 && isNaN(num) == false) { 
-            let array = num.toString().split(""); // 
-            console.log(array.reverse());
+        let num = prompt("Introduce el número"); 
+        //el número tiene que tener una longitud par. 
+        //el número tiene que ser tipo number, se pasa a int para ver si es un número
+        if (num.length % 2 == 0 && !isNaN(parseInt(num))) { 
+            let array = num.split(""); // se convierte en array
+            array.reverse(); //se da la vuelta al array
             console.log(typeof(array[0]));
             let viajerosFinal = 0;
             for (let i = 0; i < array.length-1; i++) {
                 // console.log(array[i] + "ii");
-
                 if (i%2==0) {
                     // console.log(array[i] + "i");
                     // console.log(array[i+1] + "i+1");
                     viajerosFinal += array[i] - array[i+1];
+                    if (viajerosFinal<0) {
+                        
+                        console.log("No horrible error grande " + i);
+                        break;
+                    }
                 }
             }
             //num = array.reverse().join("");
-            
-            
             console.log(viajerosFinal);
         }else{
             console.log("ERROR. El número introducido no es válido.");

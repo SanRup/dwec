@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Programa que pida un número que indica por cada pareja de dígitos (empezando por la derecha) los viajeros que han subido y bajado (respectivamente) en la estación de partida y en cada una de las estaciones intermedias hasta llegar a su destino.
-        Por ejemplo si se recibe el siguiente número  68573528463604, significa que partió con 4 viajeros, en la siguiente estación subieron 6 y bajaron 3, en la segunda intermedia bajaron 4 y subieron 6…
+    <!-- Programa que pida un número que indica por cada pareja de dígitos (empezando por la derecha) 
+        los viajeros que han subido y bajado (respectivamente) en la estación de partida y en cada una 
+        de las estaciones intermedias hasta llegar a su destino.
+        Por ejemplo si se recibe el siguiente número  68573528463604, significa que partió con 4 viajeros, 
+        en la siguiente estación subieron 6 y bajaron 3, en la segunda intermedia bajaron 4 y subieron 6…
         Se pide:
             • Control de errores ( NaN, número incorrecto…)
             • ¿Cuántos llegaron al final de trayecto?
@@ -15,6 +18,32 @@
         Modificación: el número e viajeros puede ser de más de un dígito. 
     -->
     <script>
+        let num = prompt("Introduce el número"); //
+        
+        console.log(num + "isnan");
+        //el numero tiene que tener una longitud par. Se pasa a string para ver la longitud
+        //el número tiene que ser tipo number
+        if (num.length % 2 == 0 && isNaN(num) == false) { 
+            let array = num.toString().split(""); // 
+            console.log(array.reverse());
+            console.log(typeof(array[0]));
+            let viajerosFinal = 0;
+            for (let i = 0; i < array.length-1; i++) {
+                // console.log(array[i] + "ii");
+
+                if (i%2==0) {
+                    // console.log(array[i] + "i");
+                    // console.log(array[i+1] + "i+1");
+                    viajerosFinal += array[i] - array[i+1];
+                }
+            }
+            //num = array.reverse().join("");
+            
+            
+            console.log(viajerosFinal);
+        }else{
+            console.log("ERROR. El número introducido no es válido.");
+        }
         
     </script>
 </body>

@@ -18,29 +18,43 @@
         Modificación: el número e viajeros puede ser de más de un dígito. 
     -->
     <script>
+        //Número normal  -> 68573528463604
+        //Número reverse -> 40636482537586
+        //4-0 6-3 6-4 8-2 5-3 7-5 8-6
+        // 4   3   2   6   2   2   2
+
         let num = prompt("Introduce el número"); 
+
         //el número tiene que tener una longitud par. 
         //el número tiene que ser tipo number, se pasa a int para ver si es un número
         if (num.length % 2 == 0 && !isNaN(parseInt(num))) { 
-            let array = num.split(""); // se convierte en array
-            array.reverse(); //se da la vuelta al array
-            console.log(typeof(array[0]));
-            let viajerosFinal = 0;
-            for (let i = 0; i < array.length-1; i++) {
-                // console.log(array[i] + "ii");
-                if (i%2==0) {
-                    // console.log(array[i] + "i");
-                    // console.log(array[i+1] + "i+1");
-                    viajerosFinal += array[i] - array[i+1];
-                    if (viajerosFinal<0) {
-                        
-                        console.log("No horrible error grande " + i);
-                        break;
-                    }
+            let arrayPasajeros = num.split(""); // se convierte en array
+            arrayPasajeros.reverse(); //se da la vuelta al array
+
+            let pasajerosFinal = 0; // se inicia el contador de pasajeros
+
+            let mensaje = "Número introducido: " + num + "\n---------------------------";
+
+            for (let i = 0; i < arrayPasajeros.length-1; i+=2) {// aumenta 2 en cada iteración para solo usar los pares (viajeros que suben)
+                pasajerosFinal += parseInt(arrayPasajeros[i]) ;//suma los pasajeros que suben al total
+
+                if (pasajerosFinal>=arrayPasajeros[i+1]) {//los viajeros que hay tienen que ser mayores que los que bajan
+
+                    pasajerosFinal -= arrayPasajeros[i+1]; //resta los que bajan al total
+                    mensaje += "\nPasajeros que suben: " + arrayPasajeros[i] + " | Pasajeros que bajan: " + arrayPasajeros[i+1];
+
+                }else{
+                    mensaje += "\nPasajeros que suben: " + arrayPasajeros[i] + " | Pasajeros que bajan: " + arrayPasajeros[i+1];
+                    mensaje += "\nError! No pueden bajar " + arrayPasajeros[i+1] + " pasajeros.";
+                    break;
                 }
+
+                mensaje += "\nPasajeros actuales: " + pasajerosFinal + "\n---------------------------";    
             }
-            //num = array.reverse().join("");
-            console.log(viajerosFinal);
+
+            mensaje += "\nPasajeros totales: " + pasajerosFinal;
+            console.log(mensaje);
+
         }else{
             console.log("ERROR. El número introducido no es válido.");
         }

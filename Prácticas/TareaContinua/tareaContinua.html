@@ -71,8 +71,9 @@
                         mostrarUltimo();
                         break;
                     case 3:
-                        showContact(contactos,2); //provisional se hardcodea porque no se como pasar el array
+                        //showContact(contactos,2); //provisional se hardcodea porque no se como pasar el array
                         //showContact(prompt("Escribe la lista que quieres ver"),parseInt(prompt("Escribe el número de contacto a mostrar")));
+                        showContact(contactos,parseInt(prompt("Escribe el número de contacto a mostrar"))-1);//-1 para que coincida con el array
                         break;
                     case 4:
                         showAllContacts(contactos); //provisional se hardcodea porque no se como pasar el array
@@ -98,9 +99,9 @@
         }
 
         function showContact(listaContac,indice) {
-            console.log(typeof listaContac);
-            console.log(listaContac instanceof Array);
-            console.log(indice);
+            // console.log(typeof listaContac);
+            // console.log(listaContac instanceof Array);
+            // console.log(indice);
             if (listaContac instanceof Array && indice<= listaContac.length-1) {
                 console.log("Nombre: " + listaContac[indice].nombre + "/ Teléfono: " + listaContac[indice].telefono + "/ Email: " + listaContac[indice].email);
             }else{

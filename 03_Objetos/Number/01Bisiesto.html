@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Un año es bisiesto si cumple los siguientes criterios: 
+        • Es divisible entre 4.
+        • Si termina en 00, se comprueba si es divisible entre 400 (2000 y 2400 sí son bisiestos. 2100, 2200 y 
+            2300 no lo son).
+        Mas información sobre años bisiestos en:
+        https://es.wikipedia.org/wiki/A%C3%B1o_bisiesto 
+        Escribe una función que reciba un año y devuelva 1 si es bisiesto, 0 en caso contrario. 
+        La función no debe leer nada de la entrada estándar ni mandar ningún dato por la salida estándar.  -->
+        
+    <script>
+
+      
+
+        
+
+        console.log(es_bisiesto(100));
+
+        console.log(bisiesto(100));
+
+        console.log(bisiestoTres(100));
+
+        function es_bisiesto(year) {
+	        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0 ? "Es bisiesto" : "No es bisiesto";
+        }
+
+        function bisiesto(anio) {
+            if (anio % 4 == 0 && anio % 100 != 0 || anio % 400 == 0) {
+                
+                return 1;
+            }
+            return 0;
+        }
+
+        function bisiestoTres(anio) {
+            if (anio.toString().endsWith("00")) {
+                if (anio % 400 == 0) {
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }else{
+                if (anio % 4 == 0) {
+                    return 1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

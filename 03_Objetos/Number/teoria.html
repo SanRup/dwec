@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 2;
+        console.log(num.toString(2)); //base distinta
+
+        let inf = 2;
+        while (inf!= Infinity) {
+            console.log(inf);
+            inf = inf * inf;
+        }
+
+        let div1 = 2, div2 = 0;
+        console.log("division 2/0="+2/0);
+        console.log("division -2/0="+(-2/0));
+        console.log("Typeof:"+(div1/div2));
+
+        //NaN
+        let variable1 = 100/"casa";
+        let variable2 = 100/"10";
+        console.log("100/casa " + variable1);
+        console.log("100/10 " + variable2);
+
+        console.log("isNan es boolean " + isNaN(variable1));
+        console.log("typeof " + typeof(variable1));
+
+        //definir como number o como objeto
+        let num1 = 123;
+        let num2 = new Number(123);
+        let num3 = new Number(123);
+
+        console.log("num1 == num2 " + (num1 == num2)); //true
+        console.log("num1 === num2 " + (num1 === num2)); //false
+        console.log("num2 === num3 " + (num2 === num3)); //false -> compara referencia del objeto
+
+        let maximo = Number.MAX_VALUE;
+        console.log("maximo " + maximo);
+
+        let min = Number.MIN_VALUE;
+        console.log("minimo " + min);
+
+        let negInf = Number.NEGATIVE_INFINITY;
+        console.log("negInf " + negInf);
+
+        let posInf = Number.POSITIVE_INFINITY;
+        console.log("posInf " + posInf);
+
+        let varNaN = Number.NaN;
+        console.log("NaN " + varNaN);
+        
+        //toFixed
+        let numero = 17.654;
+        console.log(numero.toFixed(1));
+        console.log(numero.toPrecision(3));
+        console.log(numero.toExponential());
+
+        console.log(numero.toLocaleString());//convertido a formato local
+
+        //globales
+        let a = "12";
+        console.log(Number(a));
+        console.log(parseInt(a));
+        console.log(parseFloat(a));//igual que parseInt pero conserva los decimales
+
+        console.log(isNaN(a));
+        console.log(isFinite(a));
+
+        //Math -> objeto nativo de js
+        //permite hacer operaciones matematicas
+
+        console.log(Math.random()); //entre 0 y 1
+        console.log(Math.floor(7.9)); // redonde a la baja
+        console.log(Math.ceil(7.9)); //redonde a la alta
+        console.log(Math.round(7.9)); //redondea a la baja o alta <5>
+        console.log(Math.pow(2,3)); // (base,exponente) valor de la potencia
+        console.log(Math.sqrt(9)); // raiz del número
+        console.log(Math.abs(-9)); //valor absoluto -> quitar negativo  
+
+
+        
+
+
+    </script>
+</body>
+</html>

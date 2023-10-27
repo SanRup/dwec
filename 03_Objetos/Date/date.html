@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //fechas
+        let fechaActual = new Date();
+        console.log(fechaActual);
+
+        let fecha1 = new Date("wed Mar 25 2015 09:15 GMT +0100");
+        console.log(fecha1);
+
+        let fecha2 = new Date("October 12 2023")
+        console.log(fecha2);
+
+        let fecha3 = new Date("2023-05-27");
+        console.log(fecha3);
+
+        let fecha4 = new Date("2023");
+        console.log(fecha4);
+
+        //crear fechas con numeros
+        let fechaMili = new Date(864000000); //en milisegundos
+        console.log(fechaMili);
+
+        let fechaLargo = new Date(2015,11,10,14,30,25);
+        console.log(fechaLargo);
+
+        let fechaCorto = new Date(2015,11,10);
+        console.log(fechaCorto);
+
+        //la fecha da por defecto un string
+        console.log("Fecha -> " + fecha1);
+        console.log("toString -> " + fecha1.toString());//por defecto
+        console.log("toUTCString -> " + fecha1.toUTCString()); 
+        console.log("toDateString -> " + fecha1.toDateString()); //formato más legible
+        
+        //metodos get y set
+        fecha1.getDay();//0 a 6
+        fecha1.getDate();//mes 0 a 11
+        fecha1.getMonth();//mes 0 a 11
+        
+    </script>
+</body>
+</html>

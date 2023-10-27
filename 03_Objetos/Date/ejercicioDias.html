@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Calcular los dias que han pasado desde hoy al 7 mayo 1950
+        let fecha = new Date();
+        let fechaDada = new Date("May 7 1990");
+        console.log(fecha);
+        console.log(fechaDada);
+
+        let fechaDifMil = ((fecha.getTime() - fechaDada.getTime())/1000/60/60/24); //1000 miliseg 60 seg 60 min 24 horas
+        let fechaDif = fecha.getTime() - fechaDada.getTime(); //1000 miliseg 60 seg 60 min 24 horas
+
+        console.log(fechaDifMil);
+        /*
+            1s 1000 mil
+            1min 60s
+            1hora 60min
+            1dia 24horas
+            1mes 30 dias
+            1año 12 meses
+        */
+        let añosTotal = fechaDif/(365*24*60*60*1000);
+        console.log(Math.trunc(añosTotal));
+        console.log(añosTotal);
+
+        let resto = añosTotal%Math.trunc(añosTotal);
+        console.log(resto);
+
+        let meses = resto*12;
+        console.log(meses);
+
+        resto = meses%Math.trunc(meses);
+        console.log(resto);
+
+        let dias = resto * 30;
+        console.log(dias);
+
+        resto = dias%Math.trunc(dias);
+        console.log(resto);
+
+        let horas = resto * 24;
+        console.log(horas);
+
+        resto = horas%Math.trunc(horas);
+        console.log(resto);
+
+        
+
+        
+        
+        
+
+        let arrayFecha = [];
+        //console.log(fechaDif/1000/60/60/24/365);
+
+               
+                       
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try {
+            console.log("inicio de sentencia de try");
+            hola-caracola;
+            console.log("finde sentencia (si / )");
+        } catch (err) {
+            console.log("un error ocurrio");
+            console.log(err.name); //nombre error
+            console.log(err.message); //mensage del error
+            console.log(err.stack); //nombre, mensaje y el archivo y linea
+            console.log(err); 
+            alert(err.stack);
+            alert(err);
+        }
+    </script>
+</body>
+</html>

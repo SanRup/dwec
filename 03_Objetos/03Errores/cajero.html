@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let saldo = 300;
+        let cantidad = 340;
+
+        function retirar(saldo, cantidad) {
+            if (saldo < cantidad) {
+                throw "Saldo insuficiente";
+            }
+            return saldo - cantidad;
+        }
+
+        // if (resultado === false) {
+        //     alert("No tienes saldo");
+        // }else{
+        //     alert(saldo = resultado);
+        // }
+        
+        
+        try {
+            let importe = parseInt(prompt("Cantidad a retirar"));
+            saldo = retirar(saldo, importe);
+            alert("Operacion terminada con exito");
+        } catch (error) {
+            alert(error);
+        }
+
+       
+        
+
+    </script>
+</body>
+</html>

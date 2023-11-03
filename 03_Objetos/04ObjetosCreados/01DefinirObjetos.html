@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. Definir y crear un objeto simple utilizando un literal.
+        let persona1 = {
+            nombre : "Juan",
+            apellido : "García",
+            anio : 1815
+        }
+
+        //2. Definir y crear un objeto simple utilizando la palabra new
+        let persona2 = new Object();
+        persona2.nombre = "Pedro";
+        persona2.apellido = "Perez";
+        persona2.anio = 1891;
+
+        //3. Definir un constructor de un objeto, y crear objetos del tipo construido
+        function Persona(nom, ape, an) {
+            this.nombre = nom;
+            this.apellido = ape;
+            this.anio = an;
+        }
+
+        let persona3 = new Persona("Juan", "López", 1854);
+
+
+        //recorrer objeto
+        for (const key in persona1) {
+            console.log(persona1[key]);
+        }
+
+        //añadir propiedad
+        persona1.nacionalidad = "Española";
+
+        //borrar propiedad
+        delete persona1.anio;
+
+        //recorrer objeto
+        for (const key in persona1) {
+            console.log(persona1[key]);
+        }
+
+        let persona4 = {
+            nombre: "Pepe",
+            apellido: "Fernandez",
+            nombreCompleto: function () {
+                return this.nombre + " " + this.apellido;
+            }
+        };
+
+        console.log(persona4.nombre);
+        console.log(persona4["nombre"]);
+        console.log(persona4.apellido);
+        console.log(persona4.nombreCompleto());
+       
+
+
+    </script>
+</body>
+</html>

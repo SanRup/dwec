@@ -101,16 +101,16 @@
         }    
          
         function mostrarPrimero() {
-            console.log("Nombre: " + array[0].nombre + "/ Teléfono: " + array[0].telefono + "/ Email: " + array[0].email);
+            alert("Nombre: " + array[0].nombre + " / Teléfono: " + array[0].telefono + " / Email: " + array[0].email);
         }
      
         function mostrarUltimo() {
-            console.log("Nombre: " + array[array.length-1].nombre + "/ Teléfono: " + array[array.length-1].telefono + "/ Email: " + array[array.length-1].email);
+            alert("Nombre: " + array[array.length-1].nombre + " / Teléfono: " + array[array.length-1].telefono + " / Email: " + array[array.length-1].email);
         }
 
         function mostrarTodo() {
             array.forEach(element => {
-                console.log("Nombre " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
+                alert("Nombre " + element.nombre + " / Teléfono: " + element.telefono + " / Email: " + element.email);
             });
         }
 

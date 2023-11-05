@@ -83,28 +83,28 @@
         }
 
         function mostrarPrimero() {
-            console.log("Nombre: " + contactos[0].nombre + "/ Teléfono: " + contactos[0].telefono + "/ Email: " + contactos[0].email);
+            alert("Nombre: " + contactos[0].nombre + " / Teléfono: " + contactos[0].telefono + " / Email: " + contactos[0].email);
         }
      
         function mostrarUltimo() {
-            console.log("Nombre: " + contactos[contactos.length-1].nombre + "/ Teléfono: " + contactos[contactos.length-1].telefono + "/ Email: " + contactos[contactos.length-1].email);
+            alert("Nombre: " + contactos[contactos.length-1].nombre + " / Teléfono: " + contactos[contactos.length-1].telefono + " / Email: " + contactos[contactos.length-1].email);
         }
 
         function showContact(listaContac,indice) {
-            if (listaContac instanceof Array && indice<= listaContac.length-1) {
-                console.log("Nombre: " + listaContac[indice].nombre + "/ Teléfono: " + listaContac[indice].telefono + "/ Email: " + listaContac[indice].email);
+            if (listaContac instanceof Array && indice >= 0 && indice<= listaContac.length-1) {//comprobación del array u de la posición válida
+                alert("Nombre: " + listaContac[indice].nombre + " / Teléfono: " + listaContac[indice].telefono + " / Email: " + listaContac[indice].email);
             }else{
-                console.log("Error en los datos introducidos");
+                alert("Error en los datos introducidos");
             }
         }
 
         function showAllContacts(listaContac) {
-            if (listaContac instanceof Array) {
+            if (listaContac instanceof Array) { //comprobación del array
                 listaContac.forEach(element => {
-                console.log("Nombre: " + element.nombre + "/ Teléfono: " + element.telefono + "/ Email: " + element.email);
+                alert("Nombre: " + element.nombre + " / Teléfono: " + element.telefono + " / Email: " + element.email);
             });
             }else{
-                console.log("Error en los datos introducidos");
+                alert("Error en los datos introducidos");
             }
         }
 

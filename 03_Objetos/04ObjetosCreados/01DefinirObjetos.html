@@ -20,7 +20,7 @@
         persona2.apellido = "Perez";
         persona2.anio = 1891;
 
-        //3. Definir un constructor de un objeto, y crear objetos del tipo construido
+        //3. Definir un constructor de un objeto, y crear objetos del tipo construido -> MÁS RECOMENDADA
         function Persona(nom, ape, an) {
             this.nombre = nom;
             this.apellido = ape;
@@ -59,6 +59,56 @@
         console.log(persona4.apellido);
         console.log(persona4.nombreCompleto());
        
+        function Persona(nom, ape, ed) {
+            this.nombre = nom;
+            this.apellido = ape;
+            this.edad = ed;
+            this.nombreCompleto = function () {
+                return this.nombre + " " + this.apellido;
+            }
+                        
+        }
+
+        let ana = new Persona("Ana", "Smith", "23");
+        let paco = new Persona("Pedro", "Lopex", "45");
+
+        ana.nacionalidad = "Inglesa";
+        console.log(ana.nacionalidad);
+        console.log(paco.nacionalidad); //undefined
+
+        Persona.prototype.fecha = "1989"; //con prototype introduce la propiedad en TODOS los objetos del tipo Persona
+
+        console.log(paco.fecha);
+        console.log(ana.fecha);
+
+        Persona.prototype.saludar = function () {
+            return `Hola ${this.nombre}`;
+        }
+
+        console.log(ana.saludar());
+
+        function Loro(nom, ape, ed) {
+            this.nombre = nom;
+            this.apellido = ape;
+            this.edad = ed;
+            habla = function () {
+                return "Hola";
+            }
+                        
+        }
+
+        let coso = new Loro("Ana", "Smith", "23");
+
+        console.log(coso.habla());
+
+
+        //JSON
+
+        JSON.parse(str); //convierte el str a un objeto y lo devuelve
+        JSON.stringify(obj); //convierte un objeto a su representación
+
+
+
         
 
     </script>

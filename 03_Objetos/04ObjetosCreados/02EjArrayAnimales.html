@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let animales = ["loro", "faisán", "t-rex"];
+        console.log(Object.keys(animales));
+        console.log(Object.values(animales));
+        console.log(Object.entries(animales));
+        console.log(Object.fromEntries(Object.entries(animales)));
+
+        const keys = ["name", "life", "power", "talk"];
+        const values = ["Otto", 99, 10, function(){return "hola"}];
+
+        const entries = [];
+        for (let i of Object.keys(keys)) {
+            const key = keys[i];
+            const value = values[i];
+            entries.push([key, value]);
+        }
+
+        console.log(entries);
+        const user = Object.fromEntries(entries);
+        console.log(user);
+    </script>
+</body>
+</html>

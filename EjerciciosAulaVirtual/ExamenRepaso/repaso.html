@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        [pe]Bue[pe]no[pe]sDia[pe]s
+
+        * La palabra debe comenzar con pe
+        * La pe va detrás de una vocal
+        * Cuando hay varias vocales juntas, la pe va solo después de la última vocal
+        * Cuando la palabra termina con una vocal, no se agrega el pe después
+        * La cadena de palabras se compone únicamente de  caracteres en minúscula y mayúscula
+     -->
+    <script>
+        
+        //"Autenticacion";
+
+        cifrar("AUTENTICACION");
+        function cifrar(palabra) {
+            const BUSCAR = ["a", "e", "i", "o", "u"];
+            let cadena = "pe";
+            
+            for (let i = 0; i < palabra.length; i++) {//se itera la cadena desde el caracter 0 hasta el final (.length)
+                cadena += palabra[i];
+                if (BUSCAR.includes(palabra[i].toLowerCase()) && !BUSCAR.includes(palabra[i+1].toLowerCase())) { //si la i es vocal y la siguiente NO es vocal
+                    //.toLowerCase() para pasar a minuscula y que coincida con el array
+                    cadena += "pe";        
+                }
+                
+            }
+            console.log(cadena);
+        }
+
+    </script>
+</body>
+</html>

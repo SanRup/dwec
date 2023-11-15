@@ -97,17 +97,68 @@
         //     productos que tienen menos unidades que las indicadas 
         //     • prodLista() Devuelve una cadena que dice ‘Listado de productos:’ y en cada línea un guión y la información de un producto del array
 
-        let pilot = new Productos("Pilot V5 Hi-Tecpoint", "Papeleria", 200, 3.50);
-        let monitorv5 = new Productos("Eizo V5 ProMax", "Informática", 5, 49.90);
-        let estucheAzul = new Productos("Estuche Starplas", "Papeleria", 200, 3.50);
-        let botella = new Productos("Botella Térmica Negra V3", "Accesorios", 32, 5.49);
-        let disipador = new Productos("ThermalRight 350 V32HTG", "Hardware", 15, 36.99);
+        let pilot = new Productos("Pilot V5 Hi-Tecpoint", "Papeleria", 4, 999.99);//200, 3.99999
+        let monitorv5 = new Productos("Eizo V5 ProMax", "Informática", 7, 799.79); //5, 49.90
+        let estucheAzul = new Productos("Estuche Starplas", "Papeleria", 10, 285.79);//200, 3.50
+        let botella = new Productos("Botella Térmica Negra V3", "Accesorios", 2, 374.255);//32, 5.49
+        let disipador = new Productos("ThermalRight 350 V32HTG", "Hardware", 100, 1074.25);//15, 36.99
 
         let prodArray = [pilot, monitorv5, estucheAzul, botella, disipador];
 
-        function prodOrdenPorNombre(prodArray) {
-            array.sort(prodArray)
+        
+        prodOrdenPorNombre(prodArray);
+
+        function prodOrdenPorNombre(array) {
+            array.sort(function (a, b) {
+                return a.nombre.localeCompare(b.nombre);
+            });
         }
+
+        prodOrdenPorPrecio(prodArray);
+
+        function prodOrdenPorPrecio(array) {
+            array.sort(function (a, b) {
+                return a.precio - b.precio;
+            });
+        }
+
+        console.log("Precio total " + prodPrecioTotal(prodArray));
+
+        function prodPrecioTotal(array) {
+            let total = 0;
+            array.forEach(element => {
+                total += element.importe();
+            });
+            return total.toFixed(2);
+        }
+
+        let menosUd = prodConMenosUnidades(prodArray, 8);
+
+        function prodConMenosUnidades(array, ud) {
+            let temp = [];
+            array.forEach(element => {
+                if (element.unidades < ud) {
+                    temp.push(element);
+                }
+            });
+            return temp;
+        }
+
+        menosUd.forEach(element => {
+            console.log(element);
+        });
+        console.log(menosUd);
+
+        console.log(prodLista(prodArray));
+        function prodLista(array){
+            let cad = "Listado de productos:\n";
+            array.forEach(element => {
+                cad += `- ${element.nombre} / ${element.precio}€ --- Total: ${element.importe()}€\n`;
+            });
+            return cad;
+        }
+        
+
 
     </script>
 </body>

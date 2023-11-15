@@ -19,14 +19,16 @@
         
         //"Autenticacion";
 
-        cifrar("AUTENTICACION");
+        
+
+        cifrar("Autenticacion");
         function cifrar(palabra) {
             const BUSCAR = ["a", "e", "i", "o", "u"];
             let cadena = "pe";
             
             for (let i = 0; i < palabra.length; i++) {//se itera la cadena desde el caracter 0 hasta el final (.length)
                 cadena += palabra[i];
-                if (BUSCAR.includes(palabra[i].toLowerCase()) && !BUSCAR.includes(palabra[i+1].toLowerCase())) { //si la i es vocal y la siguiente NO es vocal
+                if (BUSCAR.includes(palabra[i].toLowerCase()) && !BUSCAR.includes(palabra[i+1]) && (i != palabra.length-1)) { //si la i es vocal y la siguiente NO es vocal
                     //.toLowerCase() para pasar a minuscula y que coincida con el array
                     cadena += "pe";        
                 }

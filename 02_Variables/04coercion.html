@@ -32,43 +32,43 @@
 
     <script>
         if([]){
-            console.log(true)
+            console.log(true); //true
         }
 
-        if(4 + "1" == 5){
-            console.log("Pizza");
+        if(4 + "1" == 5){ //false
+            console.log("4 + '1' == 5 true");
         }else{
-            console.log("Queso");
+            console.log("4 + '1' == 5 false");
         }
 
-        if(5 + true == 6){
-            console.log("Pizza");
+        if(5 + true == 6){ //true
+            console.log("5 + true == 6 true");
         }else{
-            console.log("Queso");
+            console.log("5 + true == 6 false");
         }
 
-        if(5 + true === 6){
-            console.log("Pizza");
+        if(5 + true === 6){ //false
+            console.log("5 + true === 6 true");
         }else{
-            console.log("Queso");
+            console.log("5 + true === 6 false");
         }
 
         if(5 + true === "6"){
-            console.log("Pizza");
+            console.log("5 + true === '6' true");
         }else{
-            console.log("Queso");
+            console.log("5 + true === '6' false");
         }
 
         if(!undefined){
-            console.log("Pizza undefined");
+            console.log("!undefined true");
         }else{
-            console.log("Queso");
+            console.log("!undefined false");
         }
 
         if({}=={}){ //compara por referencia
-            console.log("Pizza objeto");
+            console.log("{}=={} true");
         }else{
-            console.log("Queso objeto");
+            console.log("{}=={} false");
         }
     </script>
 </body>

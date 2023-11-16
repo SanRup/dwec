@@ -40,6 +40,39 @@
             console.log(arraySet);
             console.log(arraySet instanceof Array); // para saber si es un array
 
+            //ejemplo
+            const mySet1 = new Set();
+
+            mySet1.add(1); // Set [ 1 ]
+            mySet1.add(5); // Set [ 1, 5 ]
+            mySet1.add(5); // Set [ 1, 5 ]
+            mySet1.add("algún texto"); // Set [ 1, 5, 'algún texto' ]
+            const o = { a: 1, b: 2 };
+            mySet1.add(o);
+
+            mySet1.add({ a: 1, b: 2 }); // o está haciendo referencia a un objeto diferente,
+            // por lo que está bien
+
+            mySet1.has(1); // true
+            mySet1.has(3); // false, ya que 3 no se ha agregado al conjunto
+            mySet1.has(5); // true
+            mySet1.has(Math.sqrt(25)); // true
+            mySet1.has("Algún Texto".toLowerCase()); // true
+            mySet1.has(o); // true
+
+            mySet1.size; // 5
+
+            mySet1.delete(5); // elimina 5 del conjunto
+            mySet1.has(5); // false, 5 ha sido eliminado
+
+            mySet1.size; // 4, ya que acabamos de eliminar un valor
+
+            console.log(mySet1);
+            // imprime en consola Set(4) [ 1, "algún texto", {…}, {…} ] en Firefox
+            // imprime en consola Set(4) { 1, "algún texto", {…}, {…} } en Chrome
+
+
+
         //Maps -> organiza por clave(unica) - valor 
         console.log("Maps******************");
         const map = new Map([
@@ -51,6 +84,34 @@
             //se crean vacios y se usa
             //se recorren con for of
             //metodos key, value, get(clave), delete(clave), has
+
+            const myMap = new Map();
+            myMap.set(0, "zero");
+            myMap.set(1, "one");
+
+            for (const [key, value] of myMap) {
+            console.log(`${key} = ${value}`);
+            }
+            // 0 = zero
+            // 1 = one
+
+            for (const key of myMap.keys()) {
+            console.log(key);
+            }
+            // 0
+            // 1
+
+            for (const value of myMap.values()) {
+            console.log(value);
+            }
+            // zero
+            // one
+
+            for (const [key, value] of myMap.entries()) {
+            console.log(`${key} = ${value}`);
+            }
+            // 0 = zero
+            // 1 = one
     </script>
 </body>
 </html>

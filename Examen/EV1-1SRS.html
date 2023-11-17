@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    //prompt
+    let minutos = parseInt(prompt("Introduce unos minutos entre 6 y 16")); //parseInt para parsear el string del prompt
+   
+
+    const COORD = ["n", "e", "s", "o"]; 
+    const COORD_REV = ["s", "o", "n", "e"];
+
+    while (minutos <= 6 || minutos >=16 || minutos%2 !== 0 || isNaN(minutos)) { //condicion para datos incorrectos
+        alert("Error en los datos");
+        minutos = parseInt(prompt("Introduce unos minutos entre 6 y 16")); //vulve a pedir el número 
+    }
+
+    if (minutos >= 6 && minutos <=16) { //vuelve a comprobar que el número este bien
+        //mitad del tiempo
+        let mitad = minutos/2; //divide el tiempo entre dos para crear la mitad del camino
+        direccion(mitad); // llama a la funcion con ese valor
+    }
+    
+    
+    function direccion(mitad) {
+        //dos arrays
+        let ida = []; //uno para la ida 
+        let vuelta = [];  //otro para la vuelta
+        let i = 0; //indice para llegar hasta la mitad 
+        while (i < mitad) {
+            let aleatorio = parseInt(Math.random()*10); //numero aleatorio entre 0 y 10
+            if (aleatorio < 4 && aleatorio >= 0) { //solo entraran los numeros entre 0 y 3 
+                ida.push(COORD[aleatorio]); // guarda en la ida la coordenada correspondiente con el número entre 0 y 3
+                vuelta.push(COORD_REV[aleatorio]);
+                i++; // aumenta i
+            }
+        }
+        
+        let camino = [...ida,...vuelta]; // desestructura los arrays y los guarda en uno solo
+        
+        alert(`Tu camino es: ${camino.join(" - ")}`); //imprime el alert con comillas literales y haciendo una cadena separada por guiones
+    }
+    
+    
+   </script> 
+</body>
+</html>

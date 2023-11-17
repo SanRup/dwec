@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Haz un programa en JavaScript que dibuje una pirámide invertida utilizando los números del 1
+    al número que indique el usuario (máximo 50), de tal forma que la primera línea contenga tantos
+    números repetidos como el número introducido y vaya disminuyendo en una unidad en cada
+    salto de línea. Las cifras estarán centradas en la pantalla  -->
+    <p id="printFila"></p>
+    <script>
+        
+        //variable para el número de la pirámide
+        let totalFila = parseInt(prompt("Introduce un número (Máx 50)"));
+
+        while (totalFila<0 || totalFila>50 || isNaN(totalFila)) { //isNaN para evitar un valor vacio
+            alert("El número debe estar entre 0 y 50");
+            //variable para el número de la pirámide
+            totalFila = parseInt(prompt("Introduce un número (Máx 50)"));
+        }
+                
+        //variables para imprimir
+        let spa = "&nbsp&nbsp"; //espacios
+        let num = totalFila;//numeros
+
+        //variable que guarda lo que imprimime por pantalla
+        let printFila = "";
+
+        //funcion que añade espacios
+        function printSpa(n) {
+            for (let i = 0; i < totalFila - n; i++) {
+                printFila += spa;
+            }
+        }
+
+        //funcion que añade los números
+        function printNum(n) {
+            for (let i = 0; i < (n*2)-1; i++) {
+                printFila += num;  
+            }
+        }
+
+        //vuelta
+
+        for (let i = totalFila; i > 0; i--) { 
+            
+            printSpa(i);
+
+            printNum(i);
+
+            printFila += "</br>";
+
+            num--; //restamos a num uno para que la siguiente fila imprima un número menor
+        }
+   
+        document.getElementById('printFila').innerHTML = printFila;
+    </script>
+
+</body>
+</html>

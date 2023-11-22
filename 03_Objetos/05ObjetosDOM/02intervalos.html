@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="setTimeout(hola,4000)">Saluda</button>
+    <button onclick="saludo = setInterval(hola,1000)">SaludaTodoElRato</button>
+    <button onclick="clearTimeout(saludo)">PararHolas</button>
+    <p id="msg"></p>
+    <script>
+        var miVentana;
+
+        function hola() {
+            document.getElementById("msg").innerHTML += "holiwi<br/>";
+        }
+    </script>
+</body>
+</html>

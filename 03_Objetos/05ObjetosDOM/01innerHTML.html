@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ventana"></p>
+    <script>
+
+        window.name = "mi Ventana para manejar el BOM";
+
+        let texto = "";
+        texto += "<br/>Nombre: " + window.name;
+        texto += "<br/>Alto externo: " + window.outerHeight;
+        texto += "<br/>Ancho externo: " + window.outerWidth;
+        texto += "<br/>Alto interno: " + window.innerHeight;
+        texto += "<br/>Ancho interno: " + window.innerWidth;
+        texto += "<br/>Scroll x (Distancia del borde): " + window.pageXOffset;
+        texto += "<br/>Scroll y: " + window.pageYOffset;
+        texto += "<br/>Screen x (Ventana en un sitio determinado): " + window.screenX;
+        texto += "<br/>Screen y (Ventana en un sitio determinado): " + window.screenY;
+        document.getElementById("ventana").innerHTML = texto;
+
+        var miVentana;
+        function crearVentana() {
+
+            //window.open("https://www.google.com/");   
+            miVentana = window.open("", "", "width = 500, height = 200");  
+            miVentana.document.write("<h1>Miventana</h1>");
+        }
+
+        function cerrarVentana() {
+            miVentana.close();
+        }
+
+        function rediVentanaBy() {
+            //agranda x px desde lo que tiene
+            miVentana.resizeBy(50,50);
+            
+        }
+
+        function rediVentanaTo() {
+            //Pone el tamaño indicado
+            miVentana.resizeTo(10,10);
+        }
+
+        function enfocar() {
+            miVentana.focus();
+        }
+
+        function imprimir() {
+            miVentana.print();
+        }
+
+        function moverBy() {
+            miVentana.moveBy(50,30);
+        }
+
+        function moverTo() {
+            function crearVentana() {
+
+//window.open("https://www.google.com/");   
+miVentana = window.open("", "", "width = 500, height = 200");  
+miVentana.document.write("<h1>Miventana</h1>");
+}
+        }
+    </script>
+    <!-- Añadimos un boton con una funcion -->
+    <button onclick="crearVentana()">Crear Ventana</button>
+    <button onclick="cerrarVentana()">Cerrar Ventana</button><br/>
+    <button onclick="rediVentanaBy()">Redimensionar Ventana BY</button><br/>
+    <button onclick="rediVentanaTo()">Redimensionar Ventana TO</button><br/>
+    <button onclick="enfocar()">Focus</button>
+    <button onclick="imprimir()">Print</button><br/>
+    <button onclick="moverBy()">MoverBy</button>
+    <button onclick="moverTo()">MoverTo</button><br/>
+    
+
+    
+    
+</body>
+</html>

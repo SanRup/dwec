@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Abrir una nueva ventana de  dimensiones 500x200px en la posicion(100,200)
+        Escribe con un write un h1 que diga hola
+        desplazarla 300 px hacia abajo y 100 a la iz
+        cerrar
+
+        -----
+
+        Hacer que a los 2 seg de abrir la pagina se abra un popup
+        con un mensaje de bienvenida
+        con un boton de cerrar que permita al usuario cerrarla
+        con el tamaño justo para visualizar mensajes sin barras de scroll, ni de herramientas,
+        ni de direccion... unicamente el mensaje y el boton
+     -->
+
+     <script>
+
+        ventana();
+
+        function ventana() {
+            let miVentana = window.open("", "", "width = 500, height = 200"); 
+            miVentana = setTimeout(popupVentana,2000);
+            miVentana = window.moveTo(100,200);
+            miVentana = window.moveBy(300,100);
+            //miVentana = window.close();
+        }
+
+        function popupVentana() {
+            let popup = window.open("", "", "width = 200, height = 200");
+            popup.document.write("Hola");
+            popup.document.write("<button onclick=window.close()>Cerrar</button>"); 
+        }
+     </script>
+</body>
+</html>

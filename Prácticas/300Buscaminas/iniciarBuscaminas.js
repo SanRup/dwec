@@ -1,5 +1,5 @@
         function generarTableroJS(){
-
+            let 
         };
 
         function calcularNumMinas(x, y){

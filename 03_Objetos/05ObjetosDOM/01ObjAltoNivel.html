@@ -21,7 +21,36 @@
         texto += "<br/>Scroll y: " + window.pageYOffset;
         texto += "<br/>Screen x (Ventana en un sitio determinado): " + window.screenX;
         texto += "<br/>Screen y (Ventana en un sitio determinado): " + window.screenY;
+
+        //funciones con navigator
+        texto += "<br/><br/>NAVIGATOR";
+        texto += "<br/>codeName: " + navigator.codeName;
+        texto += "<br/>appCodeName: " + navigator.appCodeName;
+        texto += "<br/>appName: " + navigator.appName;
+        texto += "<br/>appVersion: " + navigator.appVersion;
+        texto += "<br/>product: " + navigator.product;
+        texto += "<br/>platform: " + navigator.platform;
+        texto += "<br/>onLine: " + navigator.onLine;
+        texto += "<br/>languaje: " + navigator.language;
+        texto += "<br/>cookieEnabled: " + navigator.cookieEnabled;
+        texto += "<br/>userAgent: " + navigator.userAgent;
+        texto += "<br/>geolocation: " + navigator.geolocation;
+        texto += "<br/>javaEnable(): " + navigator.javaEnabled();
+
+        //funciones con screen
+        texto += "<br/><br/>SCREEN";
+        texto += "<br/>width: " + screen.width;
+        texto += "<br/>height: " + screen.height;
+        texto += "<br/>availWidth: " + screen.availWidth;
+        texto += "<br/>availHeight: " + screen.availHeight;
+        texto += "<br/>colorDepth: " + screen.colorDepth;
+        texto += "<br/>pixelDepth: " + screen.pixelDepth;
+
         document.getElementById("ventana").innerHTML = texto;
+
+        console.log(navigator);
+
+        
 
         var miVentana;
         function crearVentana() {
@@ -59,13 +88,11 @@
         }
 
         function moverTo() {
-            function crearVentana() {
-
-//window.open("https://www.google.com/");   
-miVentana = window.open("", "", "width = 500, height = 200");  
-miVentana.document.write("<h1>Miventana</h1>");
-}
+            miVentana.moveTo(80,50);
         }
+
+
+        
     </script>
     <!-- Añadimos un boton con una funcion -->
     <button onclick="crearVentana()">Crear Ventana</button>

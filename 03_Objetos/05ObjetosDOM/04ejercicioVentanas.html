@@ -27,6 +27,7 @@
 
         function ventana() {
             let miVentana = window.open("", "", "width = 500, height = 200"); 
+            miVentana.document.write("<h1>Hola</h1>");
             miVentana = setTimeout(popupVentana,2000);
             miVentana = window.moveTo(100,200);
             miVentana = window.moveBy(300,100);
@@ -34,8 +35,8 @@
         }
 
         function popupVentana() {
-            let popup = window.open("", "", "width = 200, height = 200");
-            popup.document.write("Hola");
+            let popup = window.open("", "", "width=200,height=200,scrollbars=no,toolbar=yes");
+            popup.document.write("Bienvenida");
             popup.document.write("<button onclick=window.close()>Cerrar</button>"); 
         }
      </script>

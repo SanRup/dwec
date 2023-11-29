@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Web boton "Pulsame"
+        a)
+            1 - Si he pulsado la página cambia de color (aleatorio) (0 a 16777215)
+            2 - Si se pulsa en cualquier otra parte, vuelve a blanco
+        b)
+            3 - Mediante eventos (event) muestre la posicion del ratón
+     -->
+
+    <button id="boton">Púlsame</button>
+
+    <div id="mouse">
+        <h3>x: <span id="x"></span></h3>
+        <h3>y: <span id="y"></span></h3>
+    </div>
+
+    <script>
+        const COLOR = 16777215; //constante para guardar el valor máximo del color hexadecimal
+
+        //listener del boton
+        document.getElementById("boton").addEventListener
+            (
+                "click", //cuando se hace click
+                function () {
+                    //cambia el estilo del fondo a un numero aleatorio entre 0 y el max hexadecimal
+                    document.body.style.background="#" + Math.floor(Math.random() * COLOR).toString(16); //se redonde hacia abajo para que no salga del numero maximo
+                }, 
+                false
+            );
+
+        
+        //listener de todo el document    
+        document.addEventListener
+            (
+                "click",
+                function () {
+                    //si estoy apuntando un sitio diferente al boton
+                    if (event.target !== document.getElementById("boton")) {
+                        //pone el fondo blanco -> hay un metodo para body
+                        document.body.style.background="#ffffff";
+                    }
+                },
+                false
+            );
+
+        document.addEventListener
+                (
+                    "mousemove",
+                    function (element) {
+                        document.getElementById("x").innerHTML = element.x;
+                        document.getElementById("y").innerHTML = element.y;
+                    },
+                    false
+                );
+
+
+    </script>
+
+</body>
+</html>

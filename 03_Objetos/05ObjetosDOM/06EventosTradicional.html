@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="tradicional" >Pulsa aquí</h1>
+
+    <script>
+        document.getElementById("tradicional").onclick = cambiar; //sin parentesis
+        function cambiar() {
+            document.getElementById("tradicional").innerHTML = "Modelo tradicional";
+        }
+    </script>
+</body>
+</html>

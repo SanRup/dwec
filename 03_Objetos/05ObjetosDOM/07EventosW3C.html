@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="w3c">Modelo W3C</h1>
+
+    <script>
+        document.getElementById("w3c").addEventListener("click", color, false);
+        //document.getElementById("w3c").addEventListener("click", fondo, false);
+
+        function color() {
+            document.getElementById("w3c").style.color="red";
+        }
+
+        function fondo() {
+            document.getElementById("w3c").style.background="blue";
+        }
+
+        document.getElementById("w3c").addEventListener
+            (
+                "click",
+                //con funcion anonima y this 
+                function () {this.style.background="green";}, 
+                false
+            );
+    </script>
+
+</body>
+</html>

@@ -12,6 +12,9 @@
         window.name = "mi Ventana para manejar el BOM";
 
         let texto = "";
+
+        //funciones de window
+        texto += "<br/><br/>WINDOW";
         texto += "<br/>Nombre: " + window.name;
         texto += "<br/>Alto externo: " + window.outerHeight;
         texto += "<br/>Ancho externo: " + window.outerWidth;
@@ -46,9 +49,27 @@
         texto += "<br/>colorDepth: " + screen.colorDepth;
         texto += "<br/>pixelDepth: " + screen.pixelDepth;
 
+        //funciones con history
+        texto += "<br/><br/>HISTORY";
+        texto += "<br/>length: " + history.length;
+        texto += "<br/>back: " + history.back();
+        texto += "<br/>forward: " + history.forward();
+        texto += "<br/>go: " + history.go();
+
+        //funciones con location
+        texto += "<br/><br/>LOCATION";
+        texto += "<br/>href: " + location.href;
+        texto += "<br/>hostname: " + location.hostname;
+        texto += "<br/>pathname: " + location.pathname;
+        texto += "<br/>protocol: " + location.protocol;
+        texto += "<br/>hash: " + location.hash;
+        texto += "<br/>host: " + location.host;
+        texto += "<br/>origin: " + location.origin;
+        texto += "<br/>search: " + location.search;
+
         document.getElementById("ventana").innerHTML = texto;
 
-        console.log(navigator);
+        ///console.log(navigator);
 
         
 

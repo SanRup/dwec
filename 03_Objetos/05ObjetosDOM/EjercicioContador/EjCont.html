@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Contador: <span id="num">0</span></h1>
+    <button id="contMas">Boton Sumar</button>
+    <button id="contMenos">Boton Restar</button><br><br>
+    <button id="contUniversal">Boton Universal</button>
+
+    <h2 id="color">colores</h2>
+    <h2 id="p1">Párrafo 1</h2>
+    <h2 id="p2">Párrafo 2</h2>
+
+    <script>
+        let cont = parseInt(document.getElementById("num").textContent);
+        console.log(document.getElementById("num").textContent);
+
+        
+        document.getElementById("color").addEventListener("mouseover", manejador, false);    
+        document.getElementById("color").addEventListener("mouseout", manejador, false);    
+        document.getElementById("p1").addEventListener("click", saludo, false);    
+        document.getElementById("p2").addEventListener("click", saludo, false);    
+        document.getElementById("contMas").addEventListener("click", contar, false);    
+        document.getElementById("contMenos").addEventListener("click", contar, false);    
+        document.getElementById("contUniversal").addEventListener("click", contar, false);    
+        document.getElementById("contUniversal").addEventListener("auxclick", contar, false);    
+
+
+        function contar(e) {
+            switch (e.type && e.target.id) {
+                case "click" && "contMas", "click" && "contUniversal":
+                    cont++;
+                    document.getElementById("num").innerHTML = cont;
+                    break;
+                case "click" && "contMenos", "auxclick" && "contUniversal":
+                    cont--;
+                    document.getElementById("num").innerHTML = cont; 
+                    break;    
+            }
+        }
+
+        function manejador(e) {
+            switch (e.type) {
+                case "mouseover":
+                    this.style.color = "red";
+                    break;
+                case "mouseout":
+                    this.style.color = "orange";
+                break;
+            }
+        }
+        
+        function saludo(e) {
+
+            document.getElementById(e.target.id).innerHTML = "Holiwi";
+
+            if (e.target.id == "p1") {
+                setTimeout(()=>alert("Has pulsado el párrafo 1 = " + e.target.id),15);
+            }else if(e.target.id == "p2"){
+                setTimeout(()=>alert("Has pulsado el párrafo 2 = " + e.target.id),15);
+            }
+        }
+
+         // document.getElementById("contMas").addEventListener
+        //     (
+        //         "click",
+        //         function () {
+        //             cont++;
+        //             document.getElementById("num").innerHTML = cont; 
+        //         },
+        //         false
+        //     );
+
+        // document.getElementById("contMenos").addEventListener
+        //     (
+        //         "click",
+        //         function () {
+        //             cont--;
+        //             document.getElementById("num").innerHTML = cont; 
+        //         },
+        //         false
+        //     );    
+
+    </script>
+</body>
+</html>

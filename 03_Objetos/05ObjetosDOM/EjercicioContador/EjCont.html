@@ -19,9 +19,7 @@
     <h2 id="p2">Párrafo 2</h2>
 
     <script>
-        let cont = parseInt(document.getElementById("num").textContent);
-        console.log(document.getElementById("num").textContent);
-
+        let cont = parseInt(document.getElementById("num").textContent); //textContent para extraer el valor del elemento
         
         document.getElementById("color").addEventListener("mouseover", manejador, false);    
         document.getElementById("color").addEventListener("mouseout", manejador, false);    
@@ -30,20 +28,42 @@
         document.getElementById("contMas").addEventListener("click", contar, false);    
         document.getElementById("contMenos").addEventListener("click", contar, false);    
         document.getElementById("contUniversal").addEventListener("click", contar, false);    
-        document.getElementById("contUniversal").addEventListener("auxclick", contar, false);    
+        document.getElementById("contUniversal").addEventListener("contextmenu", contar);    
 
 
         function contar(e) {
-            switch (e.type && e.target.id) {
-                case "click" && "contMas", "click" && "contUniversal":
+            if (
+                (e.type == "click" && e.target.id == "contMas") || //boton sumar
+                (e.type == "click" && e.target.id == "contUniversal") //boton universal click
+                ) {
                     cont++;
                     document.getElementById("num").innerHTML = cont;
-                    break;
-                case "click" && "contMenos", "auxclick" && "contUniversal":
+            } else if (
+                (e.type == "click" && e.target.id == "contMenos") || //boton restar
+                (e.type == "contextmenu" && e.target.id == "contUniversal") //boton universal click derecho
+                ) {
                     cont--;
-                    document.getElementById("num").innerHTML = cont; 
-                    break;    
-            }
+                    document.getElementById("num").innerHTML = cont;
+                }
+
+
+            // console.log(e.type, e.target.id, e.button);
+            // switch (e.type ,e.target.id, e.button) {
+            //     case ("click" && "contMas" && 0):
+            //         console.log(e.type, e.target.id, "mas1");
+            //     case ("click" && "contUniversal" && 0):
+            //         console.log(e.type, e.target.id, "mas2",e.button);
+            //         cont++;
+            //         document.getElementById("num").innerHTML = cont;
+            //         break;
+            //     case ("click" && "contMenos" && 0):
+            //         console.log(e.type, e.target.id, "menos1",e.button);
+            //     case ("contextmenu" && "contUniversal" && 2):
+            //         console.log(e.type, e.target.id, "menos2",e.button);
+            //         cont--;
+            //         document.getElementById("num").innerHTML = cont; 
+            //         break;    
+            // }
         }
 
         function manejador(e) {
@@ -53,7 +73,7 @@
                     break;
                 case "mouseout":
                     this.style.color = "orange";
-                break;
+                    break;
             }
         }
         

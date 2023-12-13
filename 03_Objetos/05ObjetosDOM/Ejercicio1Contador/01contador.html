@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contador: <span id="num">0</span></h1>
+    
+    <button id="contUniversal">Botón Universal</button>
+
+    <script>
+        let cont = parseInt(document.getElementById("num").textContent); //textContent para extraer el valor del elemento
+        
+        
+        document.getElementById("contUniversal").addEventListener("click", contar, false);    
+        document.getElementById("contUniversal").addEventListener("contextmenu", contar);    
+
+
+        function contar(e) {
+            if (e.type == "click") {
+                cont++;
+                document.getElementById("num").innerHTML = cont;
+            } else if ((e.type == "contextmenu")) {
+                event.preventDefault();//previene el comportamiento predefinido del btn izquierdo
+                cont--;
+                document.getElementById("num").innerHTML = cont;
+            }
+        }
+
+    </script>
+</body>
+</html>

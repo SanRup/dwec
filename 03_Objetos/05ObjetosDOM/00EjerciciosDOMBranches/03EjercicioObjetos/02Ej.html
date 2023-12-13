@@ -34,11 +34,28 @@
         ];
 
         //APARTADO 1
+        console.log("Apartado 1-----------------");
         let mayoresEdad = usuarios.filter((usuarios) => usuarios.edad >= 18);
         mayoresEdad.forEach(element => {
             console.log(element.nombre, element.edad);
-        });  
-    
+        }); 
+
+        //APARTADO 2
+        console.log("Apartado 2-----------------");
+        let edadMedia = (mayoresEdad.reduce((med, mayoresEdad) => med += mayoresEdad.edad,0)/mayoresEdad.length).toFixed();
+        console.log(edadMedia);
+
+        //APARTADO 3
+        console.log("Apartado 3-----------------");
+        let menor = mayoresEdad.find((max, nota) => nota > max ? nota : max);
+        console.log(menor);
+        //mirar find
+        function comparaEdad(edad) {
+            
+        }
+
+        let arrayRed = arrayNotas.
+        console.log(arrayRed);
      </script>
 </body>
 </html>

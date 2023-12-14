@@ -42,9 +42,9 @@
 
 ## **Eventos**
 > - [x] [Ejercicios de Programación Funcional](https://github.com/SanRup/dwec/tree/main/03_Objetos/05ObjetosDOM/03ProgramacionFuncional/00EjerciciosDOMBranches)
-    > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosDOM/03ProgramacionFuncional/00EjerciciosDOMBranches/01EjercicioContador/01contador.html)
-    > - [x] [Ejercicio 1 Branches]()
-    > - [x] [Ejercicio 2 Branches]()
+>   > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosDOM/03ProgramacionFuncional/00EjerciciosDOMBranches/01EjercicioContador/01contador.html)
+>   > - [x] [Ejercicio 1 Branches]()
+>   > - [x] [Ejercicio 2 Branches]()
 
 ## [**Prácticas**](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas)
 > - [x] [101](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/101)

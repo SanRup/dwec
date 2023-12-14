@@ -33,9 +33,6 @@
 > - [x] [El Rombo](https://github.com/SanRup/dwec/blob/main/EjerciciosAulaVirtual/EjerciciosOctubre/EjercicioRombo.html)
 > - [x] [El tren](https://github.com/SanRup/dwec/blob/main/EjerciciosAulaVirtual/EjerciciosOctubre/EjercicioTren.html)
 
-## **Objetos**
-> - [x] [Objetos y prototype](https://github.com/SanRup/dwec/blob/main/03_Objetos/04ObjetosCreados/01EjercicioObjetosPrototipo.html)
-
 ## **Otros ejercicios** 
 > - [x] [La peliculera](https://github.com/SanRup/dwec/blob/main/EjerciciosAulaVirtual/LaPeliculera/Ejercicio02Peliculera.html)
 > - [x] [Objetos y prototype](https://github.com/SanRup/dwec/blob/main/03_Objetos/04ObjetosCreados/01EjercicioObjetosPrototipo.html)

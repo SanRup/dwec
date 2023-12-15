@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Escribe el código necesario para:
+        1.- Obtener la fecha y hora actual      
+        2.- Mezclar dos Arrays           
+        3.- Borrar elementos repetidos en un array           
+        4.- Generar un número aleatorio entre dos valores dados            
+        5.- Generar una cadena alfanumérica aleatoria
+        6.- Convertir un objeto en un array
+        7.-  Copiar texto al portapapeles            
+        8.- Comprobar si una propiedad existe IN un objeto
+        9.- Ordenar un Array en orden ascendente
+        10.-  Obtener la longitud de un objeto
+     -->
+
+     <h3 id="hora"></h3>
+    <script>
+        //1.- Obtener la fecha y hora actual      
+        document.getElementById("hora").innerHTML = new Date();
+
+        // 2.- Mezclar dos Arrays 
+        let arrayA = [1,2];
+        let arrayB = [3,4];
+        console.log(arrayA.concat(arrayB));
+        
+        // 3.- Borrar elementos repetidos en un array  
+        let arrayRep = [1,1,2,2,3,3,4,4,5,5];
+        let sinRep = new Set(arrayRep);
+        console.log(sinRep);
+        
+        // 4.- Generar un número aleatorio entre dos valores dados 
+        let max = 10, min = 5;
+        let aleatorio = Math.floor(Math.random() * (max - min) + min) ;
+        console.log(aleatorio);
+        
+        // 5.- Generar una cadena alfanumérica aleatoria
+        let alfanum = "abcdefghijklmnñopqrstuvwxyz0123456789";
+        let cadena = "";
+        for (let i = 0; i < 10; i++) {
+            cadena += alfanum.charAt(Math.floor(Math.random() * alfanum.length)); 
+        }
+        console.log(cadena);
+        
+        // 6.- Convertir un objeto en un array
+        let obj = {nombre:"Pepe", apellido:"Pepito"};
+        let arr = Object.values(obj);
+        console.log(arr);
+
+        // 7.-  Copiar texto al portapapeles   
+        
+        
+        // 8.- Comprobar si una propiedad existe IN un objeto
+        let objExiste = {nombre:"Pepe", apellido:"Pepito"};
+        console.log("apellido" in objExiste); //true
+        console.log("false" in objExiste); ///false
+
+        // 9.- Ordenar un Array en orden ascendente
+        let arrayOrd = [6, 5, 0, 7, 3, 45];
+        console.log(arrayOrd.sort((a, b) => a - b));
+
+        // 10.-  Obtener la longitud de un objeto
+        let objeto = {nombre:"Pepe", apellido:"Pepito"};
+        console.log(objeto.length);
+
+    </script>
+</body>
+</html>

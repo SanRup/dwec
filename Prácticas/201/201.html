@@ -21,6 +21,8 @@
      -->
 
      <h3 id="hora"></h3>
+     <button id="boton" >Cópiame</button>
+     <input type="text" id="caja">
     <script>
         //1.- Obtener la fecha y hora actual      
         document.getElementById("hora").innerHTML = new Date();
@@ -47,6 +49,13 @@
             cadena += alfanum.charAt(Math.floor(Math.random() * alfanum.length)); 
         }
         console.log(cadena);
+
+        let maxASCII = 122, minASCII = 48; //solo coge el rango de los números y letras
+        let cadenaASCII = "";
+        for (let i = 0; i < 10; i++) {
+            cadenaASCII += Math.floor(Math.random() * (maxASCII - minASCII) + minASCII).toString(36); //36 porque son 26letras + 10 num
+        }
+        console.log(cadenaASCII);
         
         // 6.- Convertir un objeto en un array
         let obj = {nombre:"Pepe", apellido:"Pepito"};
@@ -54,8 +63,15 @@
         console.log(arr);
 
         // 7.-  Copiar texto al portapapeles   
-        
-        
+        document.addEventListener
+            (
+                "click",
+                function () {
+                    navigator.clipboard.writeText('Copiado');
+                },
+                false
+            );
+       
         // 8.- Comprobar si una propiedad existe IN un objeto
         let objExiste = {nombre:"Pepe", apellido:"Pepito"};
         console.log("apellido" in objExiste); //true

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Nadie salió a (emridepsed) cuando me (iuf) de la estancia, (etnemalos) el ovejero.
+     -->
+     <script>
+        let cadena = "Nadie salió a (emridepsed) cuando me (iuf) de la estancia, (etnemalos) el ovejero.";
+
+        let array = cadena.split(" ");
+
+        array.forEach(element => {
+            if (element.startsWith("(")) {
+                
+                console.log(element);
+            }
+            
+        });
+        
+       
+
+     </script>
+</body>
+</html>

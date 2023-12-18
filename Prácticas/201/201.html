@@ -42,7 +42,11 @@
             cadenaASCII += Math.floor(Math.random() * (maxASCII - minASCII) + minASCII).toString(36); //36 porque son 26letras + 10 num
         }
         console.log(cadenaASCII);
-        
+        cadenaASCII="";
+        console.log("-----------------------");
+        cadenaASCII += Math.random().toString(36); //36 porque son 26letras + 10 num
+
+        console.log(cadenaASCII);
         // 6.- Convertir un objeto en un array
         let obj = {nombre:"Pepe", apellido:"Pepito"};
         let arr = Object.values(obj);
@@ -69,7 +73,7 @@
 
         // 10.-  Obtener la longitud de un objeto
         let objeto = {nombre:"Pepe", apellido:"Pepito"};
-        console.log(objeto.length);
+        console.log(Object.values(objeto).length);
 
     </script>
 </body>

@@ -41,13 +41,15 @@
 > - [x] [Objetos y prototype](https://github.com/SanRup/dwec/blob/main/03_Objetos/04ObjetosCreados/01EjercicioObjetosPrototipo.html)
 
 ## **Eventos**
-> - [x] [Ejercicios de Programación Funcional](https://github.com/SanRup/dwec/tree/main/03_Objetos/05ObjetosDOM/03ProgramacionFuncional/00EjerciciosDOMBranches)
->   > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosDOMBranches/01EjercicioContador/01contador.html)
->   > - [x] [Ejercicio 1 Branches](https://github.com/SanRup/dwec/blob/main/Pr%C3%A1cticas/201/201.html)
->   > - [x] [Ejercicio 2 Branches](https://github.com/SanRup/dwec/blob/main/Pr%C3%A1cticas/201/201-2.html)
+> - [x] [Ejercicios de Programación Funcional](https://github.com/SanRup/dwec/tree/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches)
+>   > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/01EjercicioContador/01contador.html)
+>   > - [x] [Map, Filter y Reduce](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/02EjercicioMapFilterReduce/02Numeros.html)
+>   > - [x] [Ejercicio 1 Branches](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/03EjercicioObjetos/01Ej.html)
+>   > - [x] [Ejercicio 2 Branches](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/03EjercicioObjetos/02Ej.html)
 
 ## [**Prácticas**](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas)
 > - [x] [101](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/101)
+> - [x] [201](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/201)
   
 ## **Buscaminas**
 > - [ ] [Buscaminas](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/300Buscaminas)

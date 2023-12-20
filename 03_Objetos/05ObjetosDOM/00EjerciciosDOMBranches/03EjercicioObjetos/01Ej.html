@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Se tiene una lista de usuarios con la siguiente estructura:
+        const usuarios = [
+        { id: 1, nombre: 'Juan', edad: 25 },
+        { id: 2, nombre: 'María', edad: 30 },
+        { id: 3, nombre: 'Pedro', edad: 20 },
+        { id: 4, nombre: 'Ana', edad: 35 },
+        ];
+
+        Se requiere:
+
+        Filtrar los usuarios mayores de 25 años.
+        Duplicar la edad de esos usuarios filtrados.
+        Obtener la suma total de las edades duplicadas.
+     -->
+<script>
+    const usuarios = [
+        { id: 1, nombre: 'Juan', edad: 25 },
+        { id: 2, nombre: 'María', edad: 30 },
+        { id: 3, nombre: 'Pedro', edad: 20 },
+        { id: 4, nombre: 'Ana', edad: 35 },
+        ];
+
+    //APARTADO 1
+    console.log("Apartado 1-----------------");
+    let mas25 = usuarios.filter((usuarios) => usuarios.edad >= 25);
+    mas25.forEach(element => {
+        console.log(element.nombre, element.edad);
+    });  
+    
+    //APARTADO 2
+    console.log("\nApartado 2-----------------");
+    let edadDuplicada = mas25.map(function(mas25) {
+        return {id:mas25.id, nombre:mas25.nombre, edad:mas25.edad*2}
+    });
+    edadDuplicada.forEach(element => {
+        console.log(element.nombre, element.edad);
+    });  
+    
+    //APARTADO 3
+    console.log("\nApartado 3-----------------");
+    let edadTotal = edadDuplicada.reduce((suma, edadDuplicada) => suma += edadDuplicada.edad,0);
+    console.log(edadTotal);
+</script>
+</body>
+</html>

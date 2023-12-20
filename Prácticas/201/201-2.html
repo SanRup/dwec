@@ -14,15 +14,15 @@
 
         let array = cadena.split(" ");
 
-        console.log(array);
-        array.forEach(element => {
+        array.forEach((element, index) => {
             if (element.startsWith("(")) {
-                console.log(element);
+                array[index] = element.replace("(", "").replace(")", "").split("").reverse().join("");
             }
-            
         });
         
-       
+        cadena = array.join(" ");
+        
+        console.log(cadena);
 
      </script>
 </body>

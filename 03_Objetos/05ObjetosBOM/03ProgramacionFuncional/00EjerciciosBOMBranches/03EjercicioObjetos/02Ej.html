@@ -47,31 +47,9 @@
 
         //APARTADO 3
         console.log("Apartado 3-----------------");
-        //let menor = mayoresEdad.reduce((a,b) => a.edad < b.edad ? a : b);
-        //console.log(menor);
-        
-        let menor1 = mayoresEdad.reduce(function (a,b){
-            console.log("aaaa");
-            console.log(a);
-            console.log(b.edad);
-            
-            if (a < b.edad) {
-                
-                console.log("treu");
-                console.log(a);
-                console.log(b);
-            }else{
-                a = b.edad
-                console.log("false");
-                console.log(a);
-                console.log(b);
-            }
-             
-        },0);
-        console.log( "aaaaaadddddddddd");
-        console.log(menor1 );
-        //arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])
-        
+        let menor = mayoresEdad.reduce(((comp,persona) => persona.edad < comp.edad ? persona : comp),mayoresEdad[0]);
+        console.log(menor);
+
         //APARTADO 4
         console.log("Apartado 4-----------------");
         let letraA = usuarios.filter((usuarios) => usuarios.nombre.startsWith("A"));

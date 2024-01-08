@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+            1. Filtrar los usuarios mayores de edad (mayores o igual a 18 años).
+            2. Calcular el promedio de edades de los usuarios filtrados.
+            3. Encontrar al usuario más joven de entre los filtrados.
+            4. Obtener una lista de nombres de usuarios que empiezan con la letra 'A'.
+        // Lista de usuarios
+        const usuarios = [
+        { id: 1, nombre: 'Juan', edad: 25 },
+        { id: 2, nombre: 'María', edad: 30 },
+        { id: 3, nombre: 'Pedro', edad: 20 },
+        { id: 4, nombre: 'Ana', edad: 35 },
+        { id: 5, nombre: 'Luisa', edad: 22 },
+        { id: 6, nombre: 'Alberto', edad: 19 },
+        ];
+
+     -->
+
+     <script>
+        const usuarios = [
+        { id: 1, nombre: 'Juan', edad: 25 },
+        { id: 2, nombre: 'María', edad: 30 },
+        { id: 3, nombre: 'Pedro', edad: 20 },
+        { id: 4, nombre: 'Ana', edad: 35 },
+        { id: 5, nombre: 'Luisa', edad: 22 },
+        { id: 6, nombre: 'Alberto', edad: 19 },
+        ];
+
+        //APARTADO 1
+        console.log("Apartado 1-----------------");
+        let mayoresEdad = usuarios.filter((usuarios) => usuarios.edad >= 18);
+        mayoresEdad.forEach(element => {
+            console.log(element.nombre, element.edad);
+        }); 
+
+        //APARTADO 2
+        console.log("Apartado 2-----------------");
+        let edadMedia = (mayoresEdad.reduce((med, mayoresEdad) => med += mayoresEdad.edad,0)/mayoresEdad.length).toFixed();
+        console.log(edadMedia);
+
+        //APARTADO 3
+        console.log("Apartado 3-----------------");
+        let menor = mayoresEdad.reduce(((comp,persona) => persona.edad < comp.edad ? persona : comp),mayoresEdad[0]);
+        console.log(menor);
+
+        //APARTADO 4
+        console.log("Apartado 4-----------------");
+        let letraA = usuarios.filter((usuarios) => usuarios.nombre.startsWith("A"));
+        letraA.forEach(element => {
+            console.log(element.nombre);
+        }); 
+
+     </script>
+</body>
+</html>

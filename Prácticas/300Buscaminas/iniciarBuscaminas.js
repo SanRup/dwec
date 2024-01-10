@@ -26,20 +26,20 @@
         
         function generarTableroJS(size){
             let tablero = document.getElementById("board");
-            if (tablero.children.length != 0) {
-                if (confirm("quieres empezar de nuevo?")) {
-                    while (tablero.firstChild){
+            if (tablero.children.length != 0) { //si en el tablero hay algo, lo borra
+                if (confirm("quieres empezar de nuevo?")) { //confirm antes de borrar el tablero
+                    while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
                 } else{
                     return false;
                 } 
             }
-            for (let i = 0; i < size; i++) {
+            for (let i = 0; i < size; i++) { //genera un div por cada linea
                 let divLinea = document.createElement("div");
                 divLinea.id = i;
                 tablero.appendChild(divLinea);
-                for (let j = 0; j < size; j++) {
+                for (let j = 0; j < size; j++) { // en cada div pone los botones
                     let casilla = document.createElement("button");
                     // casilla.id = j;
                     casilla.className = "botonaso";

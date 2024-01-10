@@ -18,6 +18,7 @@
             document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
             document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
             document.getElementById("sustituirPrimVacio").addEventListener("click", sustituirPrimero);
+            document.getElementById("ponerPunto").addEventListener("click", ponerPunto);
         }
 
         function crearParrafo() {
@@ -64,6 +65,21 @@
             contenedor.replaceChild(nuevo, hijo);
         }
 
+        function ponerPunto() {
+            let parrafo = document.getElementsByTagName("p");
+            let punto = ".";
+
+            for (let i = 0; i < parrafo.length; i++) {
+                if (parrafo[i].textContent.endsWith(punto)) {
+                    parrafo[i].textContent = parrafo[i].textContent.substring(0, parrafo[i].textContent.length-1);
+                }else{
+                    parrafo[i].textContent = parrafo[i].textContent + punto;
+                }
+                
+            }
+            
+        }
+
     </script> 
 </head>
 
@@ -76,7 +92,8 @@
     <button id="crearImagen">Crear imagen</button>
     <button id="borrarUltimo">Borrar ultimo</button>
     <button id="borrarPrimero">Borrar primero</button>
-    <button id="sustituirPrimVacio">Sustituir primer párrafo por vacío</button>
+    <button id="sustituirPrimVacio">Sustituir primer párrafo por "texto"</button>
+    <button id="ponerPunto">Punto</button>
 
 </body>
 

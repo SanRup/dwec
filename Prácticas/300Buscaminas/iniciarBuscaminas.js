@@ -16,8 +16,22 @@
                     let boton = divDif.children[i];
                     boton.addEventListener("click", dibujarTableroHTML);
                 }
-                
+    
         }
+
+        function prueba(e) {
+            let divTablero = document.getElementById("board");
+                    
+                for (let i = 0; i < divTablero.childElementCount; i++) {
+                    console.log(divTablero.childElementCount);
+                    let boton = divTablero.children[i].children;
+                    boton.addEventListener("click", prueba);
+                }
+            console.log("a");
+            console.log(e.target)
+            
+        }
+       
 
         function dibujarTableroHTML(e) {
             let dif = e.target.id; //coge el id del boton pulsado en el evento
@@ -42,7 +56,6 @@
                 tablero.appendChild(divLinea);
                 for (let j = 0; j < size; j++) { // en cada div pone los botones
                     let casilla = document.createElement("button");
-                    //casilla.id = j;
                     casilla.className = "botonaso";
                     document.getElementById(i).appendChild(casilla);   
                 }
@@ -50,7 +63,7 @@
             
         };
 
-       
+        
         function calcularNumMinas(x, y){
 
         };

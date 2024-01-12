@@ -11,16 +11,20 @@
             margin: 0;
         }
         .botonaso{
+            display: block;
             padding: 16px;
             border: outset 5px #747474;
         }
         .botonaso:active{
             border: solid 5px #c4c2c2;
         }
-        #board{
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        main{
+            display: grid;
+            place-content: center;
+            align-items: center;    
+        }
+        .contenedorBtn{
+            display: flex;
         }
     </style>
 </head>
@@ -57,8 +61,11 @@
         <button id="dificil">Difícil</button>
     </div>
 
-    <div id="board">
-        <!-- aqui va el tablero -->
-    </div>
+    <main>
+        <div id="board">
+            <!-- aqui va el tablero -->
+        </div>
+    </main>
+    
 </body>
 </html>

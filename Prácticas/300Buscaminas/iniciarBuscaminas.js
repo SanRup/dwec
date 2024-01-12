@@ -38,10 +38,11 @@
             for (let i = 0; i < size; i++) { //genera un div por cada linea
                 let divLinea = document.createElement("div");
                 divLinea.id = i;
+                divLinea.className = "contenedorBtn";
                 tablero.appendChild(divLinea);
                 for (let j = 0; j < size; j++) { // en cada div pone los botones
                     let casilla = document.createElement("button");
-                    // casilla.id = j;
+                    //casilla.id = j;
                     casilla.className = "botonaso";
                     document.getElementById(i).appendChild(casilla);   
                 }

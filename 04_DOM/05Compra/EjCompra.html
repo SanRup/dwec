@@ -6,6 +6,52 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- 
+        Implementar la funcionalidad similar a la lista de compra. Al pulsar el botón añadir, se inserta el
+        contenido del cuadro de texto a la lista superior, de forma ordenada. Véase el ejemplo siguiente:
+     -->
+     <div id="lista">
+        <p>Lista de la compra</p>
+        <ul id="art">
+
+        </ul>
+        <input type="text" name="texto" id="texto">
+        <button id="add">Añadir</button>
+     </div>
+
+     <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("add").addEventListener("click", agrega);
+        }
+
+        function agrega() {
+            let lista = document.getElementById("art");
+            let nuevo = document.createElement("li");
+            let texto = document.createTextNode(document.getElementById("texto").value);
+
+            nuevo.appendChild(texto);
+            lista.appendChild(nuevo);
+
+            let chldrn = lista.children;
+
+            for (let i = 0; i < chldrn.length; i++) {
+                console.log();
+                
+            }
+
+            
+            
+
+
+
+            document.getElementById("texto").value = "";
+
+
+        }
+
+
+     </script>
 </body>
 </html>

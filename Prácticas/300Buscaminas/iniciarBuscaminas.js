@@ -19,23 +19,14 @@
     
         }
 
-        function prueba(e) {
-            let divTablero = document.getElementById("board");
-                    
-                for (let i = 0; i < divTablero.childElementCount; i++) {
-                    console.log(divTablero.childElementCount);
-                    let boton = divTablero.children[i].children;
-                    boton.addEventListener("click", prueba);
-                }
-            console.log("a");
-            console.log(e.target)
-            
-        }
+        
        
 
         function dibujarTableroHTML(e) {
             let dif = e.target.id; //coge el id del boton pulsado en el evento
             generarTableroJS(OPCIONES.dificultad[dif]); //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto dificultad
+
+            numeroAleatorio(OPCIONES.dificultad[dif]);
         }
         
         function generarTableroJS(size){
@@ -49,6 +40,11 @@
                     return false;
                 } 
             }
+
+
+            //crear array fuera dl for y rellenarlo mientras genero el tablero
+            //necesito dios numeros aleatorios por bomba para que sean las coords (tablero peque-> aleatorio del 0 al 8 = 1 - 2 -> cood (1,2))
+            //en el array meto una bomba en la pos (1,2) comprobando antes si ya tiene una bomba
             for (let i = 0; i < size; i++) { //genera un div por cada linea
                 let divLinea = document.createElement("div");
                 divLinea.id = i;
@@ -56,19 +52,20 @@
                 tablero.appendChild(divLinea);
                 for (let j = 0; j < size; j++) { // en cada div pone los botones
                     let casilla = document.createElement("button");
-                    casilla.className = "botonaso";
+                    casilla.className = "botones";
                     document.getElementById(i).appendChild(casilla);   
                 }
             }
             
         };
-
         
         function calcularNumMinas(x, y){
 
         };
 
-        function numeroAleatorio(){
+        function numeroAleatorio(numCasillas){
+            let numMinas = ((13/100)*(numCasillas*numCasillas)).toFixed(0);
+            console.log(numMinas);
 
         };
 

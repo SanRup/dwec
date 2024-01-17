@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="mailto:aquimeenvia@elcorreo.com" method="post">
         Nombre: <input type="text" name="nom" /><br />
         Apellidos: <input type="text" name="apell" /><br />
         DNI: <input type="text" name="dni" /><br />
@@ -18,9 +18,9 @@
         Incluir mi foto: <input type="file" name="foto" id="foto" /><br />
         <input type="checkbox" name="publi" id="publi" checked /> Enviar
         publicidad <br />
-        <input type="submit" value="Guardar Cambios" />
+        <input id="btnOk" type="submit" value="Guardar Cambios" />
         <input type="reset" value="Borrar los datos introducidos" />
-
+        <br><br><br>
         <select id="aprobar">
             <option value="10">Saco 10 en DWEC</option>
             <option value="9">Saco 9 en DWEC</option>
@@ -35,6 +35,25 @@
 
         function inicio() {
             document.getElementById("aprobar").addEventListener("change", opcion);
+            document.querySelector("form").addEventListener("submit", comprobar);
+            document.querySelector("form").addEventListener("reset", foco);
+        }
+
+        function comprobar(e) {
+            e.preventDefault();
+
+            if (confirm("Quieres enviar el formulario?")) {
+                document.querySelector("form").submit();
+                alert("Enviando...");
+
+            } else {
+                alert("oh... vale...");
+            }
+
+        }
+
+        function foco() {
+            document.querySelector("input").focus();
         }
 
         function opcion() {

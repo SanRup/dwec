@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" id="formulario">
+        <p id="txt">Máquina apagada</p>
+        <input type="submit" id="btn" value="Encender máquina">
+    </form>
+
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("formulario").addEventListener("submit", cambio);
+            
+        }
+
+        function cambio(e) {
+            e.preventDefault();
+            
+            let texto = document.getElementById("txt");
+            let boton = document.getElementById("btn");
+            
+            if (texto.textContent == "Máquina apagada") {
+                texto.textContent = "Máquina encendida";
+                boton.value = "Apagar máquina";
+            } else {
+                texto.textContent = "Máquina apagada";
+                boton.value = "Encender máquina";
+            }
+        }
+    </script>
+</body>
+</html>

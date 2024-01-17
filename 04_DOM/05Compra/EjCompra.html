@@ -29,26 +29,27 @@
         function agrega() {
             let lista = document.getElementById("art");
             let nuevo = document.createElement("li");
+            nuevo.addEventListener("click", borra);
             let texto = document.createTextNode(document.getElementById("texto").value);
 
             nuevo.appendChild(texto);
             lista.appendChild(nuevo);
 
+
             let chldrn = lista.children;
 
-            for (let i = 0; i < chldrn.length; i++) {
-                console.log();
-                
-            }
-
+            let arrayChldrn = Array.from(chldrn).sort((a,b)=>{
+                return a.textContent.localeCompare(b.textContent);
+            });
             
-            
-
-
-
+            lista.replaceChildren(...arrayChldrn);       
+    
             document.getElementById("texto").value = "";
 
+        }
 
+        function borra() {
+            this.remove();
         }
 
 

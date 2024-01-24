@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <form action="" method="post">
+    <form name="formulario" action="" method="post">
         <fieldset>
             <legend>Datos personales</legend>
             <label>Introduce tu NIF <input type="text" name="nif" id="nif" pattern="\d{7,8}-?[A-z][^\d|A-z]" required></label>
@@ -23,6 +23,7 @@
             <label>Introduce tu mensaje <input type="text" name="msg" id="msg" required></label>
             <label>Mensaje</label>
             <textarea name="msgArea" id="msgArea" cols="70" rows="8"  required></textarea>
+            
         </fieldset>
         <p>Elige un color:</p>
         <label>Rojo<input type="radio" name="color" id="rojo"></label>

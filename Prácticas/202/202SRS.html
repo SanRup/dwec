@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="202SRS.js"></script>
+    <style>
+        form, fieldset{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label>Introduce tu NIF <input type="text" name="nif" id="nif" pattern="\d{7,8}-?[A-z][^\d|A-z]" required></label>
+            <label>Fecha de matriculación <input type="date" name="fecha" id="fecha" min="" max=""></label>
+            <label>Introduce tu mensaje <input type="text" name="msg" id="msg" required></label>
+            <label>Mensaje</label>
+            <textarea name="msgArea" id="msgArea" cols="70" rows="8"  required></textarea>
+        </fieldset>
+        <p>Elige un color:</p>
+        <label>Rojo<input type="radio" name="color" id="rojo"></label>
+        <label>Verde<input type="radio" name="color" id="verde"></label>
+        <label>Azul<input type="radio" name="color" id="azul"></label>
+        <label>Oscuro<input type="radio" name="color" id="oscuro" checked></label>
+
+        <p>Selecciona una asignatura
+            <select name="asignatura" id="asignatura"  required>
+                <option value="dwes">DWES</option>
+                <option value="dwec">DWEC</option>
+                <option value="diw">DIW</option>
+                <option value="daw">DAW</option>
+            </select>
+        </p>
+
+        <p>Selecciona los días con disponibilidad</p>
+        <label><input type="checkbox" name="dias" id="todos">Todos</label>
+        <label><input type="checkbox" name="dias" id="lunes">Lunes</label>
+        <label><input type="checkbox" name="dias" id="martes">Martes</label>
+        <label><input type="checkbox" name="dias" id="miercoles">Miércoles</label>
+        <label><input type="checkbox" name="dias" id="jueves">Jueves</label>
+        <label><input type="checkbox" name="dias" id="viernes">Viernes</label>
+
+        <p>Selecciona el día preferente
+            <select name="diaPref" id="diaPref"  required>
+                <option value="lunes" selected>Lunes</option>
+                <option value="martes">Martes</option>
+                <option value="miercoles">Miércoles</option>
+                <option value="jueves">Jueves</option>
+                <option value="viernes">Viernes</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Haz click para envíar el formulario">
+            <input type="reset" value="Comenzar a rellenar de nuevo">
+            <a href="http://google.com"><input type="button" value="Haz click sobre mí"></a>
+            
+        </p>
+    </form>
+</body>
+</html>

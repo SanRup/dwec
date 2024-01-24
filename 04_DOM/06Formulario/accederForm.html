@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .rojo{
+            border: red solid;
+        }
+    </style>
 </head>
 <body>
-    <form action="">
+    <form action="" method="post" id="miForm">
         <table>
             <tr>
                 <td>Nombre: </td>
@@ -38,7 +43,7 @@
             </tr>
             <tr>
                 <td>Enviar: </td>
-                <td><input type="submit" value="enviar" id="enviar"></td>
+                <td><input type="submit" value="Enviar" id="enviar"></td>
             </tr>
             <tr>
                 <td>Borrar: </td>
@@ -64,8 +69,10 @@
 
         function validarNombre() {
             var element = document.getElementById("nombre");
+            limpiarError(element);
             if (element.value == "") {
                 alert("el nombre no puede estar vacio");
+                error(element);
                 return false;
             } 
             return true;
@@ -73,49 +80,86 @@
 
         function validarTelefono() {
             var element = document.getElementById("telefono");
+            limpiarError(element);
             if (isNaN(element.value)) {
                 alert("el telefono tiene que ser numerico");
+                error(element);
                 return false;
             } 
             return true;
         }
 
-        function validarDia() {
-            var element = document.getElementById("dia");
-            if (element.value <= 31 && element.value >= 1) {
-                alert("el dia");
+        function validaFecha() {
+            var elementDia = document.getElementById("dia").value;
+            var elementMes = document.getElementById("mes").value;
+            var elementAno = document.getElementById("ano").value;
+            var fecha = new Date(elementAno, elementMes, elementDia);
+            if (isNaN(fecha)) {
+                alert("Los campos no son correctos");
                 return false;
-            } 
+            }
             return true;
         }
 
-        function validarMes() {
-            var element = document.getElementById("mes");
-            if (element.value <= 12 && element.value >= 1) {
-                alert("el mes");
-                return false;
-            } 
-            return true;
-        }
+        // function validarDia() {
+        //     var element = document.getElementById("dia");
+        //     if (element.value <= 31 && element.value >= 1) {
+        //         alert("el dia");
+        //         return false;
+        //     } 
+        //     return true;
+        // }
 
-        function validarAno() {
-            var element = document.getElementById("ano");
-            if (element.value <= 2024 && element.value >= 1900) {
-                alert("el año");
+        // function validarMes() {
+        //     var element = document.getElementById("mes");
+        //     if (element.value <= 12 && element.value >= 1) {
+        //         alert("el mes");
+        //         return false;
+        //     } 
+        //     return true;
+        // }
+
+        // function validarAno() {
+        //     var element = document.getElementById("ano");
+        //     if (element.value <= 2024 && element.value >= 1900) {
+        //         alert("el año");
+        //         return false;
+        //     } 
+        //     return true;
+        // }
+
+        function validaCheck() {
+            var campoCheck = document.getElementById("mayor");
+            if (!campoCheck.checked) {
+                alert("Debes ser mayor de edad");
                 return false;
-            } 
+            }
             return true;
         }
 
         function validar(e) {
-            if (validarNombre() && validarTelefono() && confirm("Enviar formulario")) {
+            if (validarNombre() 
+                && validarTelefono() 
+                && validaFecha() 
+                && validaCheck() 
+                && confirm("Enviar formulario")) {
+
                 return true;
+
             }else{
                 e.preventDefault();
                 return false;
             }
         }
 
+        function error(element) {
+            element.className = "rojo";
+            element.focus();
+        }
+
+        function limpiarError(element) {
+            element.className = "";
+        }
 
     </script>
 </body>

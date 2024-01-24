@@ -2,11 +2,20 @@ window.addEventListener("load", inicio);
 
 function inicio() {
     document.getElementById("msg").addEventListener("blur", validaMsg) //blur change
-    document.getElementById("todos").addEventListener("click", validaCheck)
-    document.getElementById("martes").addEventListener("click", validaCheck)
-    document.getElementById("lunes").addEventListener("click", validaCheck)
-    document.getElementById("miercoles").addEventListener("click", validaCheck)
-    document.getElementById("jueves").addEventListener("click", validaCheck)
+
+    //para los eventos click -> cogemos el target <delegacion de eventos>
+    //https://ed.team/blog/como-usar-la-delegacion-de-eventos-en-javascript
+    //https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events#delegaci%C3%B3n_de_eventos
+    const container = document.querySelector("#container");
+    container.addEventListener(
+        "click",
+        (event) => (event.target.style.backgroundColor = bgChange()),
+      );
+    // document.getElementById("todos").addEventListener("click", validaCheck)
+    // document.getElementById("martes").addEventListener("click", validaCheck)
+    // document.getElementById("lunes").addEventListener("click", validaCheck)
+    // document.getElementById("miercoles").addEventListener("click", validaCheck)
+    // document.getElementById("jueves").addEventListener("click", validaCheck)
 }
 
 function creaError(e, msg) {
@@ -25,14 +34,26 @@ function borraError(e) {
 
 function validaMsg() {
     if (!this.checkValidity()) {
-        //si ya tiene uno no puede crear otro !!! comprobar
-        //si ya existe que vibre la p!!!! que bonito
-        creaError(this, "Este campo es obligatorio");
+        if(!document.getElementById(this.id + "SpanError")){
+            creaError(this, "Este campo es obligatorio");
+        }else{
+            console.log("existe!! no lo hace");
+            document.getElementById(this.id + "SpanError").style.animation = "shake 0.4s ease-in-out 0s 2"
+            //css que vibra -> no se llamar al CSS
+        }
+        
     }else{
+        if(document.getElementById(this.id + "SpanError")){
+            borraError(this)
+        }else{
+            console.log("no existe!! no borra");
+        }
         //si no existe que no borre nada...
-        borraError(this)
+        
     }
 }
+
+
 
 function validaCheck() {
     let dias = Array.from(document.formulario.dias)

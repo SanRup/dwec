@@ -12,6 +12,20 @@
             justify-content: center;
             align-items: center;
         }
+
+        #spanError {
+            animation: shake 0.4s ease-in-out 0s 2;
+            color: #ff9494;
+            /* border: 2px solid #ff9494;
+            border-radius: 5px; */
+        }
+        @keyframes shake {
+            /* hacer un shake mejor */
+                0% { margin-left: 0rem; }
+                25% { margin-left: 0.5rem; }
+                75% { margin-left: -0.5rem; }
+                100% { margin-left: 0rem; }
+        }
     </style>
 </head>
 <body>

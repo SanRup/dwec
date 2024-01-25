@@ -14,7 +14,7 @@
         }
 
         #spanError {
-            animation: shake 0.4s ease-in-out 0s 2;
+            animation: shake 0.2s ease-in-out infinite 7 running;
             color: #ff9494;
             /* border: 2px solid #ff9494;
             border-radius: 5px; */
@@ -22,8 +22,8 @@
         @keyframes shake {
             /* hacer un shake mejor */
                 0% { margin-left: 0rem; }
-                25% { margin-left: 0.5rem; }
-                75% { margin-left: -0.5rem; }
+                25% { margin-left: 0.2rem; }
+                75% { margin-left: -0.2rem; }
                 100% { margin-left: 0rem; }
         }
     </style>
@@ -36,7 +36,7 @@
             <label>Fecha de matriculación <input type="date" name="fecha" id="fecha" min="" max=""></label>
             <label>Introduce tu mensaje <input type="text" name="msg" id="msg" required></label>
             <label>Mensaje</label>
-            <textarea name="msgArea" id="msgArea" cols="70" rows="8"  required></textarea>
+            <textarea name="msgArea" id="msgArea" cols="70" rows="8"  maxlength="500" required></textarea>
             
         </fieldset>
         <p>Elige un color:</p>
@@ -53,14 +53,15 @@
                 <option value="daw">DAW</option>
             </select>
         </p>
-
-        <p>Selecciona los días con disponibilidad</p>
-        <label><input type="checkbox" name="dias" id="todos">Todos</label>
-        <label><input type="checkbox" name="dias" id="lunes">Lunes</label>
-        <label><input type="checkbox" name="dias" id="martes">Martes</label>
-        <label><input type="checkbox" name="dias" id="miercoles">Miércoles</label>
-        <label><input type="checkbox" name="dias" id="jueves">Jueves</label>
-        <label><input type="checkbox" name="dias" id="viernes">Viernes</label>
+        <div id="checkDias">
+            <p>Selecciona los días con disponibilidad</p>
+            <label><input type="checkbox" name="dias" id="todos">Todos</label>
+            <label><input type="checkbox" name="dias" id="lunes">Lunes</label>
+            <label><input type="checkbox" name="dias" id="martes">Martes</label>
+            <label><input type="checkbox" name="dias" id="miercoles">Miércoles</label>
+            <label><input type="checkbox" name="dias" id="jueves">Jueves</label>
+            <label><input type="checkbox" name="dias" id="viernes">Viernes</label>
+        </div>
 
         <p>Selecciona el día preferente
             <select name="diaPref" id="diaPref"  required>

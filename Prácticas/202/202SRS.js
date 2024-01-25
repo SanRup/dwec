@@ -1,21 +1,16 @@
 window.addEventListener("load", inicio);
 
 function inicio() {
-    document.getElementById("msg").addEventListener("blur", validaMsg) //blur change
+    document.getElementById("msg").addEventListener("blur", validaMsg); //blur change
 
     //para los eventos click -> cogemos el target <delegacion de eventos>
     //https://ed.team/blog/como-usar-la-delegacion-de-eventos-en-javascript
     //https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events#delegaci%C3%B3n_de_eventos
-    const container = document.querySelector("#container");
-    container.addEventListener(
-        "click",
-        (event) => (event.target.style.backgroundColor = bgChange()),
-      );
-    // document.getElementById("todos").addEventListener("click", validaCheck)
-    // document.getElementById("martes").addEventListener("click", validaCheck)
-    // document.getElementById("lunes").addEventListener("click", validaCheck)
-    // document.getElementById("miercoles").addEventListener("click", validaCheck)
-    // document.getElementById("jueves").addEventListener("click", validaCheck)
+    document.getElementById("checkDias").addEventListener("click", checkTodos);
+
+    document.getElementById("msgArea").addEventListener("keydown", contadorTextArea);
+   
+
 }
 
 function creaError(e, msg) {
@@ -38,7 +33,7 @@ function validaMsg() {
             creaError(this, "Este campo es obligatorio");
         }else{
             console.log("existe!! no lo hace");
-            document.getElementById(this.id + "SpanError").style.animation = "shake 0.4s ease-in-out 0s 2"
+            document.getElementById(this.id + "SpanError").style.animation = "shake 0.1s ease-in-out 0s 7 "
             //css que vibra -> no se llamar al CSS
         }
         
@@ -53,22 +48,28 @@ function validaMsg() {
     }
 }
 
+function contadorTextArea(e) {
+    console.log(e.target.value.length);
+    console.log();
+}
 
-
-function validaCheck() {
+function checkTodos(e) {
     let dias = Array.from(document.formulario.dias)
-    if (this.id == "todos" && this.checked == true) {
-        dias.forEach(element => {
-            element.checked = true;
-        });
+    if (e.target.id == "todos") {
+
+        if (e.target.checked == true) {
+            dias.forEach(element => {
+                element.checked = true;
+            });
+        }else{
+            dias.forEach(element => {
+                element.checked = false;
+            });
+        }
         
-    } else if (this.id == "todos" && this.checked == false) {
-        dias.forEach(element => {
-            element.checked = false;
-        });
-    } else if(!dias.some((value)=>{value==false})){
+    } else if (e.target.id != "todos") {
         document.getElementById('todos').checked=false;
-    }
+    } 
 }
 
 

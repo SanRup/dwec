@@ -1,14 +1,14 @@
 window.addEventListener("load", inicio);
 
 function inicio() {
-    document.getElementById("msg").addEventListener("blur", validaMsg); //blur change
+    document.getElementById("msg").addEventListener("blur", validaMsg); //blur para perder el foco
 
-    //para los eventos click -> cogemos el target <delegacion de eventos>
+    //para los eventos click de dias -> cogemos el target en el div <delegacion de eventos>
     //https://ed.team/blog/como-usar-la-delegacion-de-eventos-en-javascript
     //https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Events#delegaci%C3%B3n_de_eventos
     document.getElementById("checkDias").addEventListener("click", checkTodos);
 
-    document.getElementById("msgArea").addEventListener("keydown", contadorTextArea);
+    document.getElementById("msgArea").addEventListener("keyup", contadorTextArea);
    
 
 }
@@ -49,8 +49,11 @@ function validaMsg() {
 }
 
 function contadorTextArea(e) {
-    console.log(e.target.value.length);
-    console.log();
+    //si usamos keyup cuenta bien pero no inmediato
+    //con keydown cuanta inmediato pero si escribes y borras todo se queda en 499
+    
+    let cont = e.target.value.length;
+    document.getElementById("contCaracter").innerHTML = e.target.getAttribute("maxlength") - cont;
 }
 
 function checkTodos(e) {

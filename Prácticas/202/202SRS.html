@@ -29,6 +29,9 @@
     </style>
 </head>
 <body>
+
+    <!-- alert precioso para los datos finales
+    https://sweetalert2.github.io/ -->
     <form name="formulario" action="" method="post">
         <fieldset>
             <legend>Datos personales</legend>
@@ -36,7 +39,8 @@
             <label>Fecha de matriculación <input type="date" name="fecha" id="fecha" min="" max=""></label>
             <label>Introduce tu mensaje <input type="text" name="msg" id="msg" required></label>
             <label>Mensaje</label>
-            <textarea name="msgArea" id="msgArea" cols="70" rows="8"  maxlength="500" required></textarea>
+            <textarea name="msgArea" id="msgArea" cols="70" rows="8" minlength="1" maxlength="500" required></textarea>
+            <p>Caracteres restantes: <span id="contCaracter"></span></p>
             
         </fieldset>
         <p>Elige un color:</p>
@@ -65,6 +69,7 @@
 
         <p>Selecciona el día preferente
             <select name="diaPref" id="diaPref"  required>
+                <option value="vacio" >- -</option>
                 <option value="lunes" selected>Lunes</option>
                 <option value="martes">Martes</option>
                 <option value="miercoles">Miércoles</option>

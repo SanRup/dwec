@@ -52,8 +52,26 @@ function borraError(e) {
 }
 
 function validaCampoDNI() {
-    if (validaCampo()) {
-        
+    if (!this.checkValidity()) {
+        //si no es valido
+        if(!document.getElementById(this.id + "SpanError")){
+            //si no tiene el id de error, crea el error
+            creaError(this, "Este campo es obligatorio");
+        }else{  
+            //si lo tiene, vibra 
+            document.getElementById(this.id + "SpanError").style.animation = "shake 0.1s ease-in-out 0s 7 "
+            //css que vibra -> no se llamar al CSS
+        }
+
+        return false;
+    }else{
+        //si es valido 
+        if(document.getElementById(this.id + "SpanError")){
+            //si tiene el id de error, lo borra
+            borraError(this)
+        }
+        //si no existe, no borra nada... 
+        return true;
     }
     
 }

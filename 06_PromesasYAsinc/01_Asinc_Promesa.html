@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const datos =[{
+                id:1,
+                nombre:"Juan",
+                edad:18
+            },
+            {
+                id:2,
+                nombre:"Pedro",
+                edad:20
+            },
+            {
+                id:3,
+                nombre:"Pablo",
+                edad:22
+            }
+        ];
+
+        function getDatos() {
+            return datos;
+        }
+
+        console.log(getDatos());
+ 
+        function getDatosSinc() {
+            setTimeout(getDatos, 3000);
+        }
+        //tiene que esperar a que termine para que imprima los datos
+        console.log(getDatosSinc()); //undefined
+
+
+        //con promesas
+        function getDatosProm() {
+            return new Promise((resolve,reject) => {
+                setTimeout(
+                    resolve(datos), 
+                    3000);
+            })
+        }
+        //da el objeto promesa
+        console.log(getDatosProm());
+
+        //como hacer la promesa bien
+        function getDatosPromBuena() {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve(datos);
+                },8000);
+            })
+        }
+
+        //conseguir los datos de la promesa
+        getDatosPromBuena()
+            .then((datos)=>{
+                console.log(datos);
+            })
+            .catch((error)=>{
+                console.log("error");
+            });
+
+         
+        // //async await
+        // const misDatos = await getDatosPromBuena(); //sin funcion async no funciona
+        // console.log(misDatos);    
+            
+        async function asyncAwait(){
+            try {
+                const misDatos2 = await getDatosPromBuena(); //sin funcion async no funciona
+                console.log(misDatos2); 
+            } catch (error) {
+                console.log(error.message);
+            }
+            
+        }
+        asyncAwait();
+
+
+
+    </script>
+</body>
+</html>

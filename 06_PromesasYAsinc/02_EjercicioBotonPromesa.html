@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button type="button" id="boton">Promesa</button>
+        <p id="mensaje"></p>
+    </div>
+
+    <script>
+        window.addEventListener("load", inicio);
+
+        let contador = 0;
+        let msg = document.getElementById("mensaje");
+
+        function inicio() {
+            document.getElementById("boton").addEventListener("click", probarPromise);
+        }
+
+        function probarPromise() {
+            let contadorPromesa = contador++;
+            msg.insertAdjacentHTML("beforeend", contadorPromesa + ") empieza el código síncrono<br>");
+        
+
+            const promesa = new Promise((resolve,reject) => {
+                msg.insertAdjacentHTML("beforeend", contadorPromesa + ") dentro de la promesa, antes del timeout. Empieza el código asíncrono<br>");
+                setTimeout(() => {
+                    resolve(contadorPromesa);
+                }, Math.random() * 4000 + 1000);
+            })
+            
+            promesa
+                .then(contadorPromesa => msg.insertAdjacentHTML("beforeend", contadorPromesa + ") Dentro del then. Código síncrono terminado<br>"));
+                msg.insertAdjacentHTML("beforeend", contadorPromesa + ") Código después del then. Código síncrono terminado<br>");    
+
+        }
+    </script>
+    
+</body>
+</html>

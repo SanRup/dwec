@@ -35,6 +35,20 @@ function inicio() {
 }
 
 
+
+function validaCampoDNI() {
+    if (!this.checkValidity()) { //si es false -> no es valido
+        comprobarMsgError("Este campo es obligatorio");
+    }else{//si es valido 
+        if (!validarDNICompleto()) { //si es false -> no es valido
+           comprobarMsgError("El DNI no es válido");
+        }
+        comprobarBorrarError();
+    }
+}
+
+// ---------CREAR ERRORES
+
 //crea un span para mostrar el mensaje de error
 function creaError(e, msg) {
     let parrafo = document.createElement("span");
@@ -51,30 +65,30 @@ function borraError(e) {
     }
 }
 
-function validaCampoDNI() {
-    if (!this.checkValidity()) {
-        //si no es valido
-        if(!document.getElementById(this.id + "SpanError")){
-            //si no tiene el id de error, crea el error
-            creaError(this, "Este campo es obligatorio");
-        }else{  
-            //si lo tiene, vibra 
-            document.getElementById(this.id + "SpanError").style.animation = "shake 0.1s ease-in-out 0s 7 "
-            //css que vibra -> no se llamar al CSS
-        }
+//--------------------------
 
-        return false;
-    }else{
-        //si es valido 
-        if(document.getElementById(this.id + "SpanError")){
-            //si tiene el id de error, lo borra
-            borraError(this)
-        }
-        //si no existe, no borra nada... 
-        return true;
+
+//-------------comprobaciones de mensajes errores
+function comprobarMsgError(msg) {
+    if(!document.getElementById(this.id + "SpanError")){
+        //si no tiene el id de error, crea el error
+        creaError(this, msg);
+    }else{  
+        //si lo tiene, vibra 
+        document.getElementById(this.id + "SpanError").style.animation = "shake 0.1s ease-in-out 0s 7 "
+        //css que vibra -> no se llamar al CSS
     }
-    
 }
+
+function comprobarBorrarError() {
+    if(document.getElementById(this.id + "SpanError")){
+        //si tiene el id de error, lo borra
+        borraError(this)
+    }
+    //si no existe, no borra nada... 
+}
+//------------------------------
+
 
 //validar Campo con los atributos de html 
 function validaCampo() {

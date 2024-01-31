@@ -13,19 +13,17 @@
             align-items: center;
         }
 
-        #spanError {
-            animation: shake 0.2s ease-in-out infinite 7 running;
-            color: #ff9494;
-            /* border: 2px solid #ff9494;
-            border-radius: 5px; */
+        [id*="SpanError"] {
+            color: #ff4949;
         }
-        @keyframes shake {
-            /* hacer un shake mejor */
-                0% { margin-left: 0rem; }
-                25% { margin-left: 0.2rem; }
-                75% { margin-left: -0.2rem; }
-                100% { margin-left: 0rem; }
+
+        .errorInput{
+            border: 2px solid #ff9494;
+            border-radius: 5px;
         }
+
+        
+        
     </style>
 </head>
 <body>
@@ -39,7 +37,7 @@
             <label>Introduce tu NIF <input type="text" name="nif" id="nif" pattern="\d{7,8}-?[A-z][^\d|A-z]" required></label>
             <label>Fecha de matriculación <input type="date" name="fecha" id="fecha" required></label>
             <label>Mensaje</label>
-            <textarea name="msgArea" id="msgArea" cols="70" rows="8" minlength="1" maxlength="500" required></textarea>
+            <textarea name="msgArea" id="msgArea" cols="70" rows="8" minlength="2" maxlength="500" required></textarea>
             <p id="caracteres">Caracteres restantes: <span id="contCaracter">500</span></p>
             
         </fieldset>

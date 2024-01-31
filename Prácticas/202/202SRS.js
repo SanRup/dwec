@@ -3,7 +3,7 @@ window.addEventListener("load", inicio);
 function inicio() {
     document.getElementById("nombre").addEventListener("blur", validaCampoBasico); //blur para validar al perder el foco
     document.getElementById("nif").addEventListener("blur", validaCampoDNI); //blur para validar al perder el foco
-    document.getElementById("fecha").addEventListener("change", validaCampoFecha); //change para validar al cambiar
+    document.getElementById("fecha").addEventListener("click", validaCampoFecha); //change para validar al cambiar
 
     document.getElementById("msgArea").addEventListener("blur", validaCampoBasico); //blur para validar al perder el foco
     document.getElementById("msgArea").addEventListener("keyup", contadorTextArea);
@@ -111,11 +111,21 @@ function validaCampoDias() {
 }
 
 function resetForm() {
-    console.log(document.getElementsByClassName("error"));
+    let formulario = document.getElementsByClassName("error"); 
+    console.log(formulario);
+    for (let i = formulario.length - 1; i >= 0; i--) {
+        console.log(formulario[i]);
+        formulario[i].remove();
+    }
+
+    formulario = document.getElementsByClassName("errorInput"); 
+    console.log(formulario);
+    for (let i = formulario.length - 1; i >= 0; i--) {
+        console.log(formulario[i]);
+        formulario[i].className = "";
+    }
+    
 }
-
-
-
 
 // ---------CREAR ERRORES
 

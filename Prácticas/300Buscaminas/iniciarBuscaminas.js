@@ -26,19 +26,19 @@
 
             document.getElementById("board").addEventListener("click", gamePlay);  
             document.getElementById("board").addEventListener("contextmenu", gamePlay);  
-            divDif.addEventListener("click", prueba);
+            document.getElementById("board").addEventListener("click", prueba);
     
         }
 
         function prueba(e) {
 
-            console.log(e.target.id);
-            let x = e.target.id.split("-")[0];
-            let y = e.target.id.split("-")[1];
-            console.log(x);
-            //con esto encuentro el objeto que quiero
-            //console.log(POSICION.find(element => element.x == x && element.y == y));
-            console.log(POSICION);
+            // console.log(e.target.id);
+            // let x = e.target.id.split("-")[0];
+            // let y = e.target.id.split("-")[1];
+            // //console.log(x);
+            // //con esto encuentro el objeto que quiero
+            // console.log(POSICION.find(element => element.x == x && element.y == y));
+            //console.log();
              
         }
 
@@ -115,7 +115,7 @@
                 let x = numeroAleatorio(OPCIONES.dificultad[dif]);
                 let y = numeroAleatorio(OPCIONES.dificultad[dif]);
                 let posicionElegida = POSICION.find(element => element.x == x && element.y == y);
-                console.log(posicionElegida);
+                //console.log(posicionElegida);
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
@@ -145,8 +145,8 @@
             if (e.type == "click") {
                 //si no tiene bandera, se abre
                 if (botonPulsado.bandera == false) {
-                    abrirCasilla(botonPulsado);
-                    e.target.setAttribute("class", "abierto");
+                    abrirCasilla(botonPulsado, e);
+                    
                 }
                 
             }else if (e.type == "contextmenu") {
@@ -173,8 +173,62 @@
             
         }
 
-        function abrirCasilla(botonPulsado) {
-            botonPulsado.abierto = true;
+        function abrirCasilla(botonPulsado, e) {
+            if (botonPulsado.bomba == true) {
+                alert("Has perdido");
+                
+            }else{
+                botonPulsado.abierto = true;
+                e.target.setAttribute("class", "abierto");
+                descubrirCasilla(botonPulsado);
+            }
+            
+
+            // _____________  ___________________   1 vuelta x-1 y-1
+            // |1-1|1-2|1-3|  |-1/-1|-1/ 0|-1/+1|   2 vuelta x-1 y 0
+            // -------------  -------------------   3 vuelta x-1 y+1
+            // |2-1|2-2|2-3|  | 0/-1|  x  | 0/+1|   4 vuelta x 0 y-1
+            // -------------  -------------------   5 vuelta x 0 y+1
+            // |3-1|3-2|3-3|  |+1/-1|+1/ 0|+1/+1|   6 vuelta x+1 y-1
+            // -------------  -------------------   7 vuelta x+1 y 0
+            //                                      8 vuelta x+1 y+1
+           
+
+        }
+
+        const DIRECCIONES = [
+            {x: -1, y: -1},
+            {x: -1, y: 0},
+            {x: -1, y: +1},
+            {x: 0, y: -1},
+            {x: 0, y: +1},
+            {x: +1, y: -1},
+            {x: +1, y: 0},
+            {x: +1, y: +1}
+        ];
+
+        function descubrirCasilla(botonPulsado, vuelta = 0) {
+            //console.log(botonPulsado);
+            if (vuelta < DIRECCIONES.length) {
+                let botonAdyacente = POSICION.find(element => 
+                    element.x == parseInt(botonPulsado.x) + parseInt(DIRECCIONES[vuelta].x) && 
+                    element.y == parseInt(botonPulsado.y) + parseInt(DIRECCIONES[vuelta].y));
+                
+    
+                //si el boton que consulta tiene bomba, suma 1 al contador del boton pulsado
+                if (botonAdyacente.bomba == true) {
+                    botonPulsado.cont++;
+                }
+
+                //TO-DO
+                //no hay que descubrir todo, solo lo que no tenga bomba pero si tenga contador
+                botonAdyacente.abierto = true;
+                document.getElementById(botonAdyacente.x + "-" + botonAdyacente.y).setAttribute("class", "abierto");
+                console.log(botonPulsado.cont);
+                vuelta++;
+                descubrirCasilla(botonPulsado, vuelta);
+            }
+            
         }
 
         //-------------------------------------------------------------------

@@ -26,17 +26,19 @@
 
             document.getElementById("board").addEventListener("click", gamePlay);  
             document.getElementById("board").addEventListener("contextmenu", gamePlay);  
-             
+            divDif.addEventListener("click", prueba);
     
         }
 
         function prueba(e) {
+
             console.log(e.target.id);
             let x = e.target.id.split("-")[0];
             let y = e.target.id.split("-")[1];
             console.log(x);
             //con esto encuentro el objeto que quiero
-            console.log(POSICION.find(element => element.x == x && element.y == y));
+            //console.log(POSICION.find(element => element.x == x && element.y == y));
+            console.log(POSICION);
              
         }
 
@@ -59,6 +61,7 @@
                     while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
+                    POSICION = []; //borra el array POSICION
                 } else{
                     return false;
                 } 
@@ -116,6 +119,7 @@
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
+                    document.getElementById(x + "-" + y).setAttribute("class","bomba");
                     cont++;
                     colocarBombasTableroJS(numMinas, cont);
                 //si hay bomba, vuelve a llamar a la función    
@@ -139,22 +143,23 @@
             let botonPulsado = POSICION.find(element => element.x == x && element.y == y)
             
             if (e.type == "click") {
-                abrirCasilla(botonPulsado);
-                e.target.setAttribute("class", "abierto");
+                //si no tiene bandera, se abre
+                if (botonPulsado.bandera == false) {
+                    abrirCasilla(botonPulsado);
+                    e.target.setAttribute("class", "abierto");
+                }
+                
             }else if (e.type == "contextmenu") {
                 e.preventDefault(); //para que no salga el context menu
                 //si el boton no esta abierto, se puede poner bandera
                 if (botonPulsado.abierto == false) {
                     ponerBandera(botonPulsado);
                     e.target.classList.toggle("bandera"); //si tiene la clase bandera, la quita. Si no la tiene, la pone.
-                }
-                
+                }  
             }
-
-
         }
 
-        //revisar el contador de banderas que va regulinchi
+        //pone o quita las banderas y maneja el contador
         function ponerBandera(botonPulsado) {
             if (botonPulsado.bandera == false) {
                 botonPulsado.bandera = true;

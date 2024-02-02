@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
+        div[id*="user"] {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding: 5px;
+            margin: 3px;
+            border: rgb(46, 46, 46) solid 1px;
+            background-color: rgba(161, 224, 214, 0.694);
+            border-radius: 5px;
+        }
+
+        img{
+            border-radius: 5px;
+        }
+        p{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="container"></div>
+    <script>
+        fetchDatos();
+
+        async function fetchDatos() {
+            try {
+                const response = await fetch('https://randomuser.me/api/?results=10'); //con await delante porque viene de una promesa
+                const datos = await response.json();
+                console.log(datos.results.length);
+                console.log(datos);
+                
+                for (let i = 0; i < datos.results.length; i++) {
+                    crearNodo(i);
+                    document.getElementById("user" + i).innerHTML = `
+                        <img src="${datos.results[i].picture.large}" alt="">
+                        <p>${datos.results[i].name.first}</p>
+                        <p>${datos.results[i].name.last}</p>
+                    `;
+                    
+                }
+
+
+            } catch (error) {
+                console.log("Error: " + error);
+            }
+            
+
+        }
+
+        function crearNodo(id) {
+            let nuevoDiv = document.createElement("div");
+            document.getElementById('container').appendChild(nuevoDiv);
+            nuevoDiv.setAttribute("id", "user" + id);
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -32,7 +32,7 @@
 
         function prueba(e) {
 
-            // console.log(e.target.id);
+            console.log(e.target.id);
             // let x = e.target.id.split("-")[0];
             // let y = e.target.id.split("-")[1];
             // //console.log(x);
@@ -100,7 +100,7 @@
             let numMinas = ((13/100)*(numCasillas*numCasillas)).toFixed(0);
             numBanderas = numMinas;//igualamos los números para saber cuantas banderas quedan por poner
             document.getElementById("banderas").innerHTML = numBanderas;//imprime el número de banderas en el html
-            console.log(numMinas);
+            //console.log(numMinas);
             colocarBombasTableroJS(numMinas)
         };
 
@@ -114,12 +114,26 @@
             if (cont <= numMinas) {
                 let x = numeroAleatorio(OPCIONES.dificultad[dif]);
                 let y = numeroAleatorio(OPCIONES.dificultad[dif]);
-                let posicionElegida = POSICION.find(element => element.x == x && element.y == y);
+                let posicionElegida = encuentra(x, y);
                 //console.log(posicionElegida);
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
-                    document.getElementById(x + "-" + y).setAttribute("class","bomba");
+                    document.getElementById(x + "-" + y).classList.add("bomba");
+
+                    //actualizar contador de las casillas adyacentes
+                    for (let i = 0; i < 3; i++) {
+                        for (let j = 0; j < 3; j++) {
+                            let casillaAdyacente = encuentra(posicionElegida.x - 1 + i, posicionElegida.y - 1 + j); //recorre los 8 adyacentes
+                            if (casillaAdyacente != undefined && casillaAdyacente.bomba == false) {
+                                    casillaAdyacente.cont++;
+                                    document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = casillaAdyacente.cont;
+                            }else if (casillaAdyacente != undefined && casillaAdyacente.bomba == true) {
+                                document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = "";
+                            }
+                        }
+                    }
+
                     cont++;
                     colocarBombasTableroJS(numMinas, cont);
                 //si hay bomba, vuelve a llamar a la función    
@@ -129,6 +143,10 @@
             }
            
         };
+
+        function encuentra(x, y) {
+            return POSICION.find(element => element.x == x && element.y == y);
+        }
 
         //-------------------------------------------------------------------
 
@@ -179,10 +197,11 @@
                 
             }else{
                 botonPulsado.abierto = true;
-                e.target.setAttribute("class", "abierto");
-                descubrirCasilla(botonPulsado);
+                e.target.classList.add("abierto");
+                //descubrirCasilla(botonPulsado);
             }
             
+        }
 
             // _____________  ___________________   1 vuelta x-1 y-1
             // |1-1|1-2|1-3|  |-1/-1|-1/ 0|-1/+1|   2 vuelta x-1 y 0
@@ -192,43 +211,24 @@
             // |3-1|3-2|3-3|  |+1/-1|+1/ 0|+1/+1|   6 vuelta x+1 y-1
             // -------------  -------------------   7 vuelta x+1 y 0
             //                                      8 vuelta x+1 y+1
-           
-
+         
+        function descubrirCasilla(casillaPulsada) {
+            console.log(casillaPulsada);
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    let casillaAdyacente = encuentra(casillaPulsada.x - 1 + i, casillaPulsada.y - 1 + j); //recorre los 8 adyacentes
+                    
+                }
+            }
+                
         }
 
-        const DIRECCIONES = [
-            {x: -1, y: -1},
-            {x: -1, y: 0},
-            {x: -1, y: +1},
-            {x: 0, y: -1},
-            {x: 0, y: +1},
-            {x: +1, y: -1},
-            {x: +1, y: 0},
-            {x: +1, y: +1}
-        ];
+        
 
-        function descubrirCasilla(botonPulsado, vuelta = 0) {
-            //console.log(botonPulsado);
-            if (vuelta < DIRECCIONES.length) {
-                let botonAdyacente = POSICION.find(element => 
-                    element.x == parseInt(botonPulsado.x) + parseInt(DIRECCIONES[vuelta].x) && 
-                    element.y == parseInt(botonPulsado.y) + parseInt(DIRECCIONES[vuelta].y));
-                
-    
-                //si el boton que consulta tiene bomba, suma 1 al contador del boton pulsado
-                if (botonAdyacente.bomba == true) {
-                    botonPulsado.cont++;
-                }
-
-                //TO-DO
-                //no hay que descubrir todo, solo lo que no tenga bomba pero si tenga contador
-                botonAdyacente.abierto = true;
-                document.getElementById(botonAdyacente.x + "-" + botonAdyacente.y).setAttribute("class", "abierto");
-                console.log(botonPulsado.cont);
-                vuelta++;
-                descubrirCasilla(botonPulsado, vuelta);
-            }
+        function recorrerAdyacentes(btn) {
             
         }
-
+    
+        
+        
         //-------------------------------------------------------------------

@@ -11,24 +11,28 @@
             margin: 0;
         }
         .botones{
-            display: block;
-            padding: 16px;
-            border: outset 5px #8a8a8a;
-            background-color: #848383;
+            width: 50px;
+            height: 50px; 
+            display: flex; /* Esto permite usar justify-content y align-items */
+            justify-content: center; /* Centra el texto horizontalmente */
+            align-items: center; /* Centra el texto verticalmente */
+            padding: 0; /* Elimina cualquier padding predeterminado */
+            border: solid 1px #7f7f7f;
+            background-color: #6d6d6d;
+            margin: 2px;
+            border-radius: 3px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            color: cornflowerblue;
         }
         .abierto{
-            padding: 20px;
-            border: solid 1px #7f7f7f;
-            background-color: #c4c2c2;
+            background-color: #ffcd6f; 
         }
         .bandera{
-            padding: 20px;
-            border: solid 1px #7f7f7f;
             background-color: #d40000;
         }
         .bomba{
-            padding: 20px;
-            border: solid 1px #7f7f7f;
             background-color: #e9fa03;
         }
         main{

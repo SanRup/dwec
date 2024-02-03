@@ -50,9 +50,10 @@
 ## [**Prácticas**](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas)
 > - [x] [101](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/101)
 > - [x] [201](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/201)
+> - [x] [202](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/202)
   
 ## **Buscaminas**
-> - [ ] [Buscaminas](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/300Buscaminas)
+> - [x] [Buscaminas](https://github.com/SanRup/dwec/tree/main/Pr%C3%A1cticas/300Buscaminas)
 
 
 <!---

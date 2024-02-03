@@ -155,7 +155,7 @@
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
-                    agregaClase(x, y, "bomba"); //TEST para ver las bombas
+                    //agregaClase(x, y, "bomba"); //TEST para ver las bombas
 
                     //actualizar contador de las casillas adyacentes
                     for (let i = 0; i < 3; i++) {

@@ -58,36 +58,7 @@
         function generarTableroJS(size){
             let tablero = document.getElementById("board");
             if (tablero.children.length != 0) { //si en el tablero hay algo, lo borra
-                if (
-                    //confirm bonito
-                    Swal.fire({
-                        title: "Quieres borrar el tablero?",
-                        text: "Se empezará una nueva partida.",
-                        icon: "info",
-                        showCancelButton: true,
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "Sí! Empezar de nuevo!",
-                        cancelButtonText: "No! No borres nada!",
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: "Borrado!",
-                                html: "Colocando minas...",
-                                timer: 1500,
-                                timerProgressBar: true,
-                                didOpen: () => {
-                                  Swal.showLoading();
-                                }
-                              }).then((result) => {
-                                /* Read more about handling dismissals below */
-                                if (result.dismiss === Swal.DismissReason.timer) {
-                                  console.log("I was closed by the timer");
-                                }
-                              })
-                        }
-                      })
-                ) { //si es true, borra el tablero
+                if (mostrarAlerta()) { //si es true, borra el tablero
                     while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
@@ -125,11 +96,42 @@
             }
             
         };
+
+        async function mostrarAlerta() {
+            let resultado = await Swal.fire({
+                title: "Quieres borrar el tablero?",
+                text: "Se empezará una nueva partida.",
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí! Empezar de nuevo!",
+                cancelButtonText: "No! No borres nada!",
+            });
+        
+            if (resultado.isConfirmed) {
+                Swal.fire({
+                    title: "Borrado!",
+                    html: "Colocando minas...",
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                      Swal.showLoading();
+                    }})
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        
         
         //calcula con el número de casillas, el número de minas que va a tener el tablero
         function calcularNumMinas(numCasillas){
             let numMinas = ((13/100)*(numCasillas*numCasillas)).toFixed(0);
-            numBanderas = numMinas;//igualamos los números para saber cuantas banderas quedan por poner
+            console.log(numMinas);
+            numBanderas = parseInt(numMinas) + 1;//igualamos los números para saber cuantas banderas quedan por poner +1 para que no sea 0
+            console.log(numBanderas);
             document.getElementById("banderas").innerHTML = numBanderas;//imprime el número de banderas en el html
             numGanar = (POSICION.length - 1) - numMinas;
             colocarBombasTableroJS(numMinas)
@@ -150,7 +152,7 @@
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
-                    //agregaClase(x, y, "bomba"); //TEST para ver las bombas
+                    agregaClase(x, y, "bomba"); //TEST para ver las bombas
 
                     //actualizar contador de las casillas adyacentes
                     for (let i = 0; i < 3; i++) {

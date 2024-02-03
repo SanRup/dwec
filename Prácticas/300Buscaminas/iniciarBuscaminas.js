@@ -1,3 +1,4 @@
+        //-----------------OBJETOS Y VARIABLES GLOBALES-----------------
         var OPCIONES = {
             dificultad: {
                 facil: 9,
@@ -14,7 +15,9 @@
         let numGanar;
 
         let numBanderas;
-        
+        //----------------------------------------------------------------
+
+        //------------------------CARGA DE EVENTOS------------------------
         window.addEventListener("load", inicio);
 
         function inicio() {
@@ -26,12 +29,14 @@
                     boton.addEventListener("click", dibujarTableroHTML);
                 }
 
-            
-            document.getElementById("board").addEventListener("click", prueba);
+            //TEST
+            //document.getElementById("board").addEventListener("click", prueba);
             
     
         }
+        //----------------------------------------------------------------
 
+        //------------------------FUNCIONES TEST------------------------
         function prueba(e) {
             //console.log(numGanar);
             //console.log(e.target.id);
@@ -42,6 +47,7 @@
             // console.log(POSICION.find(element => element.x == x && element.y == y));
             //console.log(); 
         }
+        //----------------------------------------------------------------
 
         //-----------------FUNCIONES PARA GENERAR EL TABLERO-----------------
 
@@ -152,7 +158,7 @@
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
-                    agregaClase(x, y, "bomba"); //TEST para ver las bombas
+                    //agregaClase(x, y, "bomba"); //TEST para ver las bombas
 
                     //actualizar contador de las casillas adyacentes
                     for (let i = 0; i < 3; i++) {
@@ -233,28 +239,21 @@
                 document.getElementById("board").removeEventListener("click", gamePlay);
                 document.getElementById("board").removeEventListener("contexmenu", gamePlay);
                 
-                setTimeout(agregaClase(botonPulsado.x, botonPulsado.y, "bomba"), 300)
-
-                async function procesarArray(array) {
-                    for (const item of array) {
-                        item.abierto = true;
-                        if (item.bomba == true) {
-                            agregaClase(item.x, item.y, "bomba");
-                            await new Promise(resolve => setTimeout(resolve, 300));
-                        }
+                POSICION.forEach(element => {
+                    if (element.bomba == true) {
+                        agregaClase(element.x, element.y, "bomba");
                         
                     }
-                    Swal.fire({
-                        title: "Oooooh!",
-                        text: "Intentalo de nuevo.",
-                        imageUrl: "https://media.istockphoto.com/id/1272570902/vector/pixel-art-design-with-outdoor-landscape-background.jpg?s=170667a&w=0&k=20&c=DpgX1rIaMUJC8O7T1hNsY0fY_g9aUdcxvvJkrNbFrPA=",
-                        imageWidth: 525,
-                        imageHeight: 328,
-                        imageAlt: "Custom image"
-                      });
-                }
-
-                procesarArray(POSICION);
+                });
+                
+                Swal.fire({
+                    title: "Oooooh!",
+                    text: "Intentalo de nuevo.",
+                    imageUrl: "https://media.istockphoto.com/id/1272570902/vector/pixel-art-design-with-outdoor-landscape-background.jpg?s=170667a&w=0&k=20&c=DpgX1rIaMUJC8O7T1hNsY0fY_g9aUdcxvvJkrNbFrPA=",
+                    imageWidth: 525,
+                    imageHeight: 328,
+                    imageAlt: "Custom image"
+                    });
                 
 
             }else if (botonPulsado.abierto == false && botonPulsado.bandera == false) {

@@ -11,6 +11,8 @@
 
         let dif;
 
+        let numGanar;
+
         let numBanderas;
         
         window.addEventListener("load", inicio);
@@ -24,15 +26,18 @@
                     boton.addEventListener("click", dibujarTableroHTML);
                 }
 
-            document.getElementById("board").addEventListener("click", gamePlay);  
-            document.getElementById("board").addEventListener("contextmenu", gamePlay);  
+            
             document.getElementById("board").addEventListener("click", prueba);
+            
     
         }
 
         function prueba(e) {
 
-            console.log(e.target.id);
+            
+            console.log(numGanar);
+
+            //console.log(e.target.id);
             // let x = e.target.id.split("-")[0];
             // let y = e.target.id.split("-")[1];
             // //console.log(x);
@@ -48,16 +53,46 @@
         function dibujarTableroHTML(e) {
             dif = e.target.id; //coge el id del boton pulsado en el evento
             generarTableroJS(OPCIONES.dificultad[dif]); //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
-
             calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
-            
+            document.getElementById("board").addEventListener("click", gamePlay);  
+            document.getElementById("board").addEventListener("contextmenu", gamePlay);  
+                        
         }
         
         //generar el tablero con el tamaño elegido
         function generarTableroJS(size){
             let tablero = document.getElementById("board");
             if (tablero.children.length != 0) { //si en el tablero hay algo, lo borra
-                if (confirm("quieres empezar de nuevo?")) { //confirm antes de borrar el tablero
+                if (
+                    //confirm bonito
+                    Swal.fire({
+                        title: "Quieres borrar el tablero?",
+                        text: "Se empezará una nueva partida.",
+                        icon: "info",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Sí! Empezar de nuevo!",
+                        cancelButtonText: "No! No borres nada!",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: "Borrado!",
+                                html: "Colocando minas...",
+                                timer: 1500,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                  Swal.showLoading();
+                                }
+                              }).then((result) => {
+                                /* Read more about handling dismissals below */
+                                if (result.dismiss === Swal.DismissReason.timer) {
+                                  console.log("I was closed by the timer");
+                                }
+                              })
+                        }
+                      })
+                ) { //si es true, borra el tablero
                     while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
@@ -91,6 +126,7 @@
 
                     document.getElementById(i).appendChild(casilla);   
                 }
+                
             }
             
         };
@@ -100,7 +136,7 @@
             let numMinas = ((13/100)*(numCasillas*numCasillas)).toFixed(0);
             numBanderas = numMinas;//igualamos los números para saber cuantas banderas quedan por poner
             document.getElementById("banderas").innerHTML = numBanderas;//imprime el número de banderas en el html
-            //console.log(numMinas);
+            numGanar = (POSICION.length - 1) - numMinas;
             colocarBombasTableroJS(numMinas)
         };
 
@@ -119,7 +155,7 @@
                 //si NO hay bomba, la coloca, suma 1 y vuelve a llamar a la función
                 if (posicionElegida.bomba == false) {
                     posicionElegida.bomba = true;
-                    document.getElementById(x + "-" + y).classList.add("bomba");
+                    agregaClase(x, y, "bomba"); //TEST para ver las bombas
 
                     //actualizar contador de las casillas adyacentes
                     for (let i = 0; i < 3; i++) {
@@ -127,7 +163,7 @@
                             let casillaAdyacente = encuentra(posicionElegida.x - 1 + i, posicionElegida.y - 1 + j); //recorre los 8 adyacentes
                             if (casillaAdyacente != undefined && casillaAdyacente.bomba == false) {
                                     casillaAdyacente.cont++;
-                                    document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = casillaAdyacente.cont;
+                                    //document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = casillaAdyacente.cont;
                             }else if (casillaAdyacente != undefined && casillaAdyacente.bomba == true) {
                                 document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = "";
                             }
@@ -148,6 +184,10 @@
             return POSICION.find(element => element.x == x && element.y == y);
         }
 
+        function agregaClase(x, y, clase) {
+            document.getElementById(x + "-" + y).classList.add(clase);
+        }
+
         //-------------------------------------------------------------------
 
 
@@ -163,8 +203,7 @@
             if (e.type == "click") {
                 //si no tiene bandera, se abre
                 if (botonPulsado.bandera == false) {
-                    abrirCasilla(botonPulsado, e);
-                    
+                    abrirCasilla(botonPulsado);
                 }
                 
             }else if (e.type == "contextmenu") {
@@ -191,14 +230,59 @@
             
         }
 
-        function abrirCasilla(botonPulsado, e) {
+        function abrirCasilla(botonPulsado) {
+            //has perdido
             if (botonPulsado.bomba == true) {
-                alert("Has perdido");
+                document.getElementById("board").removeEventListener("click", gamePlay);
+                document.getElementById("board").removeEventListener("contexmenu", gamePlay);
                 
-            }else{
-                botonPulsado.abierto = true;
-                e.target.classList.add("abierto");
-                //descubrirCasilla(botonPulsado);
+                setTimeout(agregaClase(botonPulsado.x, botonPulsado.y, "bomba"), 300)
+
+                async function procesarArray(array) {
+                    for (const item of array) {
+                        item.abierto = true;
+                        if (item.bomba == true) {
+                            agregaClase(item.x, item.y, "bomba");
+                            await new Promise(resolve => setTimeout(resolve, 300));
+                        }
+                        
+                    }
+                    Swal.fire({
+                        title: "Oooooh!",
+                        text: "Intentalo de nuevo.",
+                        imageUrl: "https://media.istockphoto.com/id/1272570902/vector/pixel-art-design-with-outdoor-landscape-background.jpg?s=170667a&w=0&k=20&c=DpgX1rIaMUJC8O7T1hNsY0fY_g9aUdcxvvJkrNbFrPA=",
+                        imageWidth: 525,
+                        imageHeight: 328,
+                        imageAlt: "Custom image"
+                      });
+                }
+
+                procesarArray(POSICION);
+                
+
+            }else if (botonPulsado.abierto == false && botonPulsado.bandera == false) {
+                if (botonPulsado.cont > 0) {
+                    numGanar--;
+                    botonPulsado.abierto = true;
+                    agregaClase(botonPulsado.x, botonPulsado.y, "abierto");
+                    document.getElementById(botonPulsado.x + "-" + botonPulsado.y).textContent = botonPulsado.cont;
+                }else{
+                    descubrirCasilla(botonPulsado);
+                }
+                if (numGanar == 0) {
+                    document.getElementById("board").removeEventListener("click", gamePlay);
+                    document.getElementById("board").removeEventListener("contexmenu", gamePlay);
+                    Swal.fire({
+                        title: "Yuhuuuuu!",
+                        text: "Otra vez?",
+                        imageUrl: "https://static.vecteezy.com/system/resources/previews/011/234/047/original/you-win-video-game-vector.jpg",
+                        imageWidth: 525,
+                        imageHeight: 328,
+                        imageAlt: "Custom image"
+                      });
+                    
+                }
+                
             }
             
         }
@@ -213,21 +297,34 @@
             //                                      8 vuelta x+1 y+1
          
         function descubrirCasilla(casillaPulsada) {
-            console.log(casillaPulsada);
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
-                    let casillaAdyacente = encuentra(casillaPulsada.x - 1 + i, casillaPulsada.y - 1 + j); //recorre los 8 adyacentes
-                    
+            //console.log(casillaPulsada);
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        let casillaAdyacente = encuentra(casillaPulsada.x - 1 + i, casillaPulsada.y - 1 + j); //recorre los 8 adyacentes
+                        if (casillaAdyacente != undefined && casillaAdyacente.abierto == false && casillaAdyacente.bandera == false) {
+                            if (casillaAdyacente.cont > 0 ) {
+                                // console.log("cont > 0");
+                                numGanar--;
+                                casillaAdyacente.abierto = true;
+                                agregaClase(casillaAdyacente.x, casillaAdyacente.y, "abierto");
+                                document.getElementById(casillaAdyacente.x + "-" + casillaAdyacente.y).textContent = casillaAdyacente.cont;
+                                
+                            } else if (casillaAdyacente.cont == 0) {
+                                // console.log("cont = 0");
+                                numGanar--;
+                                casillaAdyacente.abierto = true;
+                                agregaClase(casillaAdyacente.x, casillaAdyacente.y, "abierto");
+                                descubrirCasilla(casillaAdyacente);
+                            }
+                            
+                        }
+                         
+                    }
                 }
-            }
-                
+               
         }
 
         
-
-        function recorrerAdyacentes(btn) {
-            
-        }
     
         
         

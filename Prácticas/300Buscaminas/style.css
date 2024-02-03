@@ -1,0 +1,74 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('https://media.istockphoto.com/id/1333010525/es/vector/ilustraci%C3%B3n-simple-de-pixel-art-plano-de-fondo-de-paisaje-al-aire-libre-de-dibujos-animados.jpg?s=612x612&w=0&k=20&c=vTVAVSCa_hAV8k0CIy3T5z27FtvL-RRA4DW1Sw1ARxA=');
+    background-size: cover; /* Esto hará que la imagen se ajuste dentro del elemento, manteniendo su aspecto */
+    background-repeat: no-repeat; /* Esto evitará que la imagen se repita */
+    background-position: center; /* Esto centrará la imagen en el elemento */
+    background-attachment: fixed;
+}
+h1{
+    text-align: center;
+}
+#dificultad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#dificultad p{
+    margin: 10px;
+}
+#dificultad button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #a16100e8;
+    color: #ffefd1;
+}
+#info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.botones{
+    width: 50px;
+    height: 50px; 
+    display: flex; /* Esto permite usar justify-content y align-items */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    padding: 0; /* Elimina cualquier padding predeterminado */
+    border: solid 1px #7f7f7f;
+    background-color: #6d6d6d;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 30px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
+.abierto{
+    background-color: #ffc252a4; 
+}
+.bandera{
+    background-image: url("https://cdn-icons-png.flaticon.com/512/4908/4908299.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(138, 255, 42, 0.521);
+    /* background-color: #d40000; */
+}
+.bomba{
+    background-image: url("https://images.vexels.com/media/users/3/266419/isolated/preview/3e06a4d1b8bb30872aa97c335a1f73a0-linda-bomba-de-dibujos-animados.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #db506f8c;
+}
+main{
+    display: grid;
+    place-content: center;
+    align-items: center;    
+}
+.contenedorBtn{
+    display: flex;
+}

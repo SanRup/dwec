@@ -5,45 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="iniciarBuscaminas.js"></script>
     <title>Buscaminas</title>
-    <style>
-        body{
-            padding: 0;
-            margin: 0;
-        }
-        .botones{
-            width: 50px;
-            height: 50px; 
-            display: flex; /* Esto permite usar justify-content y align-items */
-            justify-content: center; /* Centra el texto horizontalmente */
-            align-items: center; /* Centra el texto verticalmente */
-            padding: 0; /* Elimina cualquier padding predeterminado */
-            border: solid 1px #7f7f7f;
-            background-color: #6d6d6d;
-            margin: 2px;
-            border-radius: 3px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            color: cornflowerblue;
-        }
-        .abierto{
-            background-color: #ffcd6f; 
-        }
-        .bandera{
-            background-color: #d40000;
-        }
-        .bomba{
-            background-color: #e9fa03;
-        }
-        main{
-            display: grid;
-            place-content: center;
-            align-items: center;    
-        }
-        .contenedorBtn{
-            display: flex;
-        }
-    </style>
+           
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- alert bonito -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
 </head>
 <body>
     <!-- 
@@ -73,12 +40,11 @@
     <h1>BUSCAMINAS</h1>
 
     <div id="dificultad">
+        <p>Elige la dificultad</p>
         <button id="facil">Fácil</button>
         <button id="medio">Medio</button>
         <button id="dificil">Difícil</button>
     </div>
-    <br>
-    <br>
     <div id="info">
         <p>Banderas: <span id="banderas"></span></p>
     </div>

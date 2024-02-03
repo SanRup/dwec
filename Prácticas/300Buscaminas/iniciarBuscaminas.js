@@ -33,18 +33,14 @@
         }
 
         function prueba(e) {
-
-            
-            console.log(numGanar);
-
+            //console.log(numGanar);
             //console.log(e.target.id);
             // let x = e.target.id.split("-")[0];
             // let y = e.target.id.split("-")[1];
             // //console.log(x);
             // //con esto encuentro el objeto que quiero
             // console.log(POSICION.find(element => element.x == x && element.y == y));
-            //console.log();
-             
+            //console.log(); 
         }
 
         //-----------------FUNCIONES PARA GENERAR EL TABLERO-----------------
@@ -55,8 +51,7 @@
             generarTableroJS(OPCIONES.dificultad[dif]); //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
             calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
             document.getElementById("board").addEventListener("click", gamePlay);  
-            document.getElementById("board").addEventListener("contextmenu", gamePlay);  
-                        
+            document.getElementById("board").addEventListener("contextmenu", gamePlay);             
         }
         
         //generar el tablero con el tamaño elegido
@@ -317,15 +312,9 @@
                                 descubrirCasilla(casillaAdyacente);
                             }
                             
-                        }
-                         
+                        }        
                     }
-                }
-               
+                }    
         }
-
-        
-    
-        
         
         //-------------------------------------------------------------------

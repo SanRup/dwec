@@ -86,3 +86,9 @@ main{
     background-repeat: no-repeat;
     background-color: rgba(219, 80, 110, 0.80);
 }
+
+/* Sweet Alert 2 */
+.swal2-container .swal2-timer-progress-bar {
+    background-color: rgba(219, 80, 110, 0.80) !important;
+    height: 10px;
+}

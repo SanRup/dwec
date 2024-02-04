@@ -54,52 +54,48 @@
         //dibuja el tablero
         function dibujarTableroHTML(e) {
             dif = e.target.id; //coge el id del boton pulsado en el evento
-             //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
-            if (generarTableroJS(OPCIONES.dificultad[dif]) != false) {
-                calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
-            }
-            
-            document.getElementById("board").addEventListener("click", gamePlay);  
-            document.getElementById("board").addEventListener("contextmenu", gamePlay);             
+            //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
+            generarTableroJS(OPCIONES.dificultad[dif])
+                       
         }
 
-        // let resultado = Swal.fire({
-        //     title: "Quieres borrar el tablero?",
-        //     text: "Se empezará una nueva partida.",
-        //     icon: "info",
-        //     showCancelButton: true,
-        //     confirmButtonColor: "#3085d6",
-        //     cancelButtonColor: "#d33",
-        //     confirmButtonText: "Sí! Empezar de nuevo!",
-        //     cancelButtonText: "No! No borres nada!",
-        // })
-        //      //si es true, borra el tablero
-        //         if (resultado.isConfirmed) {
-        //             Swal.fire({
-        //                 title: "Borrado!",
-        //                 html: "Colocando minas...",
-        //                 timer: 1500,
-        //                 timerProgressBar: true,
-        //                 didOpen: () => {
-        //                 Swal.showLoading();
-        //                 }
-        //             })
-
-
         //generar el tablero con el tamaño elegido
-        function generarTableroJS(size){
+        async function generarTableroJS(size){
             let tablero = document.getElementById("board");
             if (tablero.children.length != 0) { //si en el tablero hay algo, lo borra
-                if (confirm("quieres empezar de nuevo?")) {
+                //sweet alert para confirmar si se quiere borrar el tablero
+                let resultado = await Swal.fire({
+                    title: "Quieres borrar el tablero?",
+                    text: "Se empezará una nueva partida.",
+                    icon: "info",
+                    showDenyButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Sí! Empezar de nuevo!",
+                    denyButtonText: "No! No borres nada!",
+                })
+                //si se pulsa confirmed
+                if (resultado.isConfirmed) {
+                    Swal.fire({
+                        title: "Borrado!",
+                        html: "Colocando minas...",
+                        timer: 10500,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                        Swal.showLoading();
+                        }
+                    })
+                    
                     while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
                     POSICION = []; //borra el array POSICION
-                } else{
-                    return false;
+
+                //si se pulsa denied 
+                } else if (resultado.isDenied) {
+                    return false; //sale de la funcion
                 }
-                 
-            } 
+            }
 
             for (let i = 0; i < size; i++) { //genera un div por cada linea
                 let divLinea = document.createElement("div");
@@ -127,7 +123,9 @@
                 }
                 
             }
-            
+            calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
+            document.getElementById("board").addEventListener("click", gamePlay);  
+            document.getElementById("board").addEventListener("contextmenu", gamePlay);  
         };
         
         

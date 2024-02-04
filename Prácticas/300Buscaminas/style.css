@@ -1,3 +1,5 @@
+
+
 body{
     padding: 0;
     margin: 0;
@@ -10,7 +12,7 @@ body{
 }
 h1{
     text-align: center;
-    text-shadow: 4px -1px 11px rgb(0, 162, 255),-2px 7px 15px rgb(28, 2, 255);
+    text-shadow: 4px -1px 11px rgb(0, 238, 255),-2px 7px 18px rgb(28, 2, 255);
 }
 #dificultad{
     display: flex;
@@ -40,6 +42,18 @@ h1{
     width: 20px;
     height: 20px;
 }
+
+main{
+    display: grid;
+    place-content: center;
+    align-items: center;  
+    margin-bottom: 30px;  
+}
+.contenedorBtn{
+    display: flex;
+}
+
+/* estilos para botones o estados del boton */
 .botones{
     width: 50px;
     height: 50px; 
@@ -71,13 +85,4 @@ h1{
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(219, 80, 110, 0.80);
-}
-main{
-    display: grid;
-    place-content: center;
-    align-items: center;  
-    margin-bottom: 30px;  
-}
-.contenedorBtn{
-    display: flex;
 }

@@ -54,25 +54,52 @@
         //dibuja el tablero
         function dibujarTableroHTML(e) {
             dif = e.target.id; //coge el id del boton pulsado en el evento
-            generarTableroJS(OPCIONES.dificultad[dif]); //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
-            calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
+             //genera el tablero con la dificultad que genera el evento(dif) llamada desde el objeto OPCIONES
+            if (generarTableroJS(OPCIONES.dificultad[dif]) != false) {
+                calcularNumMinas(OPCIONES.dificultad[dif]); //calcula las minas con el número de casillas de (dif)
+            }
+            
             document.getElementById("board").addEventListener("click", gamePlay);  
             document.getElementById("board").addEventListener("contextmenu", gamePlay);             
         }
-        
+
+        // let resultado = Swal.fire({
+        //     title: "Quieres borrar el tablero?",
+        //     text: "Se empezará una nueva partida.",
+        //     icon: "info",
+        //     showCancelButton: true,
+        //     confirmButtonColor: "#3085d6",
+        //     cancelButtonColor: "#d33",
+        //     confirmButtonText: "Sí! Empezar de nuevo!",
+        //     cancelButtonText: "No! No borres nada!",
+        // })
+        //      //si es true, borra el tablero
+        //         if (resultado.isConfirmed) {
+        //             Swal.fire({
+        //                 title: "Borrado!",
+        //                 html: "Colocando minas...",
+        //                 timer: 1500,
+        //                 timerProgressBar: true,
+        //                 didOpen: () => {
+        //                 Swal.showLoading();
+        //                 }
+        //             })
+
+
         //generar el tablero con el tamaño elegido
         function generarTableroJS(size){
             let tablero = document.getElementById("board");
             if (tablero.children.length != 0) { //si en el tablero hay algo, lo borra
-                if (mostrarAlerta()) { //si es true, borra el tablero
+                if (confirm("quieres empezar de nuevo?")) {
                     while (tablero.firstChild){ 
                         tablero.removeChild(tablero.firstChild);
                     };
                     POSICION = []; //borra el array POSICION
                 } else{
                     return false;
-                } 
-            }
+                }
+                 
+            } 
 
             for (let i = 0; i < size; i++) { //genera un div por cada linea
                 let divLinea = document.createElement("div");
@@ -102,42 +129,12 @@
             }
             
         };
-
-        async function mostrarAlerta() {
-            let resultado = await Swal.fire({
-                title: "Quieres borrar el tablero?",
-                text: "Se empezará una nueva partida.",
-                icon: "info",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Sí! Empezar de nuevo!",
-                cancelButtonText: "No! No borres nada!",
-            });
-        
-            if (resultado.isConfirmed) {
-                Swal.fire({
-                    title: "Borrado!",
-                    html: "Colocando minas...",
-                    timer: 1500,
-                    timerProgressBar: true,
-                    didOpen: () => {
-                      Swal.showLoading();
-                    }})
-                return true;
-            } else {
-                return false;
-            }
-        }
-        
         
         
         //calcula con el número de casillas, el número de minas que va a tener el tablero
         function calcularNumMinas(numCasillas){
             let numMinas = ((13/100)*(numCasillas*numCasillas)).toFixed(0);
-            console.log(numMinas);
             numBanderas = parseInt(numMinas) + 1;//igualamos los números para saber cuantas banderas quedan por poner +1 para que no sea 0
-            console.log(numBanderas);
             document.getElementById("banderas").innerHTML = numBanderas;//imprime el número de banderas en el html
             numGanar = (POSICION.length - 1) - numMinas;
             colocarBombasTableroJS(numMinas)

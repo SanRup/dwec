@@ -79,7 +79,7 @@
                     Swal.fire({
                         title: "Borrado!",
                         html: "Colocando minas...",
-                        timer: 7500,
+                        timer: 1500,
                         timerProgressBar: true,
                         didOpen: () => {
                         Swal.showLoading();

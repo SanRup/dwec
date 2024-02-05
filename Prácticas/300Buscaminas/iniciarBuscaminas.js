@@ -70,7 +70,7 @@
                     icon: "info",
                     showDenyButton: true,
                     confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
+                    denyButtonColor: "#d33",
                     confirmButtonText: "Sí! Empezar de nuevo!",
                     denyButtonText: "No! No borres nada!",
                 })

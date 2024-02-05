@@ -48,9 +48,16 @@ main{
     place-content: center;
     align-items: center;  
     margin-bottom: 30px;  
+
+}
+
+#board, .botones{
+    cursor: url("img/shovel32.cur"), auto;
+   
 }
 .contenedorBtn{
     display: flex;
+
 }
 
 /* estilos para botones o estados del boton */
@@ -69,6 +76,7 @@ main{
     font-weight: bold;
     text-shadow: -1px 0 #7f7f7f, 0 1px #7f7f7f, 1px 0 #7f7f7f, 0 -1px #7f7f7f;
     color: cornflowerblue;
+
 }
 .abierto{
     background-color: rgba(255, 194, 82, 0.80); 

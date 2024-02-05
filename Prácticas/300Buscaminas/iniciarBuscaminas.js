@@ -232,7 +232,7 @@
             //has perdido
             if (botonPulsado.bomba == true) {
                 document.getElementById("board").removeEventListener("click", gamePlay);
-                document.getElementById("board").removeEventListener("contexmenu", gamePlay);
+                document.getElementById("board").removeEventListener("contextmenu", gamePlay);
                 
                 POSICION.forEach(element => {
                     if (element.bomba == true) {

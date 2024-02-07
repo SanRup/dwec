@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor">
+        <button type="button" id="boton">AQUI</button>
+    </div>
+
+    <script>
+        document.getElementById('contenedor').addEventListener('click', function(){
+            console.log('Contenedor hizo click');
+        }, true);
+        //con true gestionamos el evento en la fase de captura
+        //con false o nada gestionamos el evento en la fase de burbujeo
+
+        document.getElementById('boton').addEventListener('click', function(e){
+            console.log('Boton hizo click');
+            e.stopPropagation(); //detiene la propagacion del evento
+        })
+
+    </script>
+</body>
+</html>

@@ -38,15 +38,9 @@
 
 ## **Otros ejercicios** 
 > - [x] [La peliculera](https://github.com/SanRup/dwec/blob/main/EjerciciosAulaVirtual/LaPeliculera/Ejercicio02Peliculera.html)
-> - [x] [Objetos y prototype](https://github.com/SanRup/dwec/blob/main/03_Objetos/04ObjetosCreados/01EjercicioObjetosPrototipo.html)
 
 ## **Eventos**
-> - [x] [Ejercicios de Programación Funcional](https://github.com/SanRup/dwec/tree/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches)
->   > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/01EjercicioContador/01contador.html)
->   > - [x] [Map, Filter y Reduce](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/02EjercicioMapFilterReduce/02Numeros.html)
->   > - [x] [Ejercicio 1 Branches](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/03EjercicioObjetos/01Ej.html)
->   > - [x] [Ejercicio 2 Branches](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/03EjercicioObjetos/02Ej.html)
->
+
 
 # Segunda Evaluación
 
@@ -62,7 +56,7 @@
 ### Objetos del BOM
 
 #### Eventos
-
+> - [x] [Contador 1](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/03ProgramacionFuncional/00EjerciciosBOMBranches/01EjercicioContador/01contador.html)
 > - [x] [Contador](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/02Eventos/EjercicioContador/EjCont.html) 
 > - [x] [Papelera](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/02Eventos/EjercicioPapelera/papelera.html) 
 > - [x] [Reloj](https://github.com/SanRup/dwec/blob/main/03_Objetos/05ObjetosBOM/02Eventos/03RelojSegundos.html) 

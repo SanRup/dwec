@@ -112,16 +112,16 @@ function validaCampoDias() {
 
 function resetForm() {
     let formulario = document.getElementsByClassName("error"); 
-    console.log(formulario);
+    // console.log(formulario);
     for (let i = formulario.length - 1; i >= 0; i--) {
-        console.log(formulario[i]);
+        // console.log(formulario[i]);
         formulario[i].remove();
     }
 
     formulario = document.getElementsByClassName("errorInput"); 
-    console.log(formulario);
+    // console.log(formulario);
     for (let i = formulario.length - 1; i >= 0; i--) {
-        console.log(formulario[i]);
+        // console.log(formulario[i]);
         formulario[i].className = "";
     }
     
@@ -247,7 +247,7 @@ function opcionNuevoCurso() {
         let opcionNueva = document.createElement("option");
         let cursoNuevo = prompt("Introduce el nuevo curso: ");
         if (cursoNuevo == undefined) { //si cancelas el prompt	
-            console.log("cancelado");
+            // console.log("cancelado");
             elemento.value = elemento.firstChild.value; //selecciona la primera opcion
             return; // y sale de la funcion
         }

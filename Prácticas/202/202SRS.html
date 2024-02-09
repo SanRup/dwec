@@ -17,6 +17,13 @@
             color: #ff4949;
         }
 
+        #checkDias{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .errorInput{
             border: 2px solid #ff9494;
             border-radius: 5px;
@@ -27,6 +34,28 @@
     </style>
 </head>
 <body>
+
+    <!-- 
+        Se trata de crear un formulario lo más parecido al de la imagen siguiente:
+
+            1. Añadir un input con el NIF
+            2. Añadir un input con la fecha de matriculación (día, mes, año)
+            3. Añadir un Select con cursos académicos (desde 20-21 a 23-24 con posibilidad de que el usuario añada nuevos cursos académicos.
+            4. Al menos 5 “asignaturas” del DAW
+            5. Se debe añadir un checkbox para seleccionar/deseleccionar todos los días con disponibilidad.
+            6. Añadir un contador para el campo Mensaje que indique al usuario los caracteres que le quedan antes de llegar al máximo.
+
+        Realizar una validación (débil, en el lado del cliente) utilizando indistintamente los métodos vistos en clase (los tres deben estar representados) con las siguientes restricciones:
+            • Ningún elemento vacío
+            • NIF correcto ( comprobar letra)
+            • Mensaje: de entre 2 y 500 caracteres
+            • Color por defecto: azul
+            • Días: seleccionar al menos dos
+            • Preferente: por defecto marcado el lunes
+            • Botón de “Haz click sobre mí”: ir a Google.com
+        Se deben entregar únicamente los ficheros .html y .js. El enunciado ( sin gráficos) debe estar incluido como comentarios en el HTML.
+        Nombre de los ficheros: 202XXX.html y 202XXX.js
+     -->
 
     <!-- alert precioso para los datos finales
     https://sweetalert2.github.io/ -->
@@ -79,7 +108,6 @@
 
         <p>Selecciona el día preferente
             <select name="diaPref" id="diaPref"  required>
-                <option value="vacio" >- -</option>
                 <option value="lunes" selected>Lunes</option>
                 <option value="martes">Martes</option>
                 <option value="miercoles">Miércoles</option>

@@ -13,10 +13,34 @@
 
 </head>
 <body>
-    <form action="" onclick="alert('formulario')">FORM
-        <div onclick="alert('div')">DIV
-            <p onclick="alert('parrafo')">P</p>
-        </div>
+    <form action="" >FORM
+        <div>DIV
+            <p id="p1">P</p>
+            <p id="p2">P</p>
+            <p id="p3">P</p>
     </form>
+
+    <script>
+        document.getElementById("p1").addEventListener('click', function(e){
+            console.log('click en p1');
+            e.stopPropagation();
+        }, false);
+        document.getElementById("p2").addEventListener('click', function(e){
+            console.log('click en p2');
+            e.stopPropagation();
+        }, false);
+        document.getElementById("p3").addEventListener('click', function(e){
+            console.log('click en p3');
+            e.stopPropagation();
+        }, false);
+        document.querySelector('div').addEventListener('click', function(e){
+            console.log('click en div');
+            e.stopPropagation();
+        }, false);
+        document.querySelector('form').addEventListener('click', function(e){
+            console.log('click en form');
+            e.stopPropagation();
+        }, false);
+    </script>
 </body>
 </html>

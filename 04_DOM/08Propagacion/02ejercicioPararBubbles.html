@@ -7,20 +7,34 @@
 </head>
 <body>
     <div id="contenedor">
-        <button type="button" id="boton">AQUI</button>
+        <button type="button" id="boton1">AQUI 1</button>
+        <button type="button" id="boton2">AQUI 2</button>
+        <button type="button" id="boton3">AQUI 3</button>
     </div>
 
     <script>
-        document.getElementById('contenedor').addEventListener('click', function(){
-            console.log('Contenedor hizo click');
-        }, true);
+        // document.getElementById('contenedor').addEventListener('click', function(){
+        //     console.log('Contenedor hizo click');
+        // }, true);
         //con true gestionamos el evento en la fase de captura
         //con false o nada gestionamos el evento en la fase de burbujeo
 
-        document.getElementById('boton').addEventListener('click', function(e){
-            console.log('Boton hizo click');
-            e.stopPropagation(); //detiene la propagacion del evento
-        })
+        document.getElementById('boton1').addEventListener('click', function(e){
+            console.log(e.target);
+            //e.stopPropagation(); //detiene la propagacion del evento
+        }, true)
+        document.getElementById('boton2').addEventListener('click', function(e){
+            console.log(e.target);
+            //e.stopPropagation(); //detiene la propagacion del evento
+        }, true)
+        document.getElementById('boton3').addEventListener('click', function(e){
+            console.log(e.target);
+            //e.stopPropagation(); //detiene la propagacion del evento
+        }, true)
+        document.getElementById('contenedor').addEventListener('click', function(e){
+            console.log(e.target);
+            //e.stopPropagation(); //detiene la propagacion del evento
+        }, true)
 
     </script>
 </body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanza Misiles</title>
+    <!-- Sandra Ruperez -->
+    <!-- 
+        Un sistema de defensa debe lanzar 15 misiles etiquetados del 1 al 15, 
+        separados entre ellos por 5 segundos. Crea una función en JavaScript al 
+        efecto y simula su funcionamiento con una cuenta atrás que empiece 
+        3 segundos antes de salir y que vaya añadiendo sucesivamente en la pantalla, 
+        una línea con el texto :
+ 
+        ” Misil n 3,2,1 … ¡lanzado! “ (la cuenta atrás desaparece)
+
+        Se valorará:
+        Funcionamiento de la página ( 1,25 puntos)
+        Tratamiento de la asincronía ( 1,0 puntos)
+        Aparición de las líneas centradas. ( 0,5 puntos)
+        Estética de la página: Título, formatos adecuados ( 0,25 puntos)
+     -->
+</head>
+<body>
+    <h1 id="misil"><p id="cuenta"></p></h1>
+    
+    <script>
+        let misil = document.getElementById('misil');
+        let cuenta = document.getElementById('cuenta');
+        
+        async function lanzarMisiles() {
+            
+            for (let i = 1; i <= 15; i++) {
+                misil.innerHTML = `Misil nº ${i}.`;
+                await new Promise(resolve => setTimeout(resolve, 5000));
+                contar();
+            }
+            cuenta.innerHTML = '¡Lanzado!';
+        }
+
+        async function contar() {
+            for (let i = 0; i <= 3; i++) {
+                cuenta.innerHTML = `${i}`;
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+            }
+        }
+
+        lanzarMisiles();
+        
+    </script>
+</body>
+</html>

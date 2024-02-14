@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Crea un sistema para gestionar empleados en una empresa. Debes implementar las siguientes clases (JS6):
+
+            I. Empleado:
+        Propiedades: nombre (cadena de texto), salario (número).
+        Método: calcularSueldo() que devuelve el salario del empleado.
+
+            II. EmpleadoPorHora:
+        Hereda de Empleado.
+        Propiedades adicionales: horasTrabajadas (número), tarifaPorHora (número).
+        Sobrescribe el método calcularSueldo() para calcular el salario multiplicando las horas trabajadas por la tarifa por hora.
+
+            III. EmpleadoAsalariado:
+        Hereda de Empleado.
+        Propiedades adicionales: bonoAnual (número).
+        Sobrescribe el método calcularSueldo() para calcular el salario sumando el bono anual al salario base.
+        Usa la palabra clave super de manera apropiada para aprovechar la funcionalidad de la clase padre.
+            IV. Ejemplos de uso 
+        Crea dos instancias de las clases y realiza las siguientes operaciones:
+        Crea un empleado por hora llamado Juan con un salario base de 2000, 40 horas trabajadas y una tarifa por hora de 15.
+        Crea una empleada asalariado llamado Ana con un salario base de 3000 y un bono anual de 1000.
+        Finalmente, muestra por consola el salario de cada empleado llamando al método calcularSueldo().
+     -->
+    <title>Sueldos</title>
+</head>
+<body>
+    <script>
+        class Empleado {
+            constructor(nombre, salario) {
+                this._nombre = nombre;
+                this._salario = salario;
+            }
+            calcularSueldo() {
+                return this._salario;
+            }
+        }
+
+        class EmpleadoPorHora extends Empleado {
+            constructor(nombre, salario, horasTrabajadas, tarifaPorHora){
+                super(nombre, salario);
+                this._horasTrabajadas = horasTrabajadas;
+                this._tarifaPorHora = tarifaPorHora;
+            }
+            calcularSueldo() {
+                return this._horasTrabajadas * this._tarifaPorHora;
+            }
+        }
+
+        class EmpleadoAsalariado extends Empleado {
+            constructor(nombre, salario, bonoAnual){
+                super(nombre, salario);
+                this._bonoAnual = bonoAnual;
+            }
+            calcularSueldo() {
+                return this._salario + this._bonoAnual;
+            }
+        }
+
+        let juan = new EmpleadoPorHora('Juan', 2000, 40, 15);
+        let ana = new EmpleadoAsalariado('Ana', 3000, 1000);
+
+        console.log(juan.calcularSueldo());
+        console.log(ana.calcularSueldo());
+        console.log(`El sueldo de ${juan._nombre} es de ${juan.calcularSueldo()} euros`);
+        console.log(`El sueldo de ${ana._nombre} es de ${ana.calcularSueldo()} euros`);
+
+    </script>
+    
+</body>
+</html>

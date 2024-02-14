@@ -8,23 +8,31 @@
 <body>
     <script>
         let arrayNotas = [5, 9.3, 7.1, 2, 9, 1, 8];
-        let arrayAprobados = arrayNotas.filter((nota) => nota >= 5 );
+        let arrayAprobados = arrayNotas.filter((nota) => nota >= 5 ); // devuelve un nuevo array con los elementos que cumplen la condicion
         console.log(arrayAprobados);
 
-        let arraySeis = arrayNotas.find((nota) => nota >= 6 );
+        let arraySeis = arrayNotas.find((nota) => nota >= 6 );  //devuelve el primer elemento que cumple la condicion. undefined si no hay ninguno
         console.log(arraySeis);
 
-        let arrayIndex = arrayNotas.findIndex((nota) => nota >= 6 );
+        let arrayIndex = arrayNotas.findIndex((nota) => nota >= 6 ); //devuelve la posicion del primer elemento que cumple la condicion. -1 si no hay ninguno
         console.log(arrayIndex);
 
-        let arrayMap = arrayNotas.map((nota) => nota + nota*2 );
+        let arrayMap = arrayNotas.map((nota) => nota + nota*2 ); //modifica con la misma condicion todos los elementos del array
         console.log(arrayMap);
 
-        let arrayRed = arrayNotas.reduce((max, nota) => nota > max ? nota : max);
+        let arrayEvery = arrayNotas.every((nota) => nota >= 5 ); //devuelve true si todos los elementos cumplen la condicion
+        console.log(arrayEvery);
+
+        let arraySome = arrayNotas.some((nota) => nota >= 5 ); //devuelve true si alguno de los elementos cumple la condicion
+        console.log(arraySome);
+
+        let arrayRed = arrayNotas.reduce((max, nota) => nota > max ? nota : max); //devuelve un valor calculado de los elementos del array
         console.log(arrayRed);
 
-        let arrayMedia = (arrayNotas.reduce((med, nota) => (med += nota))/arrayNotas.length).toFixed(2);
+        let arrayMedia = (arrayNotas.reduce((med, nota) => (med += nota))/arrayNotas.length).toFixed(2); //devuelve un valor calculado de los elementos del array
         console.log(arrayMedia);
+
+        
     </script>
 </body>
 </html>
